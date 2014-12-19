@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Workout</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="next_button">Next</string>
+    <string name="previous_button">Previous</string>
+
+    <string name="bench_press">Bench Press\n45 Lbs\n10 Reps</string>
+    <string name="seated_row_pull">Seated Row Pull\n7 Plates\n10 Reps</string>
+    <string name="shoulder_press">Shoulder Press\n30 Lbs\n10 Reps</string>
+    <string name="lat_pull_down">Lat Pull Down\n100 Lbs\n10 Reps</string>
+    <string name="tricep_extension">Tricep Extension\n40 Lbs\n10 Reps</string>
+    <string name="bicep_curl">Bicep Curl\n25 Lbs\n10 Reps</string>
+    <string name="deltoid_lateral_raise">Deltoid Lateral Raise\n10 Lbs\n10 Reps</string>
+    <string name="upright_row">Upright Row\n25 Lbs\n10 Reps</string>
+    <string name="thumbs_down">Thumbs Down\n5 Lbs\n10 Reps</string>
+    <string name="external_rotation">External Rotation\n2 Plates\n10 Reps</string>
+    <string name="internal_rotation">Internal Rotation\n2 Plates\n10 Reps</string>
+    <string name="Y">Y\n5 Lbs\n10 Reps</string>
+    <string name="T">T\n5 Lbs\n10 Reps</string>
+    <string name="W">W\n5 Lbs\n10 Reps</string>
+</resources>
