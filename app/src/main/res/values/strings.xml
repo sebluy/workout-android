@@ -21,4 +21,15 @@
     <string name="Y">Y\n5 Lbs\n10 Reps</string>
     <string name="T">T\n5 Lbs\n10 Reps</string>
     <string name="W">W\n5 Lbs\n10 Reps</string>
+
+    <string name="front_squat">Front Squat\n25 Lbs\n10 Reps</string>
+    <string name="deadlift">Deadlift\n45 Lbs\n10 Reps</string>
+    <string name="leg_extension">Leg Extension\n70 Lbs\n10 Reps</string>
+    <string name="leg_curl">Leg Curl\n70 Lbs\n10 Reps</string>
+    <string name="lunge">Lunge\n35 Lbs\n10 Reps</string>
+    <string name="calf_raise">Calf Raise\n80 Lbs\n10 Reps</string>
+    <string name="hip_abduction">Hip Abduction\n170 Lbs\n10 Reps</string>
+    <string name="hip_adduction">Hip Adduction\n170 Lbs\n10 Reps</string>
+    <string name="terminal_knee_extension">Terminal Knee Extension\n3 Plates\n10 Reps</string>
+
 </resources>

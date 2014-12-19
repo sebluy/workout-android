@@ -5,21 +5,33 @@ package com.wonderguerrilla.android.workout;
  */
 public class Workout {
 
+    private static int[] upper_body_exercises = {
+        R.string.bench_press,
+        R.string.seated_row_pull,
+        R.string.shoulder_press,
+        R.string.lat_pull_down,
+        R.string.tricep_extension,
+        R.string.bicep_curl,
+        R.string.deltoid_lateral_raise,
+        R.string.upright_row,
+        R.string.thumbs_down,
+        R.string.external_rotation,
+        R.string.internal_rotation,
+        R.string.Y,
+        R.string.T,
+        R.string.W
+    } ;
+
     private static int[] exercises = {
-            R.string.bench_press,
-            R.string.seated_row_pull,
-            R.string.shoulder_press,
-            R.string.lat_pull_down,
-            R.string.tricep_extension,
-            R.string.bicep_curl,
-            R.string.deltoid_lateral_raise,
-            R.string.upright_row,
-            R.string.thumbs_down,
-            R.string.external_rotation,
-            R.string.internal_rotation,
-            R.string.Y,
-            R.string.T,
-            R.string.W
+        R.string.front_squat,
+        R.string.deadlift,
+        R.string.leg_extension,
+        R.string.leg_curl,
+        R.string.lunge,
+        R.string.calf_raise,
+        R.string.hip_abduction,
+        R.string.hip_adduction,
+        R.string.terminal_knee_extension
     } ;
 
     private static int index = 0 ;
