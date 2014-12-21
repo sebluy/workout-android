@@ -21,13 +21,13 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         mExerciseView = (TextView)findViewById(R.id.workout_text_view) ;
-        mExerciseView.setText(Workout.getCurrentExercise()) ;
+        mExerciseView.setText(Workout.getCurrentExercise().to_string()) ;
 
         mNextButton = (Button)findViewById(R.id.next_button) ;
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mExerciseView.setText(Workout.getNextExercise()) ;
+                mExerciseView.setText(Workout.getNextExercise().to_string()) ;
             }
         });
 
@@ -35,7 +35,7 @@ public class MainActivity extends ActionBarActivity {
         mPreviousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mExerciseView.setText(Workout.getPreviousExercise()) ;
+                mExerciseView.setText(Workout.getPreviousExercise().to_string()) ;
             }
 
         });
