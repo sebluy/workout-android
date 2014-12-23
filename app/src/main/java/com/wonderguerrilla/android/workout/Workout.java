@@ -5,59 +5,106 @@ package com.wonderguerrilla.android.workout;
  */
 public class Workout {
 
-    private static Exercise[] upper_body_exercises = {
-        new Exercise("Bench Press", 45, "Lbs", 10),
-        new Exercise("Seated Row Pull", 7, "Plates", 10),
-        new Exercise("Shoulder Press", 30, "Lbs", 10),
-        new Exercise("Lat Pull Down", 100, "Lbs", 10),
-        new Exercise("Tricep Extension", 40, "Lbs", 10),
-        new Exercise("Bicep Curl", 25, "Lbs", 10),
-        new Exercise("Deltoid Lateral Raise", 10, "Lbs", 10),
-        new Exercise("Upright Row", 25, "Lbs", 10),
-        new Exercise("Thumbs Down", 5, "Lbs", 10),
-        new Exercise("External Rotation", 2, "Plates", 10),
-        new Exercise("Internal Rotation", 2, "Plates", 10),
-        new Exercise("Y", 5, "Lbs", 10),
-        new Exercise("T", 5, "Lbs", 10),
-        new Exercise("W", 5, "Lbs", 10)
+    private static LiftingExercise[] upperBodyExercises = {
+        new LiftingExercise("Bench Press", 45, "Lbs", 10),
+        new LiftingExercise("Seated Row Pull", 7, "Plates", 10),
+        new LiftingExercise("Shoulder Press", 30, "Lbs", 10),
+        new LiftingExercise("Lat Pull Down", 100, "Lbs", 10),
+        new LiftingExercise("Tricep Extension", 40, "Lbs", 10),
+        new LiftingExercise("Bicep Curl", 25, "Lbs", 10),
+        new LiftingExercise("Deltoid Lateral Raise", 10, "Lbs", 10),
+        new LiftingExercise("Upright Row", 25, "Lbs", 10),
+        new LiftingExercise("Thumbs Down", 5, "Lbs", 10),
+        new LiftingExercise("External Rotation", 2, "Plates", 10),
+        new LiftingExercise("Internal Rotation", 2, "Plates", 10),
+        new LiftingExercise("Y", 5, "Lbs", 10),
+        new LiftingExercise("T", 5, "Lbs", 10),
+        new LiftingExercise("W", 5, "Lbs", 10)
     } ;
 
-    private static Exercise[] lower_body_exercises = {
-        new Exercise("Front Squat", 25, "Lbs", 10),
-        new Exercise("Deadlift", 45, "Lbs", 10),
-        new Exercise("Leg Extension", 70, "Lbs", 10),
-        new Exercise("Leg Curl", 70, "Lbs", 10),
-        new Exercise("Lunge", 35, "Lbs", 10),
-        new Exercise("Calf Raise", 100, "Lbs", 10),
-        new Exercise("Hip Abduction", 170, "Lbs", 10),
-        new Exercise("Hip Adduction", 170, "Lbs", 10),
-        new Exercise("Terminal Knee Extension", 4, "Plates", 10)
+    private static LiftingExercise[] lowerBodyExercises = {
+        new LiftingExercise("Front Squat", 25, "Lbs", 10),
+        new LiftingExercise("Deadlift", 45, "Lbs", 10),
+        new LiftingExercise("Leg Extension", 70, "Lbs", 10),
+        new LiftingExercise("Leg Curl", 70, "Lbs", 10),
+        new LiftingExercise("Lunge", 35, "Lbs", 10),
+        new LiftingExercise("Calf Raise", 100, "Lbs", 10),
+        new LiftingExercise("Hip Abduction", 170, "Lbs", 10),
+        new LiftingExercise("Hip Adduction", 170, "Lbs", 10),
+        new LiftingExercise("Terminal Knee Extension", 4, "Plates", 10)
     } ;
 
-    private static Exercise[] exercises = lower_body_exercises ;
+    private static CalisthenicExercise[] calisthenicExercises = {
+            new CalisthenicExercise("Pushup", 5, "Slow"),
+            new CalisthenicExercise("Squat", 10, "Slow"),
+            new CalisthenicExercise("Crunch", 20, "Slow"),
+            new CalisthenicExercise("Pullup", 3, "Slow"),
+            new CalisthenicExercise("Lunge", 10, "Slow"),
+    } ;
 
-    private static int index = 0 ;
+    private static Exercise[] exercises = calisthenicExercises ;
 
-    private static void incrementIndex() {
-        index = (index + 1) % exercises.length ;
-    }
+    private static int index = -1 ;
 
-    private static void decrementIndex() {
-        index = index == 0 ? exercises.length - 1 : index - 1 ;
-    }
+    private static boolean finished = false ;
+
+    private static boolean started = false ;
+
+    private static Exercise exercise ;
 
     public static Exercise getCurrentExercise() {
+        if (!started || finished ) {
+            return null ;
+        }
         return exercises[index] ;
     }
 
-    public static Exercise getNextExercise() {
-        incrementIndex() ;
-        return getCurrentExercise() ;
+    public static void incrementExercise() {
+
+        if (finished) {
+            return ;
+        }
+
+        if (!started) {
+            started = true;
+        }
+
+        index++ ;
+
+        if (index == exercises.length) {
+            finished = true ;
+        }
+
     }
 
-    public static Exercise getPreviousExercise() {
-        decrementIndex() ;
-        return getCurrentExercise() ;
+    public static void decrementExercise() {
+
+        if (!started) {
+            return ;
+        }
+
+        if (finished) {
+            finished = false;
+        }
+
+        index-- ;
+
+        if (index == -1) {
+            started = false ;
+        }
+    }
+
+    public static String currentExerciseString() {
+        Exercise current = getCurrentExercise() ;
+        if (current == null) {
+            if (finished) {
+                return "Finished" ;
+            } else {
+                return "Start" ;
+            }
+        } else {
+            return current.toString() ;
+        }
     }
 
 }
