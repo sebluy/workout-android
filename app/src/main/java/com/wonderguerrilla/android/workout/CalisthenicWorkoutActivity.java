@@ -1,38 +1,45 @@
 package com.wonderguerrilla.android.workout;
 
-import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * Created by sebluy on 12/25/14.
+ */
+public class CalisthenicWorkoutActivity extends ActionBarActivity {
 
-public class MainActivity extends ActionBarActivity {
-
-    private Button mStartLiftingWorkout ;
-    private Button mStartCalisthenicWorkout ;
+    private TextView mExerciseView ;
+    private Button mNextButton ;
+    private Button mPreviousButton ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mStartLiftingWorkout = (Button)findViewById(R.id.start_lifting_workout_button) ;
-        mStartLiftingWorkout.setOnClickListener(new View.OnClickListener() {
+        mExerciseView = (TextView)findViewById(R.id.workout_text_view) ;
+        mExerciseView.setText(Workout.currentExerciseString()) ;
+
+        mNextButton = (Button)findViewById(R.id.next_button) ;
+        mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LiftingWorkoutActivity.class) ;
-                startActivity(intent) ;
+                Workout.incrementExercise() ;
+                mExerciseView.setText(Workout.currentExerciseString());
             }
         });
 
-        mStartCalisthenicWorkout = (Button)findViewById(R.id.start_calisthenic_workout_button) ;
-        mStartCalisthenicWorkout.setOnClickListener(new View.OnClickListener() {
+        mPreviousButton = (Button)findViewById(R.id.previous_button) ;
+        mPreviousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Workout.decrementExercise() ;
+                mExerciseView.setText(Workout.currentExerciseString()) ;
             }
 
         });
