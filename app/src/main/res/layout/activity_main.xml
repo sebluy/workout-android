@@ -6,10 +6,16 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/start_lifting_workout_button"
+        android:id="@+id/start_lower_lifting_workout_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/start_lifting_workout_button"/>
+        android:text="@string/start_lower_lifting_workout_button"/>
+
+    <Button
+        android:id="@+id/start_upper_lifting_workout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_upper_lifting_workout_button"/>
 
     <Button
         android:id="@+id/start_calisthenic_workout_button"

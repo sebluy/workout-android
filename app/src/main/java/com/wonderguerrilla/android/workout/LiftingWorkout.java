@@ -6,7 +6,10 @@ package com.wonderguerrilla.android.workout;
 
 public class LiftingWorkout {
 
-    public static LiftingExercise[] upperBodyExercises = {
+    public static final int UPPER_LIFTING_WORKOUT_ID = 0 ;
+    public static final int LOWER_LIFTING_WORKOUT_ID = 1 ;
+
+    private static final LiftingExercise[] UPPER_BODY_EXERCISES = {
         new LiftingExercise("Bench Press", 45, "Lbs", 10),
         new LiftingExercise("Seated Row Pull", 7, "Plates", 10),
         new LiftingExercise("Shoulder Press", 30, "Lbs", 10),
@@ -23,7 +26,7 @@ public class LiftingWorkout {
         new LiftingExercise("W", 5, "Lbs", 10)
     } ;
 
-    public static LiftingExercise[] lowerBodyExercises = {
+    private static final LiftingExercise[] LOWER_BODY_EXERCISES = {
         new LiftingExercise("Front Squat", 25, "Lbs", 10),
         new LiftingExercise("Deadlift", 45, "Lbs", 10),
         new LiftingExercise("Leg Extension", 70, "Lbs", 10),
@@ -38,6 +41,16 @@ public class LiftingWorkout {
     private LiftingExercise[] mExercises ;
 
     private static int index = 0 ;
+
+    public static LiftingWorkout fromID(int workout_id) {
+        if (workout_id == UPPER_LIFTING_WORKOUT_ID) {
+            return new LiftingWorkout(UPPER_BODY_EXERCISES) ;
+        } else if (workout_id == LOWER_LIFTING_WORKOUT_ID) {
+            return new LiftingWorkout(LOWER_BODY_EXERCISES) ;
+        } else {
+            return null ;
+        }
+    }
 
     public LiftingWorkout(LiftingExercise[] exercises) {
         mExercises = exercises ;

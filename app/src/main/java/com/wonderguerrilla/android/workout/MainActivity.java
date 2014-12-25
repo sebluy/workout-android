@@ -12,7 +12,8 @@ import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 
-    private Button mStartLiftingWorkout ;
+    private Button mStartLowerLiftingWorkout ;
+    private Button mStartUpperLiftingWorkout ;
     private Button mStartCalisthenicWorkout ;
 
     @Override
@@ -20,11 +21,24 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mStartLiftingWorkout = (Button)findViewById(R.id.start_lifting_workout_button) ;
-        mStartLiftingWorkout.setOnClickListener(new View.OnClickListener() {
+        mStartLowerLiftingWorkout = (Button)findViewById(R.id.start_lower_lifting_workout_button) ;
+        mStartLowerLiftingWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LiftingWorkoutActivity.class) ;
+                intent.putExtra(LiftingWorkoutActivity.EXTRA_LIFTING_WORKOUT_ID,
+                        LiftingWorkout.LOWER_LIFTING_WORKOUT_ID) ;
+                startActivity(intent) ;
+            }
+        });
+
+        mStartUpperLiftingWorkout = (Button)findViewById(R.id.start_upper_lifting_workout_button) ;
+        mStartUpperLiftingWorkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LiftingWorkoutActivity.class) ;
+                intent.putExtra(LiftingWorkoutActivity.EXTRA_LIFTING_WORKOUT_ID,
+                        LiftingWorkout.UPPER_LIFTING_WORKOUT_ID) ;
                 startActivity(intent) ;
             }
         });

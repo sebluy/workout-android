@@ -13,6 +13,10 @@ import android.widget.TextView;
  */
 public class LiftingWorkoutActivity extends ActionBarActivity {
 
+    public static final String EXTRA_LIFTING_WORKOUT_ID =
+        "com.wonderguerrilla.android.workout.upper_lifting_type" ;
+
+
     private TextView mExerciseView ;
     private Button mNextButton ;
     private Button mPreviousButton ;
@@ -24,7 +28,9 @@ public class LiftingWorkoutActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lifting_workout);
 
-        mWorkout = new LiftingWorkout(LiftingWorkout.upperBodyExercises) ;
+        int workoutID = getIntent().getIntExtra(EXTRA_LIFTING_WORKOUT_ID, 0) ;
+        mWorkout = LiftingWorkout.fromID(workoutID) ;
+
         mCurrentExercise = mWorkout.getCurrentExercise() ;
 
         mExerciseView = (TextView)findViewById(R.id.workout_text_view) ;
