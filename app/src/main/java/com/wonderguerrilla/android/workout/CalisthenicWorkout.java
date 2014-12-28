@@ -2,7 +2,7 @@ package com.wonderguerrilla.android.workout;
  /**
  * Created by sebluy on 12/25/14.
  */
-public class CalisthenicWorkout {
+public class CalisthenicWorkout implements Workout {
 
     private static final CalisthenicExercise[] CALISTHENIC_EXERCISES = {
             new CalisthenicExercise("Pushup", 5, "Slow"),

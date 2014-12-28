@@ -11,21 +11,24 @@ import android.widget.TextView;
 /**
  * Created by sebluy on 12/25/14.
  */
-public class CalisthenicWorkoutActivity extends ActionBarActivity {
+public class WorkoutActivity extends ActionBarActivity {
+
+    public static final String EXTRA_WORKOUT_ID =
+        "com.wonderguerrilla.android.workout.workout_id" ;
 
     private TextView mExerciseView ;
-
     private Button mNextButton ;
     private Button mPreviousButton ;
-
-    private CalisthenicWorkout mWorkout ;
+    private Workout mWorkout ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState) ;
-        setContentView(R.layout.activity_calisthenic_workout) ;
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_workout);
 
-        mWorkout = new CalisthenicWorkout() ;
+        int workoutID = getIntent().getIntExtra(EXTRA_WORKOUT_ID, 0) ;
+
+        mWorkout = WorkoutGenerator.fromID(workoutID) ;
 
         mExerciseView = (TextView)findViewById(R.id.workout_text_view) ;
         mExerciseView.setText(mWorkout.statusString()) ;
@@ -44,11 +47,11 @@ public class CalisthenicWorkoutActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 mWorkout.decrement() ;
-                mExerciseView.setText(mWorkout.statusString());
+                mExerciseView.setText(mWorkout.statusString()) ;
             }
+
         });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

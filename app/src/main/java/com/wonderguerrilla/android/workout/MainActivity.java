@@ -10,11 +10,20 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+
+
 public class MainActivity extends ActionBarActivity {
 
     private Button mStartLowerLiftingWorkout ;
     private Button mStartUpperLiftingWorkout ;
     private Button mStartCalisthenicWorkout ;
+
+    private void startNewWorkoutActivity(int workoutID) {
+        Intent intent = new Intent(MainActivity.this, WorkoutActivity.class) ;
+        intent.putExtra(WorkoutActivity.EXTRA_WORKOUT_ID,
+            workoutID) ;
+        startActivity(intent) ;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +34,7 @@ public class MainActivity extends ActionBarActivity {
         mStartLowerLiftingWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LiftingWorkoutActivity.class) ;
-                intent.putExtra(LiftingWorkoutActivity.EXTRA_LIFTING_WORKOUT_ID,
-                        LiftingWorkout.LOWER_LIFTING_WORKOUT_ID) ;
-                startActivity(intent) ;
+                startNewWorkoutActivity(WorkoutGenerator.LOWER_LIFTING_WORKOUT_ID);
             }
         });
 
@@ -36,10 +42,7 @@ public class MainActivity extends ActionBarActivity {
         mStartUpperLiftingWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LiftingWorkoutActivity.class) ;
-                intent.putExtra(LiftingWorkoutActivity.EXTRA_LIFTING_WORKOUT_ID,
-                        LiftingWorkout.UPPER_LIFTING_WORKOUT_ID) ;
-                startActivity(intent) ;
+                startNewWorkoutActivity(WorkoutGenerator.UPPER_LIFTING_WORKOUT_ID) ;
             }
         });
 
@@ -47,8 +50,7 @@ public class MainActivity extends ActionBarActivity {
         mStartCalisthenicWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CalisthenicWorkoutActivity.class) ;
-                startActivity(intent) ;
+                startNewWorkoutActivity(WorkoutGenerator.CALISTHENIC_WORKOUT_ID) ;
             }
 
         });

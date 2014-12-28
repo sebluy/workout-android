@@ -4,10 +4,7 @@ package com.wonderguerrilla.android.workout;
  * Created by sebluy on 12/25/14.
  */
 
-public class LiftingWorkout {
-
-    public static final int UPPER_LIFTING_WORKOUT_ID = 0 ;
-    public static final int LOWER_LIFTING_WORKOUT_ID = 1 ;
+public class LiftingWorkout implements Workout {
 
     private static final LiftingExercise[] UPPER_BODY_EXERCISES = {
         new LiftingExercise("Bench Press", 45, "Lbs", 10),
@@ -43,9 +40,9 @@ public class LiftingWorkout {
     private int mIndex = 0 ;
 
     public LiftingWorkout(int workout_id) {
-        if (workout_id == UPPER_LIFTING_WORKOUT_ID) {
+        if (workout_id == WorkoutGenerator.UPPER_LIFTING_WORKOUT_ID) {
             mExercises = UPPER_BODY_EXERCISES ;
-        } else if (workout_id == LOWER_LIFTING_WORKOUT_ID) {
+        } else if (workout_id == WorkoutGenerator.LOWER_LIFTING_WORKOUT_ID) {
             mExercises = LOWER_BODY_EXERCISES ;
         } else {
             mExercises = LOWER_BODY_EXERCISES ;
@@ -66,6 +63,10 @@ public class LiftingWorkout {
 
     public void decrement() {
         mIndex = mIndex <= 0 ? mIndex : mIndex - 1 ;
+    }
+
+    public String statusString() {
+        return getCurrentExercise().toString() ;
     }
 
 }

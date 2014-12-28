@@ -3,7 +3,7 @@ package com.wonderguerrilla.android.workout;
 /**
  * Created by sebluy on 12/20/14.
  */
-public class LiftingExercise implements Exercise {
+public class LiftingExercise {
 
     private String mName ;
     int mWeight ;
