@@ -40,15 +40,15 @@ public class LiftingWorkout {
 
     private LiftingExercise[] mExercises ;
 
-    private static int index = 0 ;
+    private int mIndex = 0 ;
 
-    public static LiftingWorkout fromID(int workout_id) {
+    public LiftingWorkout(int workout_id) {
         if (workout_id == UPPER_LIFTING_WORKOUT_ID) {
-            return new LiftingWorkout(UPPER_BODY_EXERCISES) ;
+            mExercises = UPPER_BODY_EXERCISES ;
         } else if (workout_id == LOWER_LIFTING_WORKOUT_ID) {
-            return new LiftingWorkout(LOWER_BODY_EXERCISES) ;
+            mExercises = LOWER_BODY_EXERCISES ;
         } else {
-            return null ;
+            mExercises = LOWER_BODY_EXERCISES ;
         }
     }
 
@@ -57,15 +57,15 @@ public class LiftingWorkout {
     }
 
     public LiftingExercise getCurrentExercise() {
-        return mExercises[index] ;
+        return mExercises[mIndex] ;
     }
 
     public void increment() {
-        index = index >= mExercises.length - 1 ? index : index + 1 ;
+        mIndex = mIndex >= mExercises.length - 1 ? mIndex : mIndex + 1 ;
     }
 
     public void decrement() {
-        index = index <= 0 ? index : index - 1 ;
+        mIndex = mIndex <= 0 ? mIndex : mIndex - 1 ;
     }
 
 }

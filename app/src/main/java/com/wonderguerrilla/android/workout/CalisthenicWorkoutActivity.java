@@ -14,23 +14,28 @@ import android.widget.TextView;
 public class CalisthenicWorkoutActivity extends ActionBarActivity {
 
     private TextView mExerciseView ;
+
     private Button mNextButton ;
     private Button mPreviousButton ;
 
+    private CalisthenicWorkout mWorkout ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        super.onCreate(savedInstanceState) ;
+        setContentView(R.layout.activity_calisthenic_workout) ;
+
+        mWorkout = new CalisthenicWorkout() ;
 
         mExerciseView = (TextView)findViewById(R.id.workout_text_view) ;
-        mExerciseView.setText(Workout.currentExerciseString()) ;
+        mExerciseView.setText(mWorkout.statusString()) ;
 
         mNextButton = (Button)findViewById(R.id.next_button) ;
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Workout.incrementExercise() ;
-                mExerciseView.setText(Workout.currentExerciseString());
+                mWorkout.increment() ;
+                mExerciseView.setText(mWorkout.statusString());
             }
         });
 
@@ -38,10 +43,9 @@ public class CalisthenicWorkoutActivity extends ActionBarActivity {
         mPreviousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Workout.decrementExercise() ;
-                mExerciseView.setText(Workout.currentExerciseString()) ;
+                mWorkout.decrement() ;
+                mExerciseView.setText(mWorkout.statusString());
             }
-
         });
     }
 

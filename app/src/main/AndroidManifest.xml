@@ -19,6 +19,9 @@
         <activity
             android:name=".LiftingWorkoutActivity"
             android:label="Workout" />
+        <activity
+            android:name=".CalisthenicWorkoutActivity"
+            android:label="Workout" />
     </application>
 
 </manifest>

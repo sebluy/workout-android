@@ -47,6 +47,8 @@ public class MainActivity extends ActionBarActivity {
         mStartCalisthenicWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CalisthenicWorkoutActivity.class) ;
+                startActivity(intent) ;
             }
 
         });

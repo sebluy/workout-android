@@ -29,7 +29,8 @@ public class LiftingWorkoutActivity extends ActionBarActivity {
         setContentView(R.layout.activity_lifting_workout);
 
         int workoutID = getIntent().getIntExtra(EXTRA_LIFTING_WORKOUT_ID, 0) ;
-        mWorkout = LiftingWorkout.fromID(workoutID) ;
+
+        mWorkout = new LiftingWorkout(workoutID) ;
 
         mCurrentExercise = mWorkout.getCurrentExercise() ;
 
