@@ -57,6 +57,14 @@ public class LiftingWorkout implements Workout {
         return mExercises[mIndex] ;
     }
 
+    public boolean isStarted() {
+        return mIndex > 0 ;
+    }
+
+    public boolean isFinished() {
+        return (mIndex == mExercises.length - 1) ;
+    }
+
     public void increment() {
         mIndex = mIndex >= mExercises.length - 1 ? mIndex : mIndex + 1 ;
     }

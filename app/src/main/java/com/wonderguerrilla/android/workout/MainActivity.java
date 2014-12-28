@@ -17,6 +17,7 @@ public class MainActivity extends ActionBarActivity {
     private Button mStartLowerLiftingWorkout ;
     private Button mStartUpperLiftingWorkout ;
     private Button mStartCalisthenicWorkout ;
+    private Button mStartCoreWorkout ;
 
     private void startNewWorkoutActivity(int workoutID) {
         Intent intent = new Intent(MainActivity.this, WorkoutActivity.class) ;
@@ -53,6 +54,14 @@ public class MainActivity extends ActionBarActivity {
                 startNewWorkoutActivity(WorkoutGenerator.CALISTHENIC_WORKOUT_ID) ;
             }
 
+        });
+
+        mStartCoreWorkout = (Button)findViewById(R.id.start_core_workout_button) ;
+        mStartCoreWorkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startNewWorkoutActivity(WorkoutGenerator.CORE_WORKOUT_ID);
+            }
         });
     }
 

@@ -6,6 +6,7 @@
     <string name="next_button">Next</string>
     <string name="previous_button">Previous</string>
     <string name="start_calisthenic_workout_button">Start New Calisthenic Workout</string>
+    <string name="start_core_workout_button">Start New Core Workout</string>
     <string name="start_upper_lifting_workout_button">Start New Upper Lifting Workout</string>
     <string name="start_lower_lifting_workout_button">Start New Lower Lifting Workout</string>
 

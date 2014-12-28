@@ -3,7 +3,7 @@ package com.wonderguerrilla.android.workout;
 /**
  * Created by sebluy on 12/22/14.
  */
-public class CalisthenicExercise {
+public class CalisthenicExercise implements Exercise {
 
     private String mName ;
     int mReps ;

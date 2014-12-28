@@ -21,6 +21,25 @@ public class WorkoutActivity extends ActionBarActivity {
     private Button mPreviousButton ;
     private Workout mWorkout ;
 
+    private void update() {
+        updateButtons() ;
+        mExerciseView.setText(mWorkout.statusString());
+    }
+
+    private void updateButtons() {
+        if (mWorkout.isStarted()) {
+            mPreviousButton.setVisibility(View.VISIBLE) ;
+        } else {
+            mPreviousButton.setVisibility(View.GONE) ;
+        }
+
+        if (mWorkout.isFinished()) {
+            mNextButton.setVisibility(View.GONE) ;
+        } else {
+            mNextButton.setVisibility(View.VISIBLE);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,25 +50,25 @@ public class WorkoutActivity extends ActionBarActivity {
         mWorkout = WorkoutGenerator.fromID(workoutID) ;
 
         mExerciseView = (TextView)findViewById(R.id.workout_text_view) ;
-        mExerciseView.setText(mWorkout.statusString()) ;
-
         mNextButton = (Button)findViewById(R.id.next_button) ;
+        mPreviousButton = (Button)findViewById(R.id.previous_button) ;
+
+        update() ;
+
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mWorkout.increment() ;
-                mExerciseView.setText(mWorkout.statusString());
+                update() ;
             }
         });
 
-        mPreviousButton = (Button)findViewById(R.id.previous_button) ;
         mPreviousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mWorkout.decrement() ;
-                mExerciseView.setText(mWorkout.statusString()) ;
+                update() ;
             }
-
         });
     }
 

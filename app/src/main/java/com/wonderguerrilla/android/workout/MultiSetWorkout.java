@@ -2,7 +2,7 @@ package com.wonderguerrilla.android.workout;
  /**
  * Created by sebluy on 12/25/14.
  */
-public class CalisthenicWorkout implements Workout {
+public class MultiSetWorkout implements Workout {
 
     private static final CalisthenicExercise[] CALISTHENIC_EXERCISES = {
             new CalisthenicExercise("Pushup", 5, "Slow"),
@@ -12,25 +12,50 @@ public class CalisthenicWorkout implements Workout {
             new CalisthenicExercise("Lunge", 10, "Slow"),
     } ;
 
-    private static final int MAX_SETS = 6 ;
+    private static final CoreExercise[] CORE_EXERCISES = {
+            new CoreExercise("Bridge", 20, "Reps"),
+            new CoreExercise("Plank", 30, "Seconds"),
+            new CoreExercise("Side Plank", 30, "Seconds"),
+            new CoreExercise("Bird Dog", 20, "Reps"),
+            new CoreExercise("Superman", 10, "Reps"),
+            new CoreExercise("Wiper", 20, "Reps"),
+    } ;
 
-    private CalisthenicExercise[] mExercises ;
+    private Exercise[] mExercises ;
     private int mIndex ;
     private int mCurrentSet ;
+    private int mMaxSets ;
 
-    public CalisthenicWorkout() {
-        mExercises = CALISTHENIC_EXERCISES ;
+    public static MultiSetWorkout newCalisthenicWorkout() {
+        return new MultiSetWorkout(CALISTHENIC_EXERCISES, 6) ;
+    }
+
+    public static MultiSetWorkout newCoreWorkout() {
+        return new MultiSetWorkout(CORE_EXERCISES, 2) ;
+    }
+
+    public MultiSetWorkout(Exercise[] exercises, int maxSets) {
+        mExercises = exercises ;
+        mMaxSets = maxSets ;
         mIndex = 0 ;
         mCurrentSet = 1 ;
     }
 
-    public CalisthenicExercise getCurrentExercise() {
+    public Exercise getCurrentExercise() {
         return mExercises[mIndex] ;
+    }
+
+    public boolean isStarted() {
+        return mIndex > 0 || mCurrentSet > 1 ;
+    }
+
+    public boolean isFinished() {
+        return (mIndex == mExercises.length - 1) && (mCurrentSet == mMaxSets) ;
     }
 
     public void increment() {
         if (mIndex >= mExercises.length - 1) {
-            if (mCurrentSet < MAX_SETS) {
+            if (mCurrentSet < mMaxSets) {
                 mCurrentSet++;
                 mIndex = 0;
             }

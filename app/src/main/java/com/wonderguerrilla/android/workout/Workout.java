@@ -9,6 +9,10 @@ public interface Workout {
 
     void decrement() ;
 
+    boolean isStarted() ;
+
+    boolean isFinished() ;
+
     String statusString() ;
 
 }

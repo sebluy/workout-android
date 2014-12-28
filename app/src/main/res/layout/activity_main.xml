@@ -23,4 +23,10 @@
         android:layout_height="wrap_content"
         android:text="@string/start_calisthenic_workout_button"/>
 
+    <Button
+        android:id="@+id/start_core_workout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_core_workout_button"/>
+
 </LinearLayout>
