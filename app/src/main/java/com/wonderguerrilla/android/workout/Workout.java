@@ -5,15 +5,9 @@ package com.wonderguerrilla.android.workout;
  */
 public interface Workout {
 
-    void increment() ;
+    int size() ;
 
-    void decrement() ;
-
-    boolean isStarted() ;
-
-    boolean isFinished() ;
-
-    String statusString() ;
+    Exercise getExercise(int i) ;
 
 }
 

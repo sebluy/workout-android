@@ -22,8 +22,6 @@ public class MultiSetWorkout implements Workout {
     } ;
 
     private Exercise[] mExercises ;
-    private int mIndex ;
-    private int mCurrentSet ;
     private int mMaxSets ;
 
     public static MultiSetWorkout newCalisthenicWorkout() {
@@ -37,46 +35,14 @@ public class MultiSetWorkout implements Workout {
     public MultiSetWorkout(Exercise[] exercises, int maxSets) {
         mExercises = exercises ;
         mMaxSets = maxSets ;
-        mIndex = 0 ;
-        mCurrentSet = 1 ;
     }
 
-    public Exercise getCurrentExercise() {
-        return mExercises[mIndex] ;
+    public Exercise getExercise(int index) {
+        return mExercises[index % mExercises.length] ;
     }
 
-    public boolean isStarted() {
-        return mIndex > 0 || mCurrentSet > 1 ;
-    }
-
-    public boolean isFinished() {
-        return (mIndex == mExercises.length - 1) && (mCurrentSet == mMaxSets) ;
-    }
-
-    public void increment() {
-        if (mIndex >= mExercises.length - 1) {
-            if (mCurrentSet < mMaxSets) {
-                mCurrentSet++;
-                mIndex = 0;
-            }
-        } else {
-            mIndex++ ;
-        }
-    }
-
-    public void decrement() {
-        if (mIndex <= 0)  {
-            if (mCurrentSet > 1) {
-                mCurrentSet-- ;
-                mIndex = mExercises.length - 1 ;
-            }
-        } else {
-            mIndex-- ;
-        }
-    }
-
-    public String statusString() {
-        return "Set " + mCurrentSet + '\n' + getCurrentExercise().toString() ;
+    public int size() {
+        return mExercises.length * mMaxSets ;
     }
 
 }

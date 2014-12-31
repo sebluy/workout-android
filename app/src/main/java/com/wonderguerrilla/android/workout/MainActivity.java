@@ -19,9 +19,9 @@ public class MainActivity extends ActionBarActivity {
     private Button mStartCalisthenicWorkout ;
     private Button mStartCoreWorkout ;
 
-    private void startNewWorkoutActivity(int workoutID) {
-        Intent intent = new Intent(MainActivity.this, WorkoutActivity.class) ;
-        intent.putExtra(WorkoutActivity.EXTRA_WORKOUT_ID,
+    private void startNewExercisePagerActivity(int workoutID) {
+        Intent intent = new Intent(MainActivity.this, ExercisePagerActivity.class) ;
+        intent.putExtra(ExercisePagerActivity.EXTRA_WORKOUT_ID,
             workoutID) ;
         startActivity(intent) ;
     }
@@ -35,7 +35,7 @@ public class MainActivity extends ActionBarActivity {
         mStartLowerLiftingWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startNewWorkoutActivity(WorkoutGenerator.LOWER_LIFTING_WORKOUT_ID);
+                startNewExercisePagerActivity(WorkoutGenerator.LOWER_LIFTING_WORKOUT_ID);
             }
         });
 
@@ -43,7 +43,7 @@ public class MainActivity extends ActionBarActivity {
         mStartUpperLiftingWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startNewWorkoutActivity(WorkoutGenerator.UPPER_LIFTING_WORKOUT_ID) ;
+                startNewExercisePagerActivity(WorkoutGenerator.UPPER_LIFTING_WORKOUT_ID); ;
             }
         });
 
@@ -51,7 +51,7 @@ public class MainActivity extends ActionBarActivity {
         mStartCalisthenicWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startNewWorkoutActivity(WorkoutGenerator.CALISTHENIC_WORKOUT_ID) ;
+                startNewExercisePagerActivity(WorkoutGenerator.CALISTHENIC_WORKOUT_ID); ;
             }
 
         });
@@ -60,7 +60,7 @@ public class MainActivity extends ActionBarActivity {
         mStartCoreWorkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startNewWorkoutActivity(WorkoutGenerator.CORE_WORKOUT_ID);
+                startNewExercisePagerActivity(WorkoutGenerator.CORE_WORKOUT_ID);
             }
         });
     }

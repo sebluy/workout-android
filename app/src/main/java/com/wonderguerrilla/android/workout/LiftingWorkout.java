@@ -37,8 +37,6 @@ public class LiftingWorkout implements Workout {
 
     private LiftingExercise[] mExercises ;
 
-    private int mIndex = 0 ;
-
     public LiftingWorkout(int workout_id) {
         if (workout_id == WorkoutGenerator.UPPER_LIFTING_WORKOUT_ID) {
             mExercises = UPPER_BODY_EXERCISES ;
@@ -49,32 +47,12 @@ public class LiftingWorkout implements Workout {
         }
     }
 
-    public LiftingWorkout(LiftingExercise[] exercises) {
-        mExercises = exercises ;
+    public Exercise getExercise(int index) {
+        return mExercises[index] ;
     }
 
-    public LiftingExercise getCurrentExercise() {
-        return mExercises[mIndex] ;
-    }
-
-    public boolean isStarted() {
-        return mIndex > 0 ;
-    }
-
-    public boolean isFinished() {
-        return (mIndex == mExercises.length - 1) ;
-    }
-
-    public void increment() {
-        mIndex = mIndex >= mExercises.length - 1 ? mIndex : mIndex + 1 ;
-    }
-
-    public void decrement() {
-        mIndex = mIndex <= 0 ? mIndex : mIndex - 1 ;
-    }
-
-    public String statusString() {
-        return getCurrentExercise().toString() ;
+    public int size() {
+        return mExercises.length ;
     }
 
 }
