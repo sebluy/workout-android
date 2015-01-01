@@ -36,14 +36,19 @@ public class LiftingWorkout implements Workout {
     } ;
 
     private LiftingExercise[] mExercises ;
+    private String mName ;
+
+    public String getName() {
+        return mName ;
+    }
 
     public LiftingWorkout(int workout_id) {
         if (workout_id == WorkoutGenerator.UPPER_LIFTING_WORKOUT_ID) {
             mExercises = UPPER_BODY_EXERCISES ;
-        } else if (workout_id == WorkoutGenerator.LOWER_LIFTING_WORKOUT_ID) {
-            mExercises = LOWER_BODY_EXERCISES ;
+            mName = "Upper Lifting Workout" ;
         } else {
             mExercises = LOWER_BODY_EXERCISES ;
+            mName = "Lower Lifting Workout" ;
         }
     }
 

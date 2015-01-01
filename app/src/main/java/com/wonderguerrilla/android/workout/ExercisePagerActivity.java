@@ -1,11 +1,14 @@
 package com.wonderguerrilla.android.workout;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 /**
  * Created by sebluy on 12/25/14.
@@ -21,12 +24,16 @@ public class ExercisePagerActivity extends ActionBarActivity {
     @Override
     public void onCreate(Bundle savedInstanceBundle) {
         super.onCreate(savedInstanceBundle);
+
+
         mViewPager = new ViewPager(this);
         mViewPager.setId(R.id.viewPager);
         setContentView(mViewPager);
 
         int workoutID = getIntent().getIntExtra(EXTRA_WORKOUT_ID, 0) ;
         mWorkout = WorkoutGenerator.fromID(workoutID) ;
+
+        setTitle(mWorkout.getName());
 
         FragmentManager fm = getSupportFragmentManager();
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fm) {
@@ -41,5 +48,7 @@ public class ExercisePagerActivity extends ActionBarActivity {
             }
         });
     }
+
+
 }
 

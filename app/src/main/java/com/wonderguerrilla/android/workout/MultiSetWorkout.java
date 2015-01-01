@@ -21,20 +21,26 @@ public class MultiSetWorkout implements Workout {
             new CoreExercise("Leg Lever", 30)
     } ;
 
+    private String mName;
     private Exercise[] mExercises ;
     private int mMaxSets ;
 
     public static MultiSetWorkout newCalisthenicWorkout() {
-        return new MultiSetWorkout(CALISTHENIC_EXERCISES, 6) ;
+        return new MultiSetWorkout("Calisthenic Workout", CALISTHENIC_EXERCISES, 6) ;
     }
 
     public static MultiSetWorkout newCoreWorkout() {
-        return new MultiSetWorkout(CORE_EXERCISES, 2) ;
+        return new MultiSetWorkout("Core Workout", CORE_EXERCISES, 2) ;
     }
 
-    public MultiSetWorkout(Exercise[] exercises, int maxSets) {
+    public MultiSetWorkout(String name, Exercise[] exercises, int maxSets) {
+        mName = name ;
         mExercises = exercises ;
         mMaxSets = maxSets ;
+    }
+
+    public String getName() {
+        return mName ;
     }
 
     public Exercise getExercise(int index) {

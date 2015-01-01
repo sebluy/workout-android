@@ -9,5 +9,6 @@ public interface Workout {
 
     Exercise getExercise(int i) ;
 
+    public String getName() ;
 }
 
