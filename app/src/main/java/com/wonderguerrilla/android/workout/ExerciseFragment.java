@@ -42,10 +42,9 @@ public class ExerciseFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_exercise, parent, false) ;
 
-        mExerciseView = (TextView)v.findViewById(R.id.exercise_text_view) ;
-        mExerciseView.setText(mExercise.toString()) ;
+        View v = inflater.inflate(mExercise.getLayout(), parent, false) ;
+        mExercise.fillLayout(v) ;
 
         return v ;
     }

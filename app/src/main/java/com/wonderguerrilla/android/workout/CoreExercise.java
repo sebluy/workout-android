@@ -1,21 +1,35 @@
 package com.wonderguerrilla.android.workout;
- /**
+
+import android.view.View;
+import android.widget.TextView;
+
+/**
  * Created by sebluy on 12/25/14.
  */
 
 public class CoreExercise implements Exercise {
 
     private String mName ;
-    int mQuantity ;
-    String mUnit ; /* perhaps use enum for unit ("Seconds" or "Reps") */
+    int mDuration ;
 
-    public CoreExercise(String name, int quantity, String unit) {
+    public CoreExercise(String name, int duration) {
         mName = name ;
-        mQuantity = quantity ;
-        mUnit = unit ;
+        mDuration = duration ;
     }
 
-    public String toString() {
-        return mName + '\n' + mQuantity + '\n' + mUnit ;
+    @Override
+    public int getLayout() {
+        return R.layout.fragment_core_exercise ;
+    }
+
+    @Override
+    public void fillLayout(View v) {
+
+        TextView name = (TextView)v.findViewById(R.id.core_exercise_name) ;
+        TextView duration = (TextView)v.findViewById(R.id.core_exercise_duration) ;
+
+        name.setText(mName) ;
+        duration.setText(mDuration + " Seconds") ;
+
     }
 }

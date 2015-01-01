@@ -13,12 +13,12 @@ public class MultiSetWorkout implements Workout {
     } ;
 
     private static final CoreExercise[] CORE_EXERCISES = {
-            new CoreExercise("Bridge", 20, "Reps"),
-            new CoreExercise("Plank", 30, "Seconds"),
-            new CoreExercise("Side Plank", 30, "Seconds"),
-            new CoreExercise("Bird Dog", 20, "Reps"),
-            new CoreExercise("Superman", 10, "Reps"),
-            new CoreExercise("Wiper", 20, "Reps"),
+            new CoreExercise("Bridge", 30),
+            new CoreExercise("Plank", 30),
+            new CoreExercise("Side Plank", 30),
+            new CoreExercise("Bird Dog", 30),
+            new CoreExercise("Superman", 30),
+            new CoreExercise("Leg Lever", 30)
     } ;
 
     private Exercise[] mExercises ;

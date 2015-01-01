@@ -2,15 +2,15 @@ package com.wonderguerrilla.android.workout;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
 
 /**
  * Created by sebluy on 12/25/14.
  */
-public class ExercisePagerActivity extends FragmentActivity {
+public class ExercisePagerActivity extends ActionBarActivity {
 
     public static final String EXTRA_WORKOUT_ID =
             "com.wonderguerrilla.android.workout.workout_id" ;
