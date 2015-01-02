@@ -1,4 +1,4 @@
-- Many classes/activities/XMLs can/should be refactored
-- Add a repeated exercise or set or something along those lines
-- Incoroporate weight lifting activity into normal workout activity
-- Put logic inside cardiovascular workouts and define a workout interface
+- Increase capabilites of workouts themselves
+	- Generate random order/exercise variations
+
+- Make MainActivity a ListFragment and include Run/Swim
