@@ -4,7 +4,7 @@ package com.wonderguerrilla.android.workout;
  * Created by sebluy on 12/25/14.
  */
 
-public class LiftingWorkout implements Workout {
+public class LiftingWorkout extends Workout {
 
     private static final LiftingExercise[] UPPER_BODY_EXERCISES = {
         new LiftingExercise("Bench Press", 45, "lbs", 10),
@@ -35,29 +35,16 @@ public class LiftingWorkout implements Workout {
         new LiftingExercise("Terminal Knee Extension", 4, "Plates", 10)
     } ;
 
-    private LiftingExercise[] mExercises ;
-    private String mName ;
-
-    public String getName() {
-        return mName ;
-    }
-
-    public LiftingWorkout(int workout_id) {
-        if (workout_id == WorkoutGenerator.UPPER_LIFTING_WORKOUT_ID) {
-            mExercises = UPPER_BODY_EXERCISES ;
-            mName = "Upper Lifting Workout" ;
+    public static LiftingWorkout fromId(int workoutId) {
+        if (workoutId == WorkoutGenerator.UPPER_LIFTING_WORKOUT_ID) {
+            return new LiftingWorkout("Upper Lifting Workout", UPPER_BODY_EXERCISES) ;
         } else {
-            mExercises = LOWER_BODY_EXERCISES ;
-            mName = "Lower Lifting Workout" ;
+            return new LiftingWorkout("Lower Lifting Workout", LOWER_BODY_EXERCISES) ;
         }
     }
 
-    public Exercise getExercise(int index) {
-        return mExercises[index] ;
-    }
-
-    public int size() {
-        return mExercises.length ;
+    public LiftingWorkout(String name, Exercise[] exercises) {
+        super(name, exercises) ;
     }
 
 }

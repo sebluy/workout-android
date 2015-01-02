@@ -1,14 +1,29 @@
 package com.wonderguerrilla.android.workout;
 
 /**
- * Created by sebluy on 12/19/14.
+ * Created by sebluy on 12/25/14.
  */
-public interface Workout {
 
-    int size() ;
+public class Workout {
 
-    Exercise getExercise(int i) ;
+    private String mName ;
+    protected Exercise[] mExercises ;
 
-    public String getName() ;
+    public Workout(String name, Exercise[] exercises) {
+        mName = name ;
+        mExercises = exercises ;
+    }
+
+    public String getName() {
+        return mName ;
+    }
+
+    public Exercise getExercise(int index) {
+        return mExercises[index] ;
+    }
+
+    public int size() {
+        return mExercises.length ;
+    }
+
 }
-

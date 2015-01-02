@@ -25,11 +25,11 @@ public class WorkoutGenerator {
     public static Workout fromID(int id) {
         switch (id) {
             case CALISTHENIC_WORKOUT_ID:
-                return MultiSetWorkout.newCalisthenicWorkout() ;
+                return CalisthenicWorkout.generate() ;
             case UPPER_LIFTING_WORKOUT_ID:
-                return new LiftingWorkout(UPPER_LIFTING_WORKOUT_ID) ;
+                return LiftingWorkout.fromId(UPPER_LIFTING_WORKOUT_ID) ;
             case LOWER_LIFTING_WORKOUT_ID:
-                return new LiftingWorkout(LOWER_LIFTING_WORKOUT_ID) ;
+                return LiftingWorkout.fromId(LOWER_LIFTING_WORKOUT_ID) ;
             case CORE_WORKOUT_ID:
                 return MultiSetWorkout.newCoreWorkout() ;
             default:
