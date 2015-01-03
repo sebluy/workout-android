@@ -11,7 +11,7 @@ import java.util.Random;
 public class CalisthenicExercise implements Exercise {
 
     private String mName ;
-    int mRepetitions ;
+    private int mRepetitions ;
 
     public CalisthenicExercise(String name, int repetitions) {
         mName = name ;
