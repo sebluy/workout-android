@@ -7,12 +7,12 @@ import android.widget.TextView;
  * Created by sebluy on 12/25/14.
  */
 
-public class CoreExercise implements Exercise {
+public class StaticCoreExercise implements Exercise {
 
     private String mName ;
     int mDuration ;
 
-    public CoreExercise(String name, int duration) {
+    public StaticCoreExercise(String name, int duration) {
         mName = name ;
         mDuration = duration ;
     }

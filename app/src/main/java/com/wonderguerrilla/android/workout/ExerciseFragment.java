@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class ExerciseFragment extends Fragment {
 
     public static final String EXTRA_WORKOUT_ID =
-        "com.wonderguerrilla.android.workout.workout_id" ;
+            "com.wonderguerrilla.android.workout.workout_id" ;
 
     public static final String EXTRA_EXERCISE_NUMBER =
             "com.wonderguerrilla.android.workout.exercise_number" ;
