@@ -99,6 +99,7 @@ public class CalisthenicExerciseType {
         Random rand = new Random() ;
 
         int variationIndex = 0 ;
+        String lastVariation = null ;
 
         while (exercises.size() < numberOfSets) {
 
@@ -107,7 +108,7 @@ public class CalisthenicExerciseType {
                 variations.addAll(Arrays.asList(mVariations)) ;
 
                 /* add a variation that is not the last added */
-                String lastVariation = variations.remove(variationIndex) ;
+                variations.remove(lastVariation) ;
                 variationIndex = rand.nextInt(variations.size());
                 String variation = variations.get(variationIndex);
                 CalisthenicExercise newExercise = new CalisthenicExercise(variation, mRepetitions);
@@ -120,7 +121,7 @@ public class CalisthenicExerciseType {
             String variation = variations.get(variationIndex);
             CalisthenicExercise newExercise = new CalisthenicExercise(variation, mRepetitions);
             exercises.add(newExercise);
-            variations.remove(variationIndex);
+            lastVariation = variations.remove(variationIndex) ;
         }
 
         return exercises.toArray(new CalisthenicExercise[numberOfSets]) ;

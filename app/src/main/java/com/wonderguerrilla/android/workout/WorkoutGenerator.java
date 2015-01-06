@@ -7,7 +7,8 @@ public class WorkoutGenerator {
     public static final int CALISTHENIC_WORKOUT_ID = 2 ;
     public static final int CORE_WORKOUT_ID = 3 ;
 
-    private static final CalisthenicWorkout CALISTHENIC_WORKOUT = CalisthenicWorkout.generate() ;
+    /* change to generate everytime new workout starts */
+    private static CalisthenicWorkout sCalisthenicWorkout = null ;
 
     private static String[] initializeWorkoutNames() {
         String[] names = new String[4] ;
@@ -24,10 +25,20 @@ public class WorkoutGenerator {
         return workoutNames ;
     }
 
+    public static Workout newFromID(int id) {
+        switch (id) {
+            case CALISTHENIC_WORKOUT_ID:
+                sCalisthenicWorkout = CalisthenicWorkout.generate();
+                return sCalisthenicWorkout ;
+            default:
+                return null ;
+        }
+    }
+
     public static Workout fromID(int id) {
         switch (id) {
             case CALISTHENIC_WORKOUT_ID:
-                return CALISTHENIC_WORKOUT ;
+                return sCalisthenicWorkout ;
             case UPPER_LIFTING_WORKOUT_ID:
                 return LiftingWorkout.fromId(UPPER_LIFTING_WORKOUT_ID) ;
             case LOWER_LIFTING_WORKOUT_ID:

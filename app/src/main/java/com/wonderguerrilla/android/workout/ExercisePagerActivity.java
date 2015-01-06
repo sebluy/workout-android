@@ -31,7 +31,7 @@ public class ExercisePagerActivity extends ActionBarActivity {
         setContentView(mViewPager);
 
         int workoutID = getIntent().getIntExtra(EXTRA_WORKOUT_ID, 0) ;
-        mWorkout = WorkoutGenerator.fromID(workoutID) ;
+        mWorkout = WorkoutGenerator.newFromID(workoutID) ;
 
         setTitle(mWorkout.getName());
 
