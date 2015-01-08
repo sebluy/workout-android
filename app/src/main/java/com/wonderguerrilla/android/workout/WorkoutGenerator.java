@@ -31,7 +31,7 @@ public class WorkoutGenerator {
                 sCalisthenicWorkout = CalisthenicWorkout.generate();
                 return sCalisthenicWorkout ;
             default:
-                return null ;
+                return fromID(id) ;
         }
     }
 
