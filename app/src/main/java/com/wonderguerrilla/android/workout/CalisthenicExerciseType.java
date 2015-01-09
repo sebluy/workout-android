@@ -3,6 +3,10 @@ package com.wonderguerrilla.android.workout;
 import android.view.View;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -14,78 +18,38 @@ import java.util.Stack;
  */
 public class CalisthenicExerciseType {
 
-    /* move these static declarations to JSON or XML */
-
-    private static int PUSH_UP_REPETITIONS = 5;
-    private static int PULL_UP_REPETITIONS = 3;
-    private static int DYNAMIC_CORE_REPETITIONS = 10;
-    private static int SQUAT_REPETITIONS = 10;
-    private static int LUNGE_REPETITIONS = 10;
-
-    public static final String[] PUSH_UP_VARIATIONS = {
-            "Normal Push-Up",
-            "Knuckle Push-Up",
-            "Fingertip Push-Up",
-            "Wide Push-Up",
-            "Diamond Push-Up",
-            "T Push-Up",
-            "Pike Push-Up",
-            "Dive Bomber Push-Up",
-    };
-
-    public static final String[] PULL_UP_VARIATIONS = {
-            "Normal Pull-Up",
-            "Narrow Pull-Up",
-            "Wide Pull-Up",
-            "Parallel Pull-Up",
-            "Normal Chin-Up",
-            "Narrow Chin-Up"
-    };
-
-    protected static final String[] DYNAMIC_CORE_VARIATIONS = {
-            "Normal Crunch",
-            "Reverse Crunch",
-            "Double Crunch",
-            "Bicycle Crunch",
-            "Wiper",
-            "Flutter Kick"
-    };
-
-    public static final String[] SQUAT_VARIATIONS = {
-            "Squat",
-            "Vertical Jump",
-            "Forward Jump",
-            "Lateral Jump"
-    };
-
-    public static final String[] LUNGE_VARIATIONS = {
-            "Forward Lunge",
-            "Backward Lunge"
-    };
-
-    public static final CalisthenicExerciseType PUSH_UP =
-            new CalisthenicExerciseType(PUSH_UP_VARIATIONS, PUSH_UP_REPETITIONS);
-
-    public static final CalisthenicExerciseType PULL_UP =
-            new CalisthenicExerciseType(PULL_UP_VARIATIONS, PULL_UP_REPETITIONS);
-
-    public static final CalisthenicExerciseType DYNAMIC_CORE =
-            new CalisthenicExerciseType(DYNAMIC_CORE_VARIATIONS, DYNAMIC_CORE_REPETITIONS);
-
-    public static final CalisthenicExerciseType SQUAT =
-            new CalisthenicExerciseType(SQUAT_VARIATIONS, SQUAT_REPETITIONS);
-
-    public static final CalisthenicExerciseType LUNGE =
-            new CalisthenicExerciseType(LUNGE_VARIATIONS, LUNGE_REPETITIONS);
-
-    /* end replace with JSON/XML + add constructor to create from JSON */
-
     private String[] mVariations;
     private int mRepetitions;
+
+    public CalisthenicExerciseType(JSONObject object) {
+        try {
+            mRepetitions = object.getInt("Repetitions") ;
+
+            JSONArray variations = object.getJSONArray("Variations");
+            int length = variations.length() ;
+            mVariations = new String[length] ;
+            for (int i = 0 ; i < length ; i++) {
+                mVariations[i] = variations.getString(i);
+            }
+        } catch (JSONException e) {
+            mVariations = new String[0] ;
+            mRepetitions = 0 ;
+        }
+    }
 
     public CalisthenicExerciseType(String[] variations, int repetitions) {
         mVariations = variations;
         mRepetitions = repetitions;
+    }
+
+    public void toJSON() throws JSONException {
+        JSONObject object = new JSONObject() ;
+        object.put("Repetitions", mRepetitions) ;
+        JSONArray variations = new JSONArray() ;
+        for (int i = 0 ; i < mVariations.length ; i++) {
+            variations.put(mVariations[i]);
+        }
+        object.put("Variations", mVariations) ;
     }
 
     /* perhaps refactor into generic method that takes an array and dumps a new one

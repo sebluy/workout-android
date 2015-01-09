@@ -1,0 +1,71 @@
+{
+    "Push-Up": {
+
+        "Repetitions": 5,
+
+        "Variations": [
+            "Normal Push-Up",
+            "Knuckle Push-Up",
+            "Fingertip Push-Up",
+            "Wide Push-Up",
+            "Diamond Push-Up",
+            "T Push-Up",
+            "Pike Push-Up",
+            "Dive Bomber Push-Up"
+        ]
+
+    },
+
+    "Pull-Up": {
+
+        "Repetitions": 3,
+
+        "Variations": [
+            "Normal Pull-Up",
+            "Narrow Pull-Up",
+            "Wide Pull-Up",
+            "Normal Chin-Up",
+            "Narrow Chin-Up"
+        ]
+
+    },
+
+    "Dynamic Core": {
+
+        "Repetitions": 10,
+
+        "Variations": [
+            "Normal Crunch",
+            "Reverse Crunch",
+            "Double Crunch",
+            "Bicycle Crunch",
+            "Wiper",
+            "Flutter Kick"
+        ]
+
+    },
+
+    "Squat": {
+
+        "Repetitions": 10,
+
+        "Variations": [
+            "Squat",
+            "Vertical Jump",
+            "Forward Jump",
+            "Lateral Jump"
+        ]
+
+    },
+
+    "Lunge": {
+
+        "Repetitions": 10,
+
+        "Variations": [
+            "Forward Lunge",
+            "Backward Lunge"
+        ]
+
+    }
+}

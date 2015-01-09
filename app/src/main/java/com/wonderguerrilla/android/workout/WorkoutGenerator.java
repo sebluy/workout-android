@@ -1,5 +1,7 @@
 package com.wonderguerrilla.android.workout;
 
+import android.content.Context;
+
 public class WorkoutGenerator {
 
     public static final int UPPER_LIFTING_WORKOUT_ID = 0 ;
@@ -25,10 +27,10 @@ public class WorkoutGenerator {
         return workoutNames ;
     }
 
-    public static Workout newFromID(int id) {
+    public static Workout newFromID(int id, Context c) {
         switch (id) {
             case CALISTHENIC_WORKOUT_ID:
-                sCalisthenicWorkout = CalisthenicWorkout.generate();
+                sCalisthenicWorkout = CalisthenicWorkout.generate(c);
                 return sCalisthenicWorkout ;
             default:
                 return fromID(id) ;
