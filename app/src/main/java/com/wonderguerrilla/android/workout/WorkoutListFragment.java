@@ -11,9 +11,9 @@ import android.widget.ListView;
 
 public class WorkoutListFragment extends ListFragment {
 
-    private void startNewExercisePagerActivity(int workoutId) {
+    private void startNewExercisePagerActivity(String workoutName) {
         Intent intent = new Intent(getActivity(), ExercisePagerActivity.class) ;
-        intent.putExtra(ExercisePagerActivity.EXTRA_WORKOUT_ID, workoutId) ;
+        intent.putExtra(ExercisePagerActivity.EXTRA_WORKOUT_NAME, workoutName) ;
         startActivity(intent) ;
     }
 
@@ -27,7 +27,7 @@ public class WorkoutListFragment extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        startNewExercisePagerActivity(position) ;
+        startNewExercisePagerActivity(WorkoutGenerator.getWorkoutNames()[position]) ;
     }
 
 }

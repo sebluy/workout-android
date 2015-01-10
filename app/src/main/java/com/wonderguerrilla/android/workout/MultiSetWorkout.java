@@ -4,6 +4,8 @@ package com.wonderguerrilla.android.workout;
  */
 public class MultiSetWorkout extends Workout {
 
+    public static final String STATIC_CORE_NAME = "Static Core Workout" ;
+
     private static final StaticCoreExercise[] CORE_EXERCISES = {
             new StaticCoreExercise("Bridge", 30),
             new StaticCoreExercise("Plank", 30),
@@ -15,8 +17,8 @@ public class MultiSetWorkout extends Workout {
 
     private int mMaxSets ;
 
-    public static MultiSetWorkout newCoreWorkout() {
-        return new MultiSetWorkout("Core Workout", CORE_EXERCISES, 2) ;
+    public static MultiSetWorkout newStaticCoreWorkout() {
+        return new MultiSetWorkout("Static Core Workout", CORE_EXERCISES, 2) ;
     }
 
     public MultiSetWorkout(String name, Exercise[] exercises, int maxSets) {

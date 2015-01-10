@@ -15,8 +15,8 @@ import android.view.MenuInflater;
  */
 public class ExercisePagerActivity extends ActionBarActivity {
 
-    public static final String EXTRA_WORKOUT_ID =
-            "com.wonderguerrilla.android.workout.workout_id" ;
+    public static final String EXTRA_WORKOUT_NAME =
+            "com.wonderguerrilla.android.workout.workout_name" ;
 
     private ViewPager mViewPager ;
     private Workout mWorkout ;
@@ -30,8 +30,8 @@ public class ExercisePagerActivity extends ActionBarActivity {
         mViewPager.setId(R.id.viewPager);
         setContentView(mViewPager);
 
-        int workoutID = getIntent().getIntExtra(EXTRA_WORKOUT_ID, 0) ;
-        mWorkout = WorkoutGenerator.newFromID(workoutID, getApplicationContext()) ;
+        String workoutName = getIntent().getStringExtra(EXTRA_WORKOUT_NAME) ;
+        mWorkout = WorkoutGenerator.create(workoutName, getApplicationContext()) ;
 
         setTitle(mWorkout.getName());
 

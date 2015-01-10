@@ -10,6 +10,8 @@ import java.util.HashMap;
  */
 public class CalisthenicWorkout extends Workout {
 
+    public static final String NAME = "Calisthenic Workout" ;
+
     private static final int NUMBER_OF_SETS = 6 ;
     private static final int NUMBER_OF_EXERCISE_TYPES = 5 ;
     private static final int NUMBER_OF_EXERCISES = NUMBER_OF_EXERCISE_TYPES * NUMBER_OF_SETS ;

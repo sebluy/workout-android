@@ -6,6 +6,9 @@ package com.wonderguerrilla.android.workout;
 
 public class LiftingWorkout extends Workout {
 
+    public static final String LOWER_NAME = "Lower Lifting Workout" ;
+    public static final String UPPER_NAME = "Upper Lifting Workout" ;
+
     private static final LiftingExercise[] UPPER_BODY_EXERCISES = {
         new LiftingExercise("Bench Press", 45, "lbs", 10),
         new LiftingExercise("Seated Row Pull", 7, "Plates", 10),
@@ -35,12 +38,12 @@ public class LiftingWorkout extends Workout {
         new LiftingExercise("Terminal Knee Extension", 4, "Plates", 10)
     } ;
 
-    public static LiftingWorkout fromId(int workoutId) {
-        if (workoutId == WorkoutGenerator.UPPER_LIFTING_WORKOUT_ID) {
-            return new LiftingWorkout("Upper Lifting Workout", UPPER_BODY_EXERCISES) ;
-        } else {
-            return new LiftingWorkout("Lower Lifting Workout", LOWER_BODY_EXERCISES) ;
-        }
+    public static LiftingWorkout newUpperLiftingWorkout() {
+        return new LiftingWorkout("Upper Lifting Workout", UPPER_BODY_EXERCISES) ;
+    }
+
+    public static LiftingWorkout newLowerLiftingWorkout() {
+        return new LiftingWorkout("Lower Lifting Workout", LOWER_BODY_EXERCISES) ;
     }
 
     public LiftingWorkout(String name, Exercise[] exercises) {

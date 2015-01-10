@@ -2,53 +2,50 @@ package com.wonderguerrilla.android.workout;
 
 import android.content.Context;
 
+import java.util.HashMap;
+import java.util.Set;
+
 public class WorkoutGenerator {
 
-    public static final int UPPER_LIFTING_WORKOUT_ID = 0 ;
-    public static final int LOWER_LIFTING_WORKOUT_ID = 1 ;
-    public static final int CALISTHENIC_WORKOUT_ID = 2 ;
-    public static final int CORE_WORKOUT_ID = 3 ;
+    private static HashMap<String, Workout> sWorkouts = new HashMap<String, Workout>() ;
 
-    /* change to generate everytime new workout starts */
-    private static CalisthenicWorkout sCalisthenicWorkout = null ;
-
-    private static String[] initializeWorkoutNames() {
-        String[] names = new String[4] ;
-        names[UPPER_LIFTING_WORKOUT_ID] = "Upper Lifting Workout" ;
-        names[LOWER_LIFTING_WORKOUT_ID] = "Lower Lifting Workout" ;
-        names[CALISTHENIC_WORKOUT_ID] = "Calisthenic Workout" ;
-        names[CORE_WORKOUT_ID] = "Core Workout" ;
-        return names ;
-    }
-
-    private static String[] workoutNames = initializeWorkoutNames() ;
+    private static String[] sWorkoutNames = {
+        CalisthenicWorkout.NAME,
+        LiftingWorkout.UPPER_NAME,
+        LiftingWorkout.LOWER_NAME,
+        MultiSetWorkout.STATIC_CORE_NAME
+    } ;
 
     public static String[] getWorkoutNames() {
-        return workoutNames ;
+        return sWorkoutNames ;
     }
 
-    public static Workout newFromID(int id, Context c) {
-        switch (id) {
-            case CALISTHENIC_WORKOUT_ID:
-                sCalisthenicWorkout = CalisthenicWorkout.generate(c);
-                return sCalisthenicWorkout ;
-            default:
-                return fromID(id) ;
-        }
+    public static Workout get(String workoutName) {
+        return sWorkouts.get(workoutName) ;
     }
 
-    public static Workout fromID(int id) {
-        switch (id) {
-            case CALISTHENIC_WORKOUT_ID:
-                return sCalisthenicWorkout ;
-            case UPPER_LIFTING_WORKOUT_ID:
-                return LiftingWorkout.fromId(UPPER_LIFTING_WORKOUT_ID) ;
-            case LOWER_LIFTING_WORKOUT_ID:
-                return LiftingWorkout.fromId(LOWER_LIFTING_WORKOUT_ID) ;
-            case CORE_WORKOUT_ID:
-                return MultiSetWorkout.newCoreWorkout() ;
+    public static Workout create(String workoutName, Context context) {
+        Workout workout ;
+
+        switch (workoutName) {
+            case CalisthenicWorkout.NAME:
+                workout = CalisthenicWorkout.generate(context) ;
+                break ;
+            case LiftingWorkout.UPPER_NAME:
+                workout = LiftingWorkout.newUpperLiftingWorkout() ;
+                break ;
+            case LiftingWorkout.LOWER_NAME:
+                workout =  LiftingWorkout.newLowerLiftingWorkout() ;
+                break ;
+            case MultiSetWorkout.STATIC_CORE_NAME :
+                workout =  MultiSetWorkout.newStaticCoreWorkout() ;
+                break ;
             default:
                 return null ;
         }
+
+        sWorkouts.put(workoutName, workout) ;
+
+        return workout ;
     }
 }
