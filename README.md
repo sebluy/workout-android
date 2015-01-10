@@ -2,6 +2,6 @@
 	- Generate random order/exercise variations for Lifting Workout (use pairs)
 	- Refactor generator for CalisthenicWorkouts
 
-- Include run/swim
+- Add more UI with workout info, change workout, etc... (read and write JSON)
 
-- Rethink WorkoutGenerator
+- Include run/swim

@@ -18,7 +18,7 @@ public class StaticCoreWorkout extends Workout {
     private int mMaxSets ;
 
     public static StaticCoreWorkout newStaticCoreWorkout() {
-        return new StaticCoreWorkout("Static Core Workout", CORE_EXERCISES, 2) ;
+        return new StaticCoreWorkout(STATIC_CORE_NAME, CORE_EXERCISES, 2) ;
     }
 
     public StaticCoreWorkout(String name, Exercise[] exercises, int maxSets) {

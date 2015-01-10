@@ -39,11 +39,11 @@ public class LiftingWorkout extends Workout {
     } ;
 
     public static LiftingWorkout newUpperLiftingWorkout() {
-        return new LiftingWorkout("Upper Lifting Workout", UPPER_BODY_EXERCISES) ;
+        return new LiftingWorkout(UPPER_NAME, UPPER_BODY_EXERCISES) ;
     }
 
     public static LiftingWorkout newLowerLiftingWorkout() {
-        return new LiftingWorkout("Lower Lifting Workout", LOWER_BODY_EXERCISES) ;
+        return new LiftingWorkout(LOWER_NAME, LOWER_BODY_EXERCISES) ;
     }
 
     public LiftingWorkout(String name, Exercise[] exercises) {

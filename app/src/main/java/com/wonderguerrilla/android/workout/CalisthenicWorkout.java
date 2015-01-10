@@ -50,7 +50,7 @@ public class CalisthenicWorkout extends Workout {
     }
 
     public CalisthenicWorkout(Exercise[] exercises) {
-        super("Calisthenic Workout", exercises) ;
+        super(NAME, exercises) ;
     }
 
 }

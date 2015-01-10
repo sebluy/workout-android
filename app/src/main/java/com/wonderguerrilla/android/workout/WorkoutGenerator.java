@@ -1,6 +1,7 @@
 package com.wonderguerrilla.android.workout;
 
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 
 public class WorkoutGenerator {
 
@@ -28,5 +29,9 @@ public class WorkoutGenerator {
             default:
                 return null ;
         }
+    }
+
+    public static Workout createFromPosition(int position, Context context) {
+        return create(sWorkoutNames[position], context) ;
     }
 }
