@@ -13,7 +13,7 @@ public class WorkoutListFragment extends ListFragment {
 
     private void startNewExercisePagerActivity(String workoutName) {
         Intent intent = new Intent(getActivity(), ExercisePagerActivity.class) ;
-        intent.putExtra(ExercisePagerActivity.EXTRA_WORKOUT_NAME, workoutName) ;
+        WorkoutHolder.put(WorkoutGenerator.create(workoutName, getActivity())) ;
         startActivity(intent) ;
     }
 

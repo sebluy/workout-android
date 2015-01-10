@@ -2,12 +2,7 @@ package com.wonderguerrilla.android.workout;
 
 import android.content.Context;
 
-import java.util.HashMap;
-import java.util.Set;
-
 public class WorkoutGenerator {
-
-    private static HashMap<String, Workout> sWorkouts = new HashMap<String, Workout>() ;
 
     private static String[] sWorkoutNames = {
         CalisthenicWorkout.NAME,
@@ -20,32 +15,18 @@ public class WorkoutGenerator {
         return sWorkoutNames ;
     }
 
-    public static Workout get(String workoutName) {
-        return sWorkouts.get(workoutName) ;
-    }
-
     public static Workout create(String workoutName, Context context) {
-        Workout workout ;
-
         switch (workoutName) {
             case CalisthenicWorkout.NAME:
-                workout = CalisthenicWorkout.generate(context) ;
-                break ;
+                return CalisthenicWorkout.generate(context) ;
             case LiftingWorkout.UPPER_NAME:
-                workout = LiftingWorkout.newUpperLiftingWorkout() ;
-                break ;
+                return LiftingWorkout.newUpperLiftingWorkout() ;
             case LiftingWorkout.LOWER_NAME:
-                workout =  LiftingWorkout.newLowerLiftingWorkout() ;
-                break ;
+                return LiftingWorkout.newLowerLiftingWorkout() ;
             case MultiSetWorkout.STATIC_CORE_NAME :
-                workout =  MultiSetWorkout.newStaticCoreWorkout() ;
-                break ;
+                return MultiSetWorkout.newStaticCoreWorkout() ;
             default:
                 return null ;
         }
-
-        sWorkouts.put(workoutName, workout) ;
-
-        return workout ;
     }
 }

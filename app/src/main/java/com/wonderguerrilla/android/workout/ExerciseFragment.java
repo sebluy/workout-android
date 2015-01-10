@@ -30,8 +30,7 @@ public class ExerciseFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState) ;
         int exerciseNumber = getArguments().getInt(EXTRA_EXERCISE_NUMBER) ;
-        String workoutName = getActivity().getIntent().getStringExtra(ExercisePagerActivity.EXTRA_WORKOUT_NAME) ;
-        Workout workout = WorkoutGenerator.get(workoutName) ;
+        Workout workout = WorkoutHolder.get() ;
         mExercise = workout.getExercise(exerciseNumber) ;
     }
 
