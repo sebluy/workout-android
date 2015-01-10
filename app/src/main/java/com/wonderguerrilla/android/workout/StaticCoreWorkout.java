@@ -2,7 +2,7 @@ package com.wonderguerrilla.android.workout;
  /**
  * Created by sebluy on 12/25/14.
  */
-public class MultiSetWorkout extends Workout {
+public class StaticCoreWorkout extends Workout {
 
     public static final String STATIC_CORE_NAME = "Static Core Workout" ;
 
@@ -17,11 +17,11 @@ public class MultiSetWorkout extends Workout {
 
     private int mMaxSets ;
 
-    public static MultiSetWorkout newStaticCoreWorkout() {
-        return new MultiSetWorkout("Static Core Workout", CORE_EXERCISES, 2) ;
+    public static StaticCoreWorkout newStaticCoreWorkout() {
+        return new StaticCoreWorkout("Static Core Workout", CORE_EXERCISES, 2) ;
     }
 
-    public MultiSetWorkout(String name, Exercise[] exercises, int maxSets) {
+    public StaticCoreWorkout(String name, Exercise[] exercises, int maxSets) {
         super(name, exercises) ;
         mMaxSets = maxSets ;
     }

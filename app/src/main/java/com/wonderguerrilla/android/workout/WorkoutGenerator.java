@@ -8,7 +8,7 @@ public class WorkoutGenerator {
         CalisthenicWorkout.NAME,
         LiftingWorkout.UPPER_NAME,
         LiftingWorkout.LOWER_NAME,
-        MultiSetWorkout.STATIC_CORE_NAME
+        StaticCoreWorkout.STATIC_CORE_NAME
     } ;
 
     public static String[] getWorkoutNames() {
@@ -23,8 +23,8 @@ public class WorkoutGenerator {
                 return LiftingWorkout.newUpperLiftingWorkout() ;
             case LiftingWorkout.LOWER_NAME:
                 return LiftingWorkout.newLowerLiftingWorkout() ;
-            case MultiSetWorkout.STATIC_CORE_NAME :
-                return MultiSetWorkout.newStaticCoreWorkout() ;
+            case StaticCoreWorkout.STATIC_CORE_NAME :
+                return StaticCoreWorkout.newStaticCoreWorkout() ;
             default:
                 return null ;
         }
