@@ -6,15 +6,14 @@ import android.widget.TextView;
 /**
  * Created by sebluy on 12/20/14.
  */
-public class LiftingExercise implements Exercise {
+public class LiftingExercise extends Exercise {
 
-    private String mName ;
     int mWeight ;
     String mUnit ;
     int mRepetitions ;
 
     public LiftingExercise(String name, int weight, String unit, int repetitions) {
-        mName = name ;
+        super(name) ;
         mWeight = weight ;
         mUnit = unit ;
         mRepetitions = repetitions ;
@@ -26,13 +25,12 @@ public class LiftingExercise implements Exercise {
     }
 
     @Override
-    public void fillLayout(View v) {
+    public void fillLayout(View view) {
+        super.fillLayout(view);
 
-        TextView name = (TextView)v.findViewById(R.id.lifting_exercise_name) ;
-        TextView weight = (TextView)v.findViewById(R.id.lifting_exercise_weight) ;
-        TextView repetitions = (TextView)v.findViewById(R.id.lifting_exercise_repetitions) ;
+        TextView weight = (TextView)view.findViewById(R.id.lifting_exercise_weight) ;
+        TextView repetitions = (TextView)view.findViewById(R.id.lifting_exercise_repetitions) ;
 
-        name.setText(mName) ;
         weight.setText(mWeight + " " + mUnit) ;
         repetitions.setText(mRepetitions + " Repetitions") ;
 

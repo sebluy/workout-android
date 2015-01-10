@@ -8,13 +8,12 @@ import java.util.Random;
 /**
  * Created by sebluy on 12/22/14.
  */
-public class CalisthenicExercise implements Exercise {
+public class CalisthenicExercise extends Exercise {
 
-    private String mName ;
     private int mRepetitions ;
 
     public CalisthenicExercise(String name, int repetitions) {
-        mName = name ;
+        super(name) ;
         mRepetitions = repetitions ;
     }
 
@@ -24,13 +23,10 @@ public class CalisthenicExercise implements Exercise {
     }
 
     @Override
-    public void fillLayout(View v) {
+    public void fillLayout(View view) {
+        super.fillLayout(view) ;
 
-        TextView name = (TextView)v.findViewById(R.id.calisthenic_exercise_name) ;
-        TextView repetitions = (TextView)v.findViewById(R.id.calisthenic_exercise_repetitions) ;
-
-        name.setText(mName) ;
+        TextView repetitions = (TextView)view.findViewById(R.id.calisthenic_exercise_repetitions) ;
         repetitions.setText(mRepetitions + " Repetitions") ;
-
     }
 }

@@ -7,13 +7,12 @@ import android.widget.TextView;
  * Created by sebluy on 12/25/14.
  */
 
-public class StaticCoreExercise implements Exercise {
+public class StaticCoreExercise extends Exercise {
 
-    private String mName ;
     int mDuration ;
 
     public StaticCoreExercise(String name, int duration) {
-        mName = name ;
+        super(name) ;
         mDuration = duration ;
     }
 
@@ -23,13 +22,10 @@ public class StaticCoreExercise implements Exercise {
     }
 
     @Override
-    public void fillLayout(View v) {
+    public void fillLayout(View view) {
+        super.fillLayout(view); ;
 
-        TextView name = (TextView)v.findViewById(R.id.core_exercise_name) ;
-        TextView duration = (TextView)v.findViewById(R.id.core_exercise_duration) ;
-
-        name.setText(mName) ;
+        TextView duration = (TextView)view.findViewById(R.id.core_exercise_duration) ;
         duration.setText(mDuration + " Seconds") ;
-
     }
 }
