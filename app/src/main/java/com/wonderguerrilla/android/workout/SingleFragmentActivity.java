@@ -9,7 +9,7 @@ public abstract class SingleFragmentActivity extends ActionBarActivity {
 
     protected abstract Fragment newFragment() ;
 
-    protected abstract void setTitle() ;
+    protected void setTitle() {}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

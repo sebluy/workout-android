@@ -18,9 +18,9 @@ public class CalisthenicWorkout extends Workout {
 
     private static HashMap<String, CalisthenicExerciseType> types ;
 
-    private static void loadTypes(Context c) {
+    private static void loadTypes(Context context) {
         try {
-            types = new CalisthenicExerciseTypeJSONSerializer(c).getTypes();
+            types = new CalisthenicExerciseTypeJSONSerializer(context).getTypes();
         } catch (Exception e) {
         }
     }

@@ -1,0 +1,86 @@
+{
+    "Bench Press": {
+        "Weight": 45,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "Seated Row Pull": {
+        "Weight": 7,
+        "Unit": "Plates",
+        "Repetitions": 10
+    },
+
+    "Shoulder Press": {
+        "Weight": 30,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "Lat Pull Down": {
+        "Weight": 100,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "Tricep Extension": {
+        "Weight": 40,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "Bicep Curl": {
+        "Weight": 25,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "Deltoid Lateral Raise": {
+        "Weight": 10,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "Upright Row": {
+        "Weight": 25,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "Thumbs Down": {
+        "Weight": 5,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "External Rotation": {
+        "Weight": 2,
+        "Unit": "Plates",
+        "Repetitions": 10
+    },
+
+    "Internal Rotation": {
+        "Weight": 2,
+        "Unit": "Plates",
+        "Repetitions": 10
+    },
+
+    "Y": {
+        "Weight": 5,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "T": {
+        "Weight": 5,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "W": {
+        "Weight": 5,
+        "Unit": "lbs",
+        "Repetitions": 10
+    }
+}
+

@@ -21,7 +21,7 @@ public class WorkoutGenerator {
             case CalisthenicWorkout.NAME:
                 return CalisthenicWorkout.generate(context) ;
             case LiftingWorkout.UPPER_NAME:
-                return LiftingWorkout.newUpperLiftingWorkout() ;
+                return LiftingWorkout.newUpperLiftingWorkout(context) ;
             case LiftingWorkout.LOWER_NAME:
                 return LiftingWorkout.newLowerLiftingWorkout() ;
             case StaticCoreWorkout.STATIC_CORE_NAME :

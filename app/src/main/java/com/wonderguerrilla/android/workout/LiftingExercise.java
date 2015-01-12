@@ -3,6 +3,10 @@ package com.wonderguerrilla.android.workout;
 import android.view.View;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by sebluy on 12/20/14.
  */
@@ -17,6 +21,19 @@ public class LiftingExercise extends Exercise {
         mWeight = weight ;
         mUnit = unit ;
         mRepetitions = repetitions ;
+    }
+
+    public LiftingExercise(String name, JSONObject object) {
+        super(name) ;
+
+        try {
+
+            mRepetitions = object.getInt("Repetitions") ;
+            mUnit = object.getString("Unit") ;
+            mWeight = object.getInt("Weight") ;
+
+        } catch (JSONException e) {
+        }
     }
 
     @Override
