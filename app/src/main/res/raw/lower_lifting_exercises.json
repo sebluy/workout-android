@@ -1,0 +1,57 @@
+{
+    "Front Squat": {
+        "Weight": 25,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "Deadlift": {
+        "Weight": 45,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "Leg Extension": {
+        "Weight": 70,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "Leg Curl": {
+        "Weight": 70,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "Lunge": {
+        "Weight": 35,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "Calf Raise": {
+        "Weight": 100,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "Hip Abduction": {
+        "Weight": 170,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "Hip Adduction": {
+        "Weight": 170,
+        "Unit": "lbs",
+        "Repetitions": 10
+    },
+
+    "Terminal Knee Extension": {
+        "Weight": 4,
+        "Unit": "Plates",
+        "Repetitions": 10
+    },
+
+}
+

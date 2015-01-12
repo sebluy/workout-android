@@ -2,6 +2,8 @@ package com.wonderguerrilla.android.workout;
 
 import android.content.Context;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
@@ -45,13 +47,29 @@ public class LiftingWorkout extends Workout {
     } ;
 
     private static HashMap<String, LiftingExercise> sUpperExercises ;
+    private static HashMap<String, LiftingExercise> sLowerExercises ;
 
+    /* refactor all this static shit into an object maybe */
     private static void loadUpperExercises(Context context) {
-        try {
-            sUpperExercises = new LiftingExerciseJSONSerializer(context).getTypes();
-        } catch (Exception e) {
-        }
+        load(context, sUpperExercises, R.raw.upper_lifting_exercises) ;
     }
+
+    private static void loadLowerExercises(Context context) {
+        load(context, sLowerExercises, R.raw.lower_lifting_exercises) ;
+    }
+
+    private static void load(Context context, HashMap<String, LiftingExercise> exercises, int resourceID) {
+        exercises = new HashMap<>() ;
+        try {
+            JSONObject object = new JSONSerializer(context, resourceID).get() ;
+            Iterator<String> keyIterator = object.keys() ;
+            while (keyIterator.hasNext()) {
+                String key = keyIterator.next() ;
+                exercises.put(key, new LiftingExercise(key, object.getJSONObject(key))) ;
+            }
+        } catch (Exception e) {}
+    }
+
     public static LiftingWorkout newUpperLiftingWorkout(Context context) {
         if (sUpperExercises == null) {
             loadUpperExercises(context);

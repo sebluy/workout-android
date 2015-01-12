@@ -2,8 +2,10 @@ package com.wonderguerrilla.android.workout;
 
 import android.content.Context;
 
-import java.lang.reflect.Method;
+import org.json.JSONObject;
+
 import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * Created by sebluy on 12/25/14.
@@ -19,15 +21,20 @@ public class CalisthenicWorkout extends Workout {
     private static HashMap<String, CalisthenicExerciseType> types ;
 
     private static void loadTypes(Context context) {
+        types = new HashMap<>() ;
         try {
-            types = new CalisthenicExerciseTypeJSONSerializer(context).getTypes();
-        } catch (Exception e) {
-        }
+            JSONObject object = new JSONSerializer(context, R.raw.calisthenic_exercise_types).get();
+            Iterator<String> keyIterator = object.keys();
+            while (keyIterator.hasNext()) {
+                String key = keyIterator.next();
+                types.put(key, new CalisthenicExerciseType(object.getJSONObject(key)));
+            }
+        } catch (Exception e) {}
     }
 
-    public static CalisthenicWorkout generate(Context c) {
+    public static CalisthenicWorkout generate(Context context) {
         if (types == null) {
-            loadTypes(c);
+            loadTypes(context);
         }
         Exercise[] exercises = new Exercise[NUMBER_OF_EXERCISES] ;
 
