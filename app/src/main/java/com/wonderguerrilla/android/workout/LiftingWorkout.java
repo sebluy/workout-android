@@ -2,12 +2,6 @@ package com.wonderguerrilla.android.workout;
 
 import android.content.Context;
 
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
-
 /**
  * Created by sebluy on 12/25/14.
  */
@@ -34,57 +28,30 @@ public class LiftingWorkout extends Workout {
         "T"
     } ;
 
-    private static final LiftingExercise[] LOWER_BODY_EXERCISES = {
-        new LiftingExercise("Front Squat", 25, "lbs", 10),
-        new LiftingExercise("Deadlift", 45, "lbs", 10),
-        new LiftingExercise("Leg Extension", 70, "lbs", 10),
-        new LiftingExercise("Leg Curl", 70, "lbs", 10),
-        new LiftingExercise("Lunge", 35, "lbs", 10),
-        new LiftingExercise("Calf Raise", 100, "lbs", 10),
-        new LiftingExercise("Hip Abduction", 170, "lbs", 10),
-        new LiftingExercise("Hip Adduction", 170, "lbs", 10),
-        new LiftingExercise("Terminal Knee Extension", 4, "Plates", 10)
+    private static final String[] lowerOrder = {
+        "Front Squat",
+        "Deadlift",
+        "Leg Extension",
+        "Leg Curl",
+        "Lunge",
+        "Calf Raise",
+        "Hip Abduction",
+        "Hip Adduction",
+        "Terminal Knee Extension"
     } ;
 
-    private static HashMap<String, LiftingExercise> sUpperExercises ;
-    private static HashMap<String, LiftingExercise> sLowerExercises ;
-
-    /* refactor all this static shit into an object maybe */
-    private static void loadUpperExercises(Context context) {
-        load(context, sUpperExercises, R.raw.upper_lifting_exercises) ;
-    }
-
-    private static void loadLowerExercises(Context context) {
-        load(context, sLowerExercises, R.raw.lower_lifting_exercises) ;
-    }
-
-    private static void load(Context context, HashMap<String, LiftingExercise> exercises, int resourceID) {
-        exercises = new HashMap<>() ;
-        try {
-            JSONObject object = new JSONSerializer(context, resourceID).get() ;
-            Iterator<String> keyIterator = object.keys() ;
-            while (keyIterator.hasNext()) {
-                String key = keyIterator.next() ;
-                exercises.put(key, new LiftingExercise(key, object.getJSONObject(key))) ;
-            }
-        } catch (Exception e) {}
-    }
-
     public static LiftingWorkout newUpperLiftingWorkout(Context context) {
-        if (sUpperExercises == null) {
-            loadUpperExercises(context);
-        }
-        LiftingExercise[] exercises = new LiftingExercise[sUpperExercises.size()] ;
-
-        for (int i = 0 ; i < sUpperExercises.size() ; i++) {
-            exercises[i] = sUpperExercises.get(upperOrder[i]) ;
-        }
-
-        return new LiftingWorkout(UPPER_NAME, exercises) ;
+        return new LiftingWorkout(
+                UPPER_NAME,
+                new LiftingWorkoutGenerator(context, R.raw.upper_lifting_exercises, upperOrder)
+                        .exerciseArray()) ;
     }
 
-    public static LiftingWorkout newLowerLiftingWorkout() {
-        return new LiftingWorkout(LOWER_NAME, LOWER_BODY_EXERCISES) ;
+    public static LiftingWorkout newLowerLiftingWorkout(Context context) {
+        return new LiftingWorkout(
+                LOWER_NAME,
+                new LiftingWorkoutGenerator(context, R.raw.lower_lifting_exercises, lowerOrder)
+                        .exerciseArray()) ;
     }
 
     public LiftingWorkout(String name, Exercise[] exercises) {

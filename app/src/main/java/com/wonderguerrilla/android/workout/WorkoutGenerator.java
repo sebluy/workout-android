@@ -1,14 +1,16 @@
 package com.wonderguerrilla.android.workout;
 
 import android.content.Context;
-import android.support.v4.app.FragmentActivity;
 
 public class WorkoutGenerator {
 
     private static String[] sWorkoutNames = {
-        CalisthenicWorkout.NAME,
         LiftingWorkout.UPPER_NAME,
+        "Run Workout",
+        CalisthenicWorkout.NAME,
+        "Swim Workout",
         LiftingWorkout.LOWER_NAME,
+        "Basketball",
         StaticCoreWorkout.STATIC_CORE_NAME
     } ;
 
@@ -23,7 +25,7 @@ public class WorkoutGenerator {
             case LiftingWorkout.UPPER_NAME:
                 return LiftingWorkout.newUpperLiftingWorkout(context) ;
             case LiftingWorkout.LOWER_NAME:
-                return LiftingWorkout.newLowerLiftingWorkout() ;
+                return LiftingWorkout.newLowerLiftingWorkout(context) ;
             case StaticCoreWorkout.STATIC_CORE_NAME :
                 return StaticCoreWorkout.newStaticCoreWorkout() ;
             default:
