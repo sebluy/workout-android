@@ -21,23 +21,29 @@ public class JSONSerializer {
 
     private InputStream mInputStream ;
 
-    public JSONSerializer(Context context, String filename) throws FileNotFoundException {
+    public JSONSerializer(Context context, String filename) {
         File file = new File(context.getFilesDir(), filename) ;
-        mInputStream = new FileInputStream(file);
+        try {
+            mInputStream = new FileInputStream(file);
+        } catch (Exception e) {}
     }
 
     public JSONSerializer(Context context, int resourceID) {
         mInputStream = context.getResources().openRawResource(resourceID) ;
     }
 
-    public JSONObject get() throws JSONException, IOException {
+    public JSONObject get() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(mInputStream)) ;
         StringBuilder jsonString = new StringBuilder() ;
         String line = null ;
-        while ((line = reader.readLine()) != null) {
-            jsonString.append(line) ;
+        try {
+            while ((line = reader.readLine()) != null) {
+                jsonString.append(line);
+            }
+            return (JSONObject) new JSONTokener(jsonString.toString()).nextValue() ;
+        } catch (Exception e) {
+            return null ;
         }
-        return (JSONObject) new JSONTokener(jsonString.toString()).nextValue() ;
     }
 
 }

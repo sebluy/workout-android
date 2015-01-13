@@ -1,12 +1,12 @@
 {
-    "Primary":
+    "Primary Pairs":
         [
             ["Bench Press", "Seated Row Pull"],
             ["Shoulder Press", "Lat Pull Down"],
             ["Tricep Extension", "Bicep Curl"],
             ["Deltoid Lateral Raise", "Upright Row"]
         ],
-    "Secondary":
+    "Injury Prevention":
         [
             ["Internal Rotation", "External Rotation", "Thumbs Down"],
             ["Y", "T", "W"]

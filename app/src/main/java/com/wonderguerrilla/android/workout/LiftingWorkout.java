@@ -43,14 +43,14 @@ public class LiftingWorkout extends Workout {
     public static LiftingWorkout newUpperLiftingWorkout(Context context) {
         return new LiftingWorkout(
                 UPPER_NAME,
-                new LiftingWorkoutGenerator(context, R.raw.upper_lifting_exercises, upperOrder)
+                new LiftingWorkoutGenerator(context, R.raw.upper_lifting_exercises, R.raw.upper_lifting_exercise_order)
                         .exerciseArray()) ;
     }
 
     public static LiftingWorkout newLowerLiftingWorkout(Context context) {
         return new LiftingWorkout(
                 LOWER_NAME,
-                new LiftingWorkoutGenerator(context, R.raw.lower_lifting_exercises, lowerOrder)
+                new LiftingWorkoutGenerator(context, R.raw.lower_lifting_exercises, 0)
                         .exerciseArray()) ;
     }
 

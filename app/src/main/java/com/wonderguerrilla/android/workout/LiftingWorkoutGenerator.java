@@ -18,10 +18,10 @@ public class LiftingWorkoutGenerator {
     private Context mContext ;
     private int mResourceId ;
 
-    public LiftingWorkoutGenerator(Context context, int resourceId, String[] order) {
+    public LiftingWorkoutGenerator(Context context, int exercisesId, int orderId) {
         mContext = context ;
-        mResourceId = resourceId ;
-        mOrder = order ;
+        mResourceId = exercisesId ;
+        mOrder = new LiftingWorkoutOrderGenerator(context, orderId).getOrder() ;
         loadExercises() ;
     }
 
