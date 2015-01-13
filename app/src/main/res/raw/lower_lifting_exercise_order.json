@@ -1,0 +1,14 @@
+{
+    "Primary Pairs":
+        [
+            ["Front Squat", "Deadlift"],
+            ["Leg Extension", "Leg Curl"],
+            ["Lunge", "Calf Raise"],
+            ["Hip Abduction", "Hip Adduction"]
+        ],
+    "Injury Prevention":
+        [
+            ["Internal Rotation", "Terminal Knee Extension"]
+        ]
+}
+

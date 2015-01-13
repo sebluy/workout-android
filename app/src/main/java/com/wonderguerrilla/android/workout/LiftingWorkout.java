@@ -50,7 +50,7 @@ public class LiftingWorkout extends Workout {
     public static LiftingWorkout newLowerLiftingWorkout(Context context) {
         return new LiftingWorkout(
                 LOWER_NAME,
-                new LiftingWorkoutGenerator(context, R.raw.lower_lifting_exercises, 0)
+                new LiftingWorkoutGenerator(context, R.raw.lower_lifting_exercises, R.raw.lower_lifting_exercise_order)
                         .exerciseArray()) ;
     }
 
