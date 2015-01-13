@@ -2,7 +2,6 @@ package com.wonderguerrilla.android.workout;
 
 import android.content.Context;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
@@ -21,19 +20,19 @@ import java.io.Writer;
 /**
  * Created by sebluy on 12/22/14.
  */
-public class JSONSerializer {
+public class JSONReader {
 
     private InputStream mInputStream ;
-    private OutputStream mOutputStream ;
 
-    public JSONSerializer(Context context, String filename, int resourceID)  {
+    public JSONReader(Context context, String filename)  {
         File file = new File(context.getFilesDir(), filename) ;
         try {
             mInputStream = new FileInputStream(file) ;
-            mOutputStream = new FileOutputStream(file) ;
-        } catch (FileNotFoundException e) {
-            mInputStream = context.getResources().openRawResource(resourceID);
-        }
+        } catch (Exception e) {}
+    }
+
+    public JSONReader(Context context, int resourceID)  {
+        mInputStream = context.getResources().openRawResource(resourceID) ;
     }
 
     public JSONObject get() {
@@ -50,12 +49,5 @@ public class JSONSerializer {
         }
     }
 
-    public void put(JSONObject object) {
-        try {
-            Writer writer = new OutputStreamWriter(mOutputStream);
-            writer.write(object.toString());
-            writer.close() ;
-        } catch (IOException e) {}
-    }
 }
 

@@ -23,7 +23,11 @@ public class CalisthenicWorkout extends Workout {
     private static void loadTypes(Context context) {
         types = new HashMap<>() ;
         try {
-            JSONObject object = new JSONSerializer(context, R.raw.calisthenic_exercise_types).get();
+            JSONObject object = new JSONSerializer(
+                    context,
+                    "calisthenic_exercise_types.json",
+                    R.raw.calisthenic_exercise_types).get();
+
             Iterator<String> keyIterator = object.keys();
             while (keyIterator.hasNext()) {
                 String key = keyIterator.next();

@@ -16,10 +16,12 @@ public class LiftingWorkoutGenerator {
     private HashMap<String, LiftingExercise> mExercises ;
     private String[] mOrder ;
     private Context mContext ;
+    private String mFilename ;
     private int mResourceId ;
 
-    public LiftingWorkoutGenerator(Context context, int exercisesId, int orderId) {
+    public LiftingWorkoutGenerator(Context context, String filename, int exercisesId, int orderId) {
         mContext = context ;
+        mFilename = filename ;
         mResourceId = exercisesId ;
         mOrder = new LiftingWorkoutOrderGenerator(context, orderId).getOrder() ;
         loadExercises() ;
@@ -28,7 +30,7 @@ public class LiftingWorkoutGenerator {
     private void loadExercises() {
         mExercises = new HashMap<>() ;
         try {
-            JSONObject object = new JSONSerializer(mContext, mResourceId).get() ;
+            JSONObject object = new JSONSerializer(mContext, mFilename, mResourceId).get() ;
             Iterator<String> keyIterator = object.keys() ;
             while (keyIterator.hasNext()) {
                 String key = keyIterator.next() ;

@@ -55,7 +55,7 @@ public class LiftingWorkoutOrderGenerator {
     }
 
     private void loadExercises() {
-        JSONObject object = new JSONSerializer(mContext, mResourceId).get();
+        JSONObject object = new JSONReader(mContext, mResourceId).get();
         try {
             mPrimaryPairs = newArrayListArrayList(object.getJSONArray("Primary Pairs"));
             mInjuryPrevention = newArrayListArrayList(object.getJSONArray("Injury Prevention"));

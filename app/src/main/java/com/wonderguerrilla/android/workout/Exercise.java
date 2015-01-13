@@ -3,7 +3,7 @@ package com.wonderguerrilla.android.workout;
 import android.view.View;
 import android.widget.TextView;
 
-import java.awt.font.TextAttribute;
+import org.json.JSONObject;
 
 /**
  * Created by sebluy on 12/25/14.
@@ -26,4 +26,18 @@ public class Exercise {
         name.setText(mName);
     }
 
+    public Exercise(JSONObject object) {
+        try {
+            mName = object.getString("Name") ;
+        } catch (Exception e) {
+        }
+    }
+
+    public JSONObject toJSON() {
+        JSONObject object = new JSONObject() ;
+        try {
+            object.put("Name", mName) ;
+        } catch (Exception e) {}
+        return object ;
+    }
 }
