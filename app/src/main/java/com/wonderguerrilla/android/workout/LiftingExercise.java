@@ -40,7 +40,7 @@ public class LiftingExercise extends Exercise {
     }
 
     public JSONObject toJSON() {
-        JSONObject object = super.toJSON() ;
+        JSONObject object = new JSONObject() ;
         try {
             object.put("Repetitions", mRepetitions);
             object.put("Unit", mUnit) ;
@@ -66,7 +66,10 @@ public class LiftingExercise extends Exercise {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mRepetitions = Integer.parseInt(s.toString()) ;
+                String string = s.toString() ;
+                if (!string.equals("")) {
+                    mRepetitions = Integer.parseInt(string);
+                }
             }
 
             @Override

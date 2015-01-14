@@ -15,28 +15,38 @@ public class LiftingWorkoutGenerator {
 
     private HashMap<String, LiftingExercise> mExercises ;
     private String[] mOrder ;
-    private Context mContext ;
-    private String mFilename ;
-    private int mResourceId ;
+    private JSONSerializer mSerializer ;
 
     public LiftingWorkoutGenerator(Context context, String filename, int exercisesId, int orderId) {
-        mContext = context ;
-        mFilename = filename ;
-        mResourceId = exercisesId ;
+        mSerializer = new JSONSerializer(context, filename, exercisesId) ;
         mOrder = new LiftingWorkoutOrderGenerator(context, orderId).getOrder() ;
         loadExercises() ;
     }
 
-    private void loadExercises() {
+    public void loadExercises() {
         mExercises = new HashMap<>() ;
         try {
-            JSONObject object = new JSONSerializer(mContext, mFilename, mResourceId).get() ;
+            JSONObject object = mSerializer.get() ;
             Iterator<String> keyIterator = object.keys() ;
             while (keyIterator.hasNext()) {
                 String key = keyIterator.next() ;
                 mExercises.put(key, new LiftingExercise(key, object.getJSONObject(key))) ;
             }
         } catch (Exception e) {}
+    }
+
+    public void saveExercises() {
+        JSONObject object = new JSONObject() ;
+        Iterator<String> iterator = mExercises.keySet().iterator() ;
+        while (iterator.hasNext()) {
+            String key = iterator.next() ;
+            LiftingExercise exercise = mExercises.get(key) ;
+            JSONObject exerciseAsJSON = exercise.toJSON() ;
+            try {
+                object.put(key, exerciseAsJSON);
+            } catch (Exception e) {}
+        }
+        mSerializer.put(object) ;
     }
 
     public LiftingExercise[] exerciseArray() {

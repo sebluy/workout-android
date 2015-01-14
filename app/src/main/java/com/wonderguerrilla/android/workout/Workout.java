@@ -32,6 +32,8 @@ public class Workout {
 
     }
 
+    public void save() {}
+
     public String getName() {
         return mName ;
     }

@@ -43,6 +43,12 @@ public class ExercisePagerActivity extends ActionBarActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        mWorkout.save() ;
+        super.onBackPressed() ;
+    }
+
 
 }
 

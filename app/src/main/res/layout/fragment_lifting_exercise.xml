@@ -25,6 +25,7 @@
        <EditText
             android:id="@+id/lifting_exercise_repetitions"
             android:textSize="30sp"
+            android:inputType="number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

@@ -26,18 +26,7 @@ public class Exercise {
         name.setText(mName);
     }
 
-    public Exercise(JSONObject object) {
-        try {
-            mName = object.getString("Name") ;
-        } catch (Exception e) {
-        }
-    }
-
     public JSONObject toJSON() {
-        JSONObject object = new JSONObject() ;
-        try {
-            object.put("Name", mName) ;
-        } catch (Exception e) {}
-        return object ;
+        return new JSONObject() ;
     }
 }

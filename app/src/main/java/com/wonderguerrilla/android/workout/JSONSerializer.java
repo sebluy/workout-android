@@ -1,6 +1,8 @@
 package com.wonderguerrilla.android.workout;
 
 import android.content.Context;
+import android.util.Log;
+import android.view.inputmethod.InputMethodManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,24 +25,20 @@ import java.io.Writer;
  */
 public class JSONSerializer {
 
-    private InputStream mInputStream ;
-    private OutputStream mOutputStream ;
+    private File mFile ;
 
-    public JSONSerializer(Context context, String filename, int resourceID)  {
-        File file = new File(context.getFilesDir(), filename) ;
-        try {
-            mInputStream = new FileInputStream(file) ;
-            mOutputStream = new FileOutputStream(file) ;
-        } catch (FileNotFoundException e) {
-            mInputStream = context.getResources().openRawResource(resourceID);
-        }
+    public JSONSerializer(Context context, String filename, int resourceId)  {
+        mFile = new File(context.getFilesDir(), filename) ;
     }
 
     public JSONObject get() {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(mInputStream)) ;
         StringBuilder jsonString = new StringBuilder() ;
         String line = null ;
         try {
+            InputStream inputStream ;
+            inputStream = new FileInputStream(mFile);
+//          inputStream = mContext.getResources().openRawResource(mResourceId);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream)) ;
             while ((line = reader.readLine()) != null) {
                 jsonString.append(line);
             }
@@ -52,10 +50,12 @@ public class JSONSerializer {
 
     public void put(JSONObject object) {
         try {
-            Writer writer = new OutputStreamWriter(mOutputStream);
+            OutputStream outputStream = new FileOutputStream(mFile) ;
+            Writer writer = new OutputStreamWriter(outputStream);
             writer.write(object.toString());
             writer.close() ;
         } catch (IOException e) {}
     }
+
 }
 
