@@ -1,14 +1,11 @@
 package com.wonderguerrilla.android.workout;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuInflater;
 
 /**
  * Created by sebluy on 12/25/14.
@@ -45,13 +42,6 @@ public class ExercisePagerActivity extends ActionBarActivity {
 
         mViewPager.setCurrentItem(exerciseNumber) ;
     }
-
-    @Override
-    public void onBackPressed() {
-        mWorkout.save() ;
-        super.onBackPressed() ;
-    }
-
 
 }
 

@@ -9,13 +9,15 @@ public abstract class SingleFragmentActivity extends ActionBarActivity {
 
     protected abstract Fragment newFragment() ;
 
+    protected void initialize() {}
+
     protected void setTitle() {}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initialize();
         setContentView(R.layout.activity_fragment);
-
         setTitle() ;
 
         FragmentManager fragmentManager = getSupportFragmentManager() ;

@@ -5,3 +5,5 @@
 - Add more UI with workout info, change workout, etc... (read and write JSON)
 
 - Include run/swim
+
+- Show old reps/new reps + weight on workout list for lifting workout
