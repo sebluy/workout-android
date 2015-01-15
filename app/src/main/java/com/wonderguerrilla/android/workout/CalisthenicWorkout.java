@@ -19,6 +19,7 @@ public class CalisthenicWorkout extends Workout {
     private static final int NUMBER_OF_EXERCISES = NUMBER_OF_EXERCISE_TYPES * NUMBER_OF_SETS ;
 
     private static HashMap<String, CalisthenicExerciseType> types ;
+    private static CalisthenicWorkout sWorkout ;
 
     private static void loadTypes(Context context) {
         types = new HashMap<>() ;
@@ -33,7 +34,14 @@ public class CalisthenicWorkout extends Workout {
         } catch (Exception e) {}
     }
 
-    public static CalisthenicWorkout generate(Context context) {
+    public static CalisthenicWorkout get(Context context) {
+        if (sWorkout == null) {
+            sWorkout = generate(context) ;
+        }
+        return sWorkout ;
+    }
+
+    private static CalisthenicWorkout generate(Context context) {
         if (types == null) {
             loadTypes(context);
         }
@@ -56,6 +64,8 @@ public class CalisthenicWorkout extends Workout {
 
         return new CalisthenicWorkout(exercises) ;
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 
     public CalisthenicWorkout(Exercise[] exercises) {
         super(NAME, exercises) ;

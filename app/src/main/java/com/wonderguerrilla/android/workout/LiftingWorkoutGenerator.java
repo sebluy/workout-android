@@ -14,12 +14,12 @@ import java.util.Iterator;
 public class LiftingWorkoutGenerator {
 
     private HashMap<String, LiftingExercise> mExercises ;
-    private String[] mOrder ;
+    private LiftingWorkoutOrderGenerator mOrderGenerator ;
     private JSONSerializer mSerializer ;
 
     public LiftingWorkoutGenerator(Context context, String filename, int orderId) {
         mSerializer = new JSONSerializer(context, filename) ;
-        mOrder = new LiftingWorkoutOrderGenerator(context, orderId).getOrder() ;
+        mOrderGenerator = new LiftingWorkoutOrderGenerator(context, orderId) ;
         loadExercises() ;
     }
 
@@ -49,11 +49,12 @@ public class LiftingWorkoutGenerator {
         mSerializer.put(object) ;
     }
 
-    public LiftingExercise[] exerciseArray() {
-        int size = mExercises.size() ;
+    public LiftingExercise[] generateExercises() {
+        String[] order = mOrderGenerator.generateOrder() ;
+        int size = order.length ;
         LiftingExercise[] exerciseArray = new LiftingExercise[size] ;
         for (int i = 0 ; i < size ; i++) {
-            exerciseArray[i] = mExercises.get(mOrder[i]) ;
+            exerciseArray[i] = mExercises.get(order[i]) ;
         }
         return exerciseArray ;
     }

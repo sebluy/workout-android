@@ -4,8 +4,13 @@
     xmlns:workout="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:title="New"
+        android:id="@+id/menu_workout_item_new"
+        workout:showAsAction="ifRoom|withText"/>
+
+    <item
         android:title="Commit"
-        android:id="@+id/workout_menu_item_commit"
+        android:id="@+id/menu_workout_item_commit"
         workout:showAsAction="ifRoom|withText"/>
 
 </menu>

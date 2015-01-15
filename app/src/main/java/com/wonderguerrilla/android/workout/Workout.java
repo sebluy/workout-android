@@ -1,8 +1,5 @@
 package com.wonderguerrilla.android.workout;
 
-import android.view.View;
-import android.widget.Button;
-
 /**
  * Created by sebluy on 12/25/14.
  */
@@ -23,6 +20,8 @@ public class Workout {
         return mName ;
     }
 
+    public void recreate() {}
+
     public Exercise getExercise(int index) {
         return mExercises[index] ;
     }
@@ -32,9 +31,9 @@ public class Workout {
     }
 
     public String[] getExerciseNames() {
-        String[] names = new String[mExercises.length] ;
-        for (int i = 0 ; i < names.length ; i++) {
-            names[i] = mExercises[i].getName() ;
+        String[] names = new String[size()] ;
+        for (int i = 0 ; i < size() ; i++) {
+            names[i] = getExercise(i).getName() ;
         }
         return names ;
     }

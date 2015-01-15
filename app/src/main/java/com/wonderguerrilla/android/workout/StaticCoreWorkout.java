@@ -4,7 +4,9 @@ package com.wonderguerrilla.android.workout;
  */
 public class StaticCoreWorkout extends Workout {
 
-    public static final String STATIC_CORE_NAME = "Static Core Workout" ;
+    public static final String NAME = "Static Core Workout" ;
+
+    private static StaticCoreWorkout sWorkout ;
 
     private static final StaticCoreExercise[] CORE_EXERCISES = {
             new StaticCoreExercise("Bridge", 30),
@@ -15,11 +17,16 @@ public class StaticCoreWorkout extends Workout {
             new StaticCoreExercise("Leg Lever", 30)
     } ;
 
-    private int mMaxSets ;
-
-    public static StaticCoreWorkout newStaticCoreWorkout() {
-        return new StaticCoreWorkout(STATIC_CORE_NAME, CORE_EXERCISES, 2) ;
+    public static StaticCoreWorkout get() {
+        if (sWorkout == null) {
+            sWorkout = new StaticCoreWorkout(NAME, CORE_EXERCISES, 2);
+        }
+        return sWorkout ;
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    private int mMaxSets ;
 
     public StaticCoreWorkout(String name, Exercise[] exercises, int maxSets) {
         super(name, exercises) ;

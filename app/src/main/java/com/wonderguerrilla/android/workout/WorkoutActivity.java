@@ -27,16 +27,20 @@ public class WorkoutActivity extends SingleFragmentActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu) ;
-        getMenuInflater().inflate(R.menu.menu_exercise_list, menu) ;
+        getMenuInflater().inflate(R.menu.menu_workout, menu) ;
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.workout_menu_item_commit:
+            case R.id.menu_workout_item_commit:
                 mWorkout.save() ;
                 Toast.makeText(this, "Much success!", Toast.LENGTH_SHORT).show() ;
+                return true ;
+            case R.id.menu_workout_item_new:
+                mWorkout.recreate() ;
+                ((WorkoutFragment)getFragment()).update() ;
                 return true ;
             default:
                 return super.onOptionsItemSelected(item) ;

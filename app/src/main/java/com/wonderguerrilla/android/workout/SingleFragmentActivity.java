@@ -7,8 +7,13 @@ import android.support.v7.app.ActionBarActivity;
 
 public abstract class SingleFragmentActivity extends ActionBarActivity {
 
+    private Fragment mFragment ;
+
     protected abstract Fragment newFragment() ;
 
+    protected Fragment getFragment() {
+        return mFragment ;
+    }
     protected void initialize() {}
 
     protected void setTitle() {}
@@ -21,11 +26,11 @@ public abstract class SingleFragmentActivity extends ActionBarActivity {
         setTitle() ;
 
         FragmentManager fragmentManager = getSupportFragmentManager() ;
-        Fragment fragment = fragmentManager.findFragmentById(R.id.fragmentContainer) ;
+        mFragment = fragmentManager.findFragmentById(R.id.fragmentContainer) ;
 
-        if (fragment == null) {
-            fragment = newFragment() ;
-            fragmentManager.beginTransaction().add(R.id.fragmentContainer, fragment).commit() ;
+        if (mFragment == null) {
+            mFragment = newFragment() ;
+            fragmentManager.beginTransaction().add(R.id.fragmentContainer, mFragment).commit() ;
         }
 
     }

@@ -19,6 +19,7 @@ public class LiftingWorkoutOrderGenerator {
     private Context mContext;
     private int mResourceId;
     private boolean mLoaded;
+    private Random mRandom;
     private ArrayList<ArrayList<String>> mPrimaryPairs;
     private ArrayList<ArrayList<String>> mInjuryPrevention;
     private ArrayList<String> mOrder;
@@ -28,11 +29,12 @@ public class LiftingWorkoutOrderGenerator {
         mResourceId = resourceId;
     }
 
-    public String[] getOrder() {
+    public String[] generateOrder() {
         if (!mLoaded) {
             loadExercises();
+            mRandom = new Random() ;
         }
-        mOrder = new ArrayList<String>();
+        mOrder = new ArrayList<>();
         addPrimaryPairs() ;
         addInjuryPrevention() ;
         return mOrder.toArray(new String[mOrder.size()]);
@@ -54,6 +56,14 @@ public class LiftingWorkoutOrderGenerator {
         return outer;
     }
 
+    private ArrayList<ArrayList<String>> copyArrayListArrayList(ArrayList<ArrayList<String>> outer) {
+        ArrayList<ArrayList<String>> copy = new ArrayList<>();
+        for (int i = 0 ; i < outer.size() ; i++) {
+            copy.add(new ArrayList<String>(outer.get(i))) ;
+        }
+        return copy ;
+    }
+
     private void loadExercises() {
         JSONObject object = new JSONReader(mContext, mResourceId).get();
         try {
@@ -66,35 +76,38 @@ public class LiftingWorkoutOrderGenerator {
 
     private void addPrimaryPairs() {
 
-        Random random = new Random();
-        int firstFromPair = random.nextInt(2) ;
+        ArrayList<ArrayList<String>> primaryPairsCopy = copyArrayListArrayList(mPrimaryPairs) ;
 
-        while(mPrimaryPairs.size()> 0) {
+        int firstFromPair = mRandom.nextInt(2) ;
 
-            int groupIndex = random.nextInt(mPrimaryPairs.size());
+        while (primaryPairsCopy.size()> 0) {
 
-            ArrayList<String> currentGroup = mPrimaryPairs.get(groupIndex);
+            int groupIndex = mRandom.nextInt(primaryPairsCopy.size());
+
+            ArrayList<String> currentGroup = primaryPairsCopy.get(groupIndex);
 
             mOrder.add(currentGroup.get(firstFromPair)) ;
             currentGroup.remove(firstFromPair) ;
             mOrder.add(currentGroup.get(0)) ;
 
-            mPrimaryPairs.remove(groupIndex);
+            primaryPairsCopy.remove(groupIndex);
         }
 
     }
 
     private void addInjuryPrevention() {
-        Random random = new Random();
-        while (mInjuryPrevention.size() > 0) {
-            int groupIndex = random.nextInt(mInjuryPrevention.size());
-            ArrayList<String> currentGroup = mInjuryPrevention.get(groupIndex);
+
+        ArrayList<ArrayList<String>> injuryPreventionCopy = copyArrayListArrayList(mInjuryPrevention) ;
+
+        while (injuryPreventionCopy.size() > 0) {
+            int groupIndex = mRandom.nextInt(injuryPreventionCopy.size());
+            ArrayList<String> currentGroup = injuryPreventionCopy.get(groupIndex);
             while (currentGroup.size() > 0) {
-                int exerciseIndex = random.nextInt(currentGroup.size()) ;
+                int exerciseIndex = mRandom.nextInt(currentGroup.size()) ;
                 mOrder.add(currentGroup.get(exerciseIndex)) ;
                 currentGroup.remove(exerciseIndex) ;
             }
-            mInjuryPrevention.remove(groupIndex) ;
+            injuryPreventionCopy.remove(groupIndex) ;
         }
     }
 

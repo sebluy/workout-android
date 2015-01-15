@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class WorkoutFragment extends ListFragment {
 
     Workout mWorkout ;
@@ -18,8 +21,9 @@ public class WorkoutFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState) ;
         mWorkout = WorkoutHolder.get() ;
-        setListAdapter(new ArrayAdapter<String>(
-                getActivity(), android.R.layout.simple_list_item_1, mWorkout.getExerciseNames())) ;
+        ArrayList<String> names = new ArrayList<>(Arrays.asList(mWorkout.getExerciseNames())) ;
+        setListAdapter(new ArrayAdapter<>(
+                getActivity(), android.R.layout.simple_list_item_1, names)) ;
     }
 
     @Override
@@ -29,4 +33,12 @@ public class WorkoutFragment extends ListFragment {
         startActivity(intent) ;
     }
 
+    public void update() {
+        ArrayAdapter<String> adapter = (ArrayAdapter<String>)getListAdapter() ;
+        ArrayList<String> names = new ArrayList<>(Arrays.asList(mWorkout.getExerciseNames())) ;
+        adapter.clear() ;
+        for (int i = 0 ; i < names.size() ; i++) {
+            adapter.add(names.get(i)) ;
+        }
+    }
 }

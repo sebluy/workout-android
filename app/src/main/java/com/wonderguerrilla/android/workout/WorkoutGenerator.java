@@ -15,7 +15,7 @@ public class WorkoutGenerator {
         SWIM,
         LiftingWorkout.LOWER_NAME,
         BASKETBALL,
-        StaticCoreWorkout.STATIC_CORE_NAME
+        StaticCoreWorkout.NAME
     } ;
 
     public static String[] getWorkoutNames() {
@@ -25,13 +25,13 @@ public class WorkoutGenerator {
     public static Workout create(String workoutName, Context context) {
         switch (workoutName) {
             case LiftingWorkout.UPPER_NAME:
-                return LiftingWorkout.newUpperLiftingWorkout(context) ;
+                return LiftingWorkout.getUpper(context) ;
             case CalisthenicWorkout.NAME:
-                return CalisthenicWorkout.generate(context) ;
+                return CalisthenicWorkout.get(context) ;
             case LiftingWorkout.LOWER_NAME:
-                return LiftingWorkout.newLowerLiftingWorkout(context) ;
-            case StaticCoreWorkout.STATIC_CORE_NAME :
-                return StaticCoreWorkout.newStaticCoreWorkout() ;
+                return LiftingWorkout.getLower(context) ;
+            case StaticCoreWorkout.NAME :
+                return StaticCoreWorkout.get() ;
             default:
                 return new Workout(workoutName, null) ;
         }
