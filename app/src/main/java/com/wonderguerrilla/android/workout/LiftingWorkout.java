@@ -17,7 +17,6 @@ public class LiftingWorkout extends Workout {
         LiftingWorkoutGenerator generator = new LiftingWorkoutGenerator(
                 context,
                 "upper_lifting_exercises.json",
-                R.raw.upper_lifting_exercises,
                 R.raw.upper_lifting_exercise_order) ;
 
         return new LiftingWorkout(UPPER_NAME, generator.exerciseArray(), generator) ;
@@ -27,7 +26,6 @@ public class LiftingWorkout extends Workout {
         LiftingWorkoutGenerator generator = new LiftingWorkoutGenerator(
                 context,
                 "lower_lifting_exercises.json",
-                R.raw.lower_lifting_exercises,
                 R.raw.lower_lifting_exercise_order) ;
 
         return new LiftingWorkout(LOWER_NAME, generator.exerciseArray(), generator) ;

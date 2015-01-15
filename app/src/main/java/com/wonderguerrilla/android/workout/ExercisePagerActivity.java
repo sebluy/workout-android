@@ -24,6 +24,7 @@ public class ExercisePagerActivity extends ActionBarActivity {
 
         mViewPager = new ViewPager(this);
         mViewPager.setId(R.id.viewPager);
+        int exerciseNumber = getIntent().getIntExtra(ExerciseFragment.EXTRA_EXERCISE_NUMBER, 0) ;
         setContentView(mViewPager);
 
         mWorkout = WorkoutHolder.get() ;
@@ -41,6 +42,8 @@ public class ExercisePagerActivity extends ActionBarActivity {
                 return mWorkout.size() ;
             }
         });
+
+        mViewPager.setCurrentItem(exerciseNumber) ;
     }
 
     @Override

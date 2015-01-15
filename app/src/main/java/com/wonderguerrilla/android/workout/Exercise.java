@@ -26,6 +26,10 @@ public class Exercise {
         name.setText(mName);
     }
 
+    public String getName() {
+        return mName ;
+    }
+
     public JSONObject toJSON() {
         return new JSONObject() ;
     }

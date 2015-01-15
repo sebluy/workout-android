@@ -17,21 +17,6 @@ public class Workout {
         mExercises = exercises ;
     }
 
-    public int getLayout() {
-        return R.layout.fragment_workout ;
-    }
-
-    public void fillLayout(View view, final WorkoutFragment fragment) {
-        Button start = (Button)view.findViewById(R.id.start_workout_button) ;
-        start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fragment.startNewExercisePagerActivity(mName) ;
-            }
-        });
-
-    }
-
     public void save() {}
 
     public String getName() {
@@ -46,4 +31,11 @@ public class Workout {
         return mExercises.length ;
     }
 
+    public String[] getExerciseNames() {
+        String[] names = new String[mExercises.length] ;
+        for (int i = 0 ; i < names.length ; i++) {
+            names[i] = mExercises[i].getName() ;
+        }
+        return names ;
+    }
 }

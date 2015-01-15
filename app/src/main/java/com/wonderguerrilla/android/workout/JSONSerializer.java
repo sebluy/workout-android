@@ -27,7 +27,7 @@ public class JSONSerializer {
 
     private File mFile ;
 
-    public JSONSerializer(Context context, String filename, int resourceId)  {
+    public JSONSerializer(Context context, String filename)  {
         mFile = new File(context.getFilesDir(), filename) ;
     }
 
@@ -37,7 +37,6 @@ public class JSONSerializer {
         try {
             InputStream inputStream ;
             inputStream = new FileInputStream(mFile);
-//          inputStream = mContext.getResources().openRawResource(mResourceId);
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream)) ;
             while ((line = reader.readLine()) != null) {
                 jsonString.append(line);

@@ -17,8 +17,8 @@ public class LiftingWorkoutGenerator {
     private String[] mOrder ;
     private JSONSerializer mSerializer ;
 
-    public LiftingWorkoutGenerator(Context context, String filename, int exercisesId, int orderId) {
-        mSerializer = new JSONSerializer(context, filename, exercisesId) ;
+    public LiftingWorkoutGenerator(Context context, String filename, int orderId) {
+        mSerializer = new JSONSerializer(context, filename) ;
         mOrder = new LiftingWorkoutOrderGenerator(context, orderId).getOrder() ;
         loadExercises() ;
     }
