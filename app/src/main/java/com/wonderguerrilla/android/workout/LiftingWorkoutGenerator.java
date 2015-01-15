@@ -4,6 +4,7 @@ import android.content.Context;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -49,14 +50,14 @@ public class LiftingWorkoutGenerator {
         mSerializer.put(object) ;
     }
 
-    public LiftingExercise[] generateExercises() {
+    public ArrayList<Exercise> generateExercises() {
         String[] order = mOrderGenerator.generateOrder() ;
         int size = order.length ;
-        LiftingExercise[] exerciseArray = new LiftingExercise[size] ;
+        ArrayList<Exercise> exerciseList = new ArrayList<>(size) ;
         for (int i = 0 ; i < size ; i++) {
-            exerciseArray[i] = mExercises.get(order[i]) ;
+            exerciseList.add(mExercises.get(order[i])) ;
         }
-        return exerciseArray ;
+        return exerciseList ;
     }
 
 }

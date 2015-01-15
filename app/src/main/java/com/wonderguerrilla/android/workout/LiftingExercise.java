@@ -80,4 +80,20 @@ public class LiftingExercise extends Exercise {
         repetitions.setText(String.valueOf(mRepetitions)) ;
 
     }
+
+    @Override
+    public int getListItemLayout() {
+        return R.layout.list_item_lifting_exercise ;
+    }
+
+    @Override
+    public void fillListItemLayout(View view) {
+        super.fillListItemLayout(view);
+
+        TextView weight = (TextView)view.findViewById(R.id.lifting_exercise_list_item_weight) ;
+        weight.setText(String.valueOf(mWeight + " " + mUnit)) ;
+
+        TextView repetitions = (TextView)view.findViewById(R.id.lifting_exercise_list_item_repetitions) ;
+        repetitions.setText(String.valueOf(mRepetitions + " Repetitions")) ;
+    }
 }

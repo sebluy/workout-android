@@ -4,13 +4,14 @@ import android.content.Context;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
 /**
  * Created by sebluy on 12/25/14.
  */
-public class CalisthenicWorkout extends Workout {
+public class CalisthenicWorkout {
 
     public static final String NAME = "Calisthenic Workout" ;
 
@@ -19,7 +20,7 @@ public class CalisthenicWorkout extends Workout {
     private static final int NUMBER_OF_EXERCISES = NUMBER_OF_EXERCISE_TYPES * NUMBER_OF_SETS ;
 
     private static HashMap<String, CalisthenicExerciseType> types ;
-    private static CalisthenicWorkout sWorkout ;
+    private static Workout sWorkout ;
 
     private static void loadTypes(Context context) {
         types = new HashMap<>() ;
@@ -34,41 +35,34 @@ public class CalisthenicWorkout extends Workout {
         } catch (Exception e) {}
     }
 
-    public static CalisthenicWorkout get(Context context) {
+    public static Workout get(Context context) {
         if (sWorkout == null) {
             sWorkout = generate(context) ;
         }
         return sWorkout ;
     }
 
-    private static CalisthenicWorkout generate(Context context) {
+    private static Workout generate(Context context) {
         if (types == null) {
             loadTypes(context);
         }
-        Exercise[] exercises = new Exercise[NUMBER_OF_EXERCISES] ;
+        ArrayList<Exercise> exercises = new ArrayList<>(NUMBER_OF_EXERCISES) ;
 
-        Exercise[] pushUpExercises = types.get("Push-Up").generateUniqueSets(NUMBER_OF_SETS) ;
-        Exercise[] pullUpExercises = types.get("Pull-Up").generateUniqueSets(NUMBER_OF_SETS) ;
-        Exercise[] coreExercises = types.get("Dynamic Core").generateUniqueSets(NUMBER_OF_SETS) ;
-        Exercise[] squatExercises = types.get("Squat").generateUniqueSets(NUMBER_OF_SETS) ;
-        Exercise[] lungeExercises = types.get("Lunge").generateUniqueSets(NUMBER_OF_SETS) ;
+        ArrayList<Exercise> pushUpExercises = types.get("Push-Up").generateUniqueSets(NUMBER_OF_SETS) ;
+        ArrayList<Exercise> pullUpExercises = types.get("Pull-Up").generateUniqueSets(NUMBER_OF_SETS) ;
+        ArrayList<Exercise> coreExercises = types.get("Dynamic Core").generateUniqueSets(NUMBER_OF_SETS) ;
+        ArrayList<Exercise> squatExercises = types.get("Squat").generateUniqueSets(NUMBER_OF_SETS) ;
+        ArrayList<Exercise> lungeExercises = types.get("Lunge").generateUniqueSets(NUMBER_OF_SETS) ;
 
         for (int i = 0 ; i < NUMBER_OF_SETS ; i++) {
-            int exerciseIndex = NUMBER_OF_EXERCISE_TYPES * i ;
-            exercises[exerciseIndex++] = pushUpExercises[i] ;
-            exercises[exerciseIndex++] = squatExercises[i] ;
-            exercises[exerciseIndex++] = coreExercises[i] ;
-            exercises[exerciseIndex++] = pullUpExercises[i] ;
-            exercises[exerciseIndex] = lungeExercises[i] ;
+            exercises.add(pushUpExercises.get(i)) ;
+            exercises.add(squatExercises.get(i)) ;
+            exercises.add(coreExercises.get(i)) ;
+            exercises.add(pullUpExercises.get(i)) ;
+            exercises.add(lungeExercises.get(i)) ;
         }
 
-        return new CalisthenicWorkout(exercises) ;
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public CalisthenicWorkout(Exercise[] exercises) {
-        super(NAME, exercises) ;
+        return new Workout(NAME, exercises) ;
     }
 
 }

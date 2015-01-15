@@ -25,8 +25,7 @@ public class CalisthenicExerciseType {
         try {
             mRepetitions = object.getInt("Repetitions") ;
 
-            JSONArray variations = object.getJSONArray("Variations");
-            int length = variations.length() ;
+            JSONArray variations = object.getJSONArray("Variations"); int length = variations.length() ;
             mVariations = new String[length] ;
             for (int i = 0 ; i < length ; i++) {
                 mVariations[i] = variations.getString(i);
@@ -55,10 +54,10 @@ public class CalisthenicExerciseType {
     /* perhaps refactor into generic method that takes an array and dumps a new one
         without repeating elements before exhausting and also no matching neighbors
      */
-    public CalisthenicExercise[] generateUniqueSets(int numberOfSets) {
+    public ArrayList<Exercise> generateUniqueSets(int numberOfSets) {
 
-        ArrayList<String> variations = new ArrayList<String>(Arrays.asList(mVariations)) ;
-        ArrayList<CalisthenicExercise> exercises = new ArrayList<CalisthenicExercise>(numberOfSets) ;
+        ArrayList<String> variations = new ArrayList<>(Arrays.asList(mVariations)) ;
+        ArrayList<Exercise> exercises = new ArrayList<>(numberOfSets) ;
 
         Random rand = new Random() ;
 
@@ -88,6 +87,6 @@ public class CalisthenicExerciseType {
             lastVariation = variations.remove(variationIndex) ;
         }
 
-        return exercises.toArray(new CalisthenicExercise[numberOfSets]) ;
+        return exercises ;
     }
 }

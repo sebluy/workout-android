@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,9 +22,8 @@ public class WorkoutFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState) ;
         mWorkout = WorkoutHolder.get() ;
-        ArrayList<String> names = new ArrayList<>(Arrays.asList(mWorkout.getExerciseNames())) ;
-        setListAdapter(new ArrayAdapter<>(
-                getActivity(), android.R.layout.simple_list_item_1, names)) ;
+        ArrayList<Exercise> names = new ArrayList<>(mWorkout.getExercises()) ;
+        setListAdapter(new ExerciseAdapter(names)) ;
     }
 
     @Override
@@ -34,11 +34,32 @@ public class WorkoutFragment extends ListFragment {
     }
 
     public void update() {
-        ArrayAdapter<String> adapter = (ArrayAdapter<String>)getListAdapter() ;
-        ArrayList<String> names = new ArrayList<>(Arrays.asList(mWorkout.getExerciseNames())) ;
+        ExerciseAdapter adapter = (ExerciseAdapter)getListAdapter() ;
         adapter.clear() ;
-        for (int i = 0 ; i < names.size() ; i++) {
-            adapter.add(names.get(i)) ;
+        ArrayList<Exercise> exercises = mWorkout.getExercises() ;
+        for (int i = 0 ; i < exercises.size() ; i++) {
+            adapter.add(exercises.get(i)) ;
+        }
+    }
+
+    private class ExerciseAdapter extends ArrayAdapter<Exercise> {
+
+        public ExerciseAdapter(ArrayList<Exercise> exercises) {
+            super(getActivity(), 0, exercises) ;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            Exercise exercise = getItem(position) ;
+
+            if (convertView == null) {
+                convertView = getActivity().getLayoutInflater().inflate(exercise.getListItemLayout(), null) ;
+            }
+
+            exercise.fillListItemLayout(convertView) ;
+
+            return convertView ;
         }
     }
 }

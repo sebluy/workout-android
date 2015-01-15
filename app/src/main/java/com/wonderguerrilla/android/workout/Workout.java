@@ -1,5 +1,8 @@
 package com.wonderguerrilla.android.workout;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 /**
  * Created by sebluy on 12/25/14.
  */
@@ -7,34 +10,31 @@ package com.wonderguerrilla.android.workout;
 public class Workout {
 
     private String mName ;
-    protected Exercise[] mExercises ;
+    protected ArrayList<Exercise> mExercises ;
 
-    public Workout(String name, Exercise[] exercises) {
+    public Workout(String name, ArrayList<Exercise> exercises) {
         mName = name ;
         mExercises = exercises ;
     }
-
-    public void save() {}
 
     public String getName() {
         return mName ;
     }
 
+    public void save() {}
+
     public void recreate() {}
 
     public Exercise getExercise(int index) {
-        return mExercises[index] ;
+        return mExercises.get(index) ;
+    }
+
+    public ArrayList<Exercise> getExercises() {
+        return mExercises ;
     }
 
     public int size() {
-        return mExercises.length ;
+        return mExercises.size() ;
     }
 
-    public String[] getExerciseNames() {
-        String[] names = new String[size()] ;
-        for (int i = 0 ; i < size() ; i++) {
-            names[i] = getExercise(i).getName() ;
-        }
-        return names ;
-    }
 }

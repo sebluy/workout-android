@@ -1,12 +1,18 @@
 package com.wonderguerrilla.android.workout;
- /**
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+/**
  * Created by sebluy on 12/25/14.
  */
-public class StaticCoreWorkout extends Workout {
+public class StaticCoreWorkout {
 
     public static final String NAME = "Static Core Workout" ;
 
-    private static StaticCoreWorkout sWorkout ;
+    private static final int CIRCUITS = 2 ;
+
+    private static Workout sWorkout ;
 
     private static final StaticCoreExercise[] CORE_EXERCISES = {
             new StaticCoreExercise("Bridge", 30),
@@ -17,30 +23,18 @@ public class StaticCoreWorkout extends Workout {
             new StaticCoreExercise("Leg Lever", 30)
     } ;
 
-    public static StaticCoreWorkout get() {
+    public static Workout get() {
         if (sWorkout == null) {
-            sWorkout = new StaticCoreWorkout(NAME, CORE_EXERCISES, 2);
+            sWorkout = generate() ;
         }
         return sWorkout ;
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////
-
-    private int mMaxSets ;
-
-    public StaticCoreWorkout(String name, Exercise[] exercises, int maxSets) {
-        super(name, exercises) ;
-        mMaxSets = maxSets ;
+    private static Workout generate() {
+        ArrayList<Exercise> exercises = new ArrayList<>(CORE_EXERCISES.length * CIRCUITS) ;
+        for (int i = 0 ; i < CIRCUITS ; i++) {
+            exercises.addAll(Arrays.asList(CORE_EXERCISES)) ;
+        }
+        return new Workout(NAME, exercises) ;
     }
-
-    @Override
-    public Exercise getExercise(int index) {
-        return mExercises[index % mExercises.length] ;
-    }
-
-    @Override
-    public int size() {
-        return mExercises.length * mMaxSets ;
-    }
-
 }
