@@ -53,6 +53,6 @@ public class StaticCoreWorkout {
         for (int i = 0 ; i < CIRCUITS ; i++) {
             workout.addAll(sExercises) ;
         }
-        return new Workout(NAME, workout) ;
+        return new MultipleExerciseWorkout(NAME, workout) ;
     }
 }

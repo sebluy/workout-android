@@ -5,7 +5,6 @@ import android.content.Context;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -74,7 +73,7 @@ public class CalisthenicWorkout {
             }
         }
 
-        return new Workout(NAME, exercises) ;
+        return new MultipleExerciseWorkout(NAME, exercises) ;
     }
 
 }

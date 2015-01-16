@@ -16,7 +16,7 @@ public class WorkoutActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment newFragment() {
-        return new WorkoutFragment() ;
+        return mWorkout.newFragment() ;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class WorkoutActivity extends SingleFragmentActivity {
                 return true ;
             case R.id.menu_workout_item_new:
                 mWorkout.recreate() ;
-                ((WorkoutFragment)getFragment()).update() ;
+                ((ExerciseListFragment)getFragment()).update() ;
                 return true ;
             default:
                 return super.onOptionsItemSelected(item) ;

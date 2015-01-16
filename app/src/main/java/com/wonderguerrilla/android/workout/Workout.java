@@ -1,5 +1,9 @@
 package com.wonderguerrilla.android.workout;
 
+import android.support.v4.app.Fragment;
+import android.view.View;
+import android.widget.TextView;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -10,11 +14,9 @@ import java.util.ArrayList;
 public class Workout {
 
     private String mName ;
-    protected ArrayList<Exercise> mExercises ;
 
-    public Workout(String name, ArrayList<Exercise> exercises) {
+    public Workout(String name) {
         mName = name ;
-        mExercises = exercises ;
     }
 
     public String getName() {
@@ -25,16 +27,17 @@ public class Workout {
 
     public void recreate() {}
 
-    public Exercise getExercise(int index) {
-        return mExercises.get(index) ;
+    public Fragment newFragment() {
+        return new WorkoutFragment() ;
     }
 
-    public ArrayList<Exercise> getExercises() {
-        return mExercises ;
+    public int getLayout() {
+        return R.layout.fragment_workout ;
     }
 
-    public int size() {
-        return mExercises.size() ;
+    public void fillLayout(View view) {
+        TextView title = (TextView)view.findViewById(R.id.workout_title) ;
+        title.setText(mName) ;
     }
 
 }

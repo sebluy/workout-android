@@ -13,7 +13,7 @@ import android.support.v7.app.ActionBarActivity;
 public class ExercisePagerActivity extends ActionBarActivity {
 
     private ViewPager mViewPager ;
-    private Workout mWorkout ;
+    private MultipleExerciseWorkout mWorkout ;
 
     @Override
     public void onCreate(Bundle savedInstanceBundle) {
@@ -24,7 +24,7 @@ public class ExercisePagerActivity extends ActionBarActivity {
         int exerciseNumber = getIntent().getIntExtra(ExerciseFragment.EXTRA_EXERCISE_NUMBER, 0) ;
         setContentView(mViewPager);
 
-        mWorkout = WorkoutHolder.get() ;
+        mWorkout = (MultipleExerciseWorkout)WorkoutHolder.get() ;
         setTitle(mWorkout.getName());
 
         FragmentManager fm = getSupportFragmentManager();

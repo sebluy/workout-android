@@ -6,7 +6,7 @@ import android.content.Context;
  * Created by sebluy on 12/25/14.
  */
 
-public class LiftingWorkout extends Workout {
+public class LiftingWorkout extends MultipleExerciseWorkout {
 
     public static final String LOWER_NAME = "Lower Lifting" ;
     public static final String UPPER_NAME = "Upper Lifting" ;

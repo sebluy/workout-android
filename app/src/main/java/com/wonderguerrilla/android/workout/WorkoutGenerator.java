@@ -30,10 +30,12 @@ public class WorkoutGenerator {
                 return CalisthenicWorkout.get(context) ;
             case LiftingWorkout.LOWER_NAME:
                 return LiftingWorkout.getLower(context) ;
-            case StaticCoreWorkout.NAME :
+            case BasketballWorkout.NAME:
+                return new BasketballWorkout(30) ;
+            case StaticCoreWorkout.NAME:
                 return StaticCoreWorkout.get(context) ;
             default:
-                return new Workout(workoutName, null) ;
+                return new Workout(workoutName) ;
         }
     }
 
