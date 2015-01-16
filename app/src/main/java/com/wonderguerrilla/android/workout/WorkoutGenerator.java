@@ -4,8 +4,8 @@ import android.content.Context;
 
 public class WorkoutGenerator {
 
-    private static final String RUN = "Run Workout" ;
-    private static final String SWIM = "Swim Workout" ;
+    private static final String RUN = "Run" ;
+    private static final String SWIM = "Swim" ;
     private static final String BASKETBALL = "Basketball" ;
 
     private static String[] sWorkoutNames = {
@@ -31,7 +31,7 @@ public class WorkoutGenerator {
             case LiftingWorkout.LOWER_NAME:
                 return LiftingWorkout.getLower(context) ;
             case StaticCoreWorkout.NAME :
-                return StaticCoreWorkout.get() ;
+                return StaticCoreWorkout.get(context) ;
             default:
                 return new Workout(workoutName, null) ;
         }

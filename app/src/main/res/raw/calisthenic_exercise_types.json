@@ -2,6 +2,7 @@
     "Push-Up": {
 
         "Repetitions": 5,
+        "Sets": 6,
 
         "Variations": [
             "Normal Push-Up",
@@ -19,6 +20,7 @@
     "Pull-Up": {
 
         "Repetitions": 3,
+        "Sets": 6,
 
         "Variations": [
             "Normal Pull-Up",
@@ -33,6 +35,7 @@
     "Dynamic Core": {
 
         "Repetitions": 10,
+        "Sets": 6,
 
         "Variations": [
             "Normal Crunch",
@@ -48,6 +51,7 @@
     "Squat": {
 
         "Repetitions": 10,
+        "Sets": 6,
 
         "Variations": [
             "Squat",
@@ -61,6 +65,7 @@
     "Lunge": {
 
         "Repetitions": 10,
+        "Sets": 6,
 
         "Variations": [
             "Forward Lunge",

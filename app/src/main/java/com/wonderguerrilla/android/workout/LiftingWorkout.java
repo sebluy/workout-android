@@ -8,8 +8,8 @@ import android.content.Context;
 
 public class LiftingWorkout extends Workout {
 
-    public static final String LOWER_NAME = "Lower Lifting Workout" ;
-    public static final String UPPER_NAME = "Upper Lifting Workout" ;
+    public static final String LOWER_NAME = "Lower Lifting" ;
+    public static final String UPPER_NAME = "Upper Lifting" ;
 
     private static LiftingWorkout sUpper ;
     private static LiftingWorkout sLower ;
