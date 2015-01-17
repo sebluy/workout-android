@@ -9,18 +9,4 @@ public class StaticCoreWorkout {
 
     public static final String NAME = "Static Core" ;
 
-    private static MultipleExerciseWorkout sWorkout ;
-
-    public static MultipleExerciseWorkout get(Context context) {
-        if (sWorkout == null) {
-            sWorkout = newInstance(context) ;
-        }
-        return sWorkout ;
-    }
-
-    private static MultipleExerciseWorkout newInstance(Context context) {
-        StaticCoreWorkoutGenerator generator = new StaticCoreWorkoutGenerator(context) ;
-        return new MultipleExerciseWorkout(NAME, generator) ;
-    }
-
 }

@@ -19,7 +19,7 @@ public class WorkoutHolder {
         StaticCoreWorkout.NAME
     } ;
 
-    private static HashMap<String, Workout> sWorkouts ;
+    private static HashMap<String, Workout> sWorkouts = new HashMap<>() ;
     private static Workout sCurrent;
 
     public static String[] getNames() {
@@ -29,15 +29,15 @@ public class WorkoutHolder {
     public static Workout create(String workoutName, Context context) {
         switch (workoutName) {
             case LiftingWorkout.UPPER_NAME:
-                return LiftingWorkout.getUpper(context) ;
+                return new MultipleExerciseWorkout(workoutName, LiftingWorkoutGenerator.getUpper(context)) ;
             case CalisthenicWorkout.NAME:
-                return CalisthenicWorkout.get(context) ;
+                return new MultipleExerciseWorkout(workoutName, new CalisthenicWorkoutGenerator(context)) ;
             case LiftingWorkout.LOWER_NAME:
-                return LiftingWorkout.getLower(context) ;
+                return new MultipleExerciseWorkout(workoutName, LiftingWorkoutGenerator.getLower(context)) ;
             case BasketballWorkout.NAME:
                 return new BasketballWorkout(30) ;
             case StaticCoreWorkout.NAME:
-                return StaticCoreWorkout.get(context) ;
+                return new MultipleExerciseWorkout(workoutName, new StaticCoreWorkoutGenerator(context)) ;
             default:
                 return new Workout(workoutName) ;
         }
@@ -54,10 +54,8 @@ public class WorkoutHolder {
     }
 
     public static Workout getFromPosition(int position, Context context) {
-        return create(sWorkoutNames[position], context) ;
+        return get(sWorkoutNames[position], context) ;
     }
-
-    public static Workout sHolder ;
 
     public static Workout getCurrent() {
         return sCurrent ;
