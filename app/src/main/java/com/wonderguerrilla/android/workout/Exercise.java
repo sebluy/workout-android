@@ -1,5 +1,6 @@
 package com.wonderguerrilla.android.workout;
 
+import android.support.v4.app.Fragment ;
 import android.view.View;
 import android.widget.TextView;
 
@@ -33,6 +34,7 @@ public class Exercise {
         TextView name = (TextView)view.findViewById(R.id.name) ;
         name.setText(mName) ;
     }
+
     public int getListItemLayout() {
         return R.layout.list_item_exercise ;
     }

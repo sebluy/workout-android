@@ -1,12 +1,12 @@
 package com.wonderguerrilla.android.workout;
 
+import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -56,7 +56,7 @@ public class LiftingExercise extends Exercise {
 
     @Override
     public void fillLayout(View view) {
-        super.fillLayout(view);
+        super.fillLayout(view) ;
 
         TextView weight = (TextView)view.findViewById(R.id.weight) ;
         EditText repetitions = (EditText)view.findViewById(R.id.edit_repetitions) ;
@@ -88,7 +88,7 @@ public class LiftingExercise extends Exercise {
 
     @Override
     public void fillListItemLayout(View view) {
-        super.fillLayout(view);
+        super.fillLayout(view) ;
 
         TextView weight = (TextView)view.findViewById(R.id.weight) ;
         weight.setText(String.valueOf(mWeight + " " + mUnit)) ;
