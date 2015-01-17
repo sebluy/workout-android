@@ -3,11 +3,11 @@
         [
             ["Front Squat", "Deadlift"],
             ["Leg Extension", "Leg Curl"],
-            ["Lunge", "Calf Raise"],
-            ["Hip Abduction", "Hip Adduction"]
+            ["Lunge", "Calf Raise"]
         ],
     "Injury Prevention":
         [
+            ["Hip Abduction", "Hip Adduction"],
             ["Terminal Knee Extension"]
         ]
 }

@@ -24,7 +24,7 @@ public class ExercisePagerActivity extends ActionBarActivity {
         int exerciseNumber = getIntent().getIntExtra(ExerciseFragment.EXTRA_EXERCISE_NUMBER, 0) ;
         setContentView(mViewPager);
 
-        mWorkout = (MultipleExerciseWorkout)WorkoutHolder.get() ;
+        mWorkout = (MultipleExerciseWorkout)WorkoutHolder.getCurrent() ;
         setTitle(mWorkout.getName());
 
         FragmentManager fm = getSupportFragmentManager();

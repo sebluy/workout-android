@@ -16,6 +16,21 @@ import java.util.Random;
 
 public class LiftingWorkoutOrderGenerator {
 
+    private static final int UPPER_ORDER_ID = R.raw.upper_lifting_exercise_order ;
+    private static final int LOWER_ORDER_ID = R.raw.lower_lifting_exercise_order ;
+
+    public static LiftingWorkoutOrderGenerator getUpper(Context context) {
+        JSONReader reader = new JSONReader(context, UPPER_ORDER_ID) ;
+        return new LiftingWorkoutOrderGenerator(reader.get()) ;
+    }
+
+    public static LiftingWorkoutOrderGenerator getLower(Context context) {
+        JSONReader reader = new JSONReader(context, LOWER_ORDER_ID) ;
+        return new LiftingWorkoutOrderGenerator(reader.get()) ;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
     private ArrayList<ArrayList<String>> mPrimaryPairs;
     private ArrayList<ArrayList<String>> mInjuryPrevention;
     private ArrayList<String> mOrder;

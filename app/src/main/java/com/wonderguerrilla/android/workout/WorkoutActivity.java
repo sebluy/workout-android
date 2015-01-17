@@ -21,7 +21,7 @@ public class WorkoutActivity extends SingleFragmentActivity {
 
     @Override
     protected void initialize() {
-        mWorkout = WorkoutHolder.get() ;
+        mWorkout = WorkoutHolder.getCurrent() ;
     }
 
     @Override

@@ -12,12 +12,10 @@ public class MultipleExerciseWorkout extends Workout {
 
     private ArrayList<Exercise> mExercises ;
     private WorkoutGenerator mGenerator ;
-    private WorkoutStorage mStorage ;
 
-    public MultipleExerciseWorkout(String name, WorkoutGenerator generator, WorkoutStorage storage) {
+    public MultipleExerciseWorkout(String name, WorkoutGenerator generator) {
         super(name) ;
         mGenerator = generator ;
-        mStorage = storage ;
         recreate() ;
     }
 

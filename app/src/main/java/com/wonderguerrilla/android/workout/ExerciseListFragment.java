@@ -17,7 +17,7 @@ public class ExerciseListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState) ;
-        mWorkout = (MultipleExerciseWorkout)WorkoutHolder.get() ;
+        mWorkout = (MultipleExerciseWorkout)WorkoutHolder.getCurrent() ;
         ArrayList<Exercise> names = new ArrayList<>(mWorkout.getExercises()) ;
         setListAdapter(new ExerciseAdapter(names)) ;
     }

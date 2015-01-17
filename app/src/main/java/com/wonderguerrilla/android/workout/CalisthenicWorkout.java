@@ -62,7 +62,7 @@ public class CalisthenicWorkout extends MultipleExerciseWorkout {
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     public CalisthenicWorkout() {
-        super(NAME, null, null) ;
+        super(NAME, null) ;
     }
 
     protected ArrayList<Exercise> generateExercises() {

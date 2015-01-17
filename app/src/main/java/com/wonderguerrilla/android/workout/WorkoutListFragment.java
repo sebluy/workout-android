@@ -12,15 +12,15 @@ public class WorkoutListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState) ;
-        String[] workoutNames = WorkoutGetter.getWorkoutNames() ;
-        setListAdapter(new ArrayAdapter<String>(
+        String[] workoutNames = WorkoutHolder.getNames() ;
+        setListAdapter(new ArrayAdapter<>(
                 getActivity(), android.R.layout.simple_list_item_1, workoutNames)) ;
     }
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        Workout newWorkout = WorkoutGetter.createFromPosition(position, getActivity()) ;
-        WorkoutHolder.put(newWorkout) ;
+        Workout newWorkout = WorkoutHolder.getFromPosition(position, getActivity()) ;
+        WorkoutHolder.setCurrent(newWorkout) ;
         Intent intent = new Intent(getActivity(), WorkoutActivity.class) ;
         startActivity(intent) ;
     }

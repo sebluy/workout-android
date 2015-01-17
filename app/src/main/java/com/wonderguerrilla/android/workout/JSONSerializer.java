@@ -1,17 +1,13 @@
 package com.wonderguerrilla.android.workout;
 
 import android.content.Context;
-import android.util.Log;
-import android.view.inputmethod.InputMethodManager;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,14 +22,35 @@ import java.io.Writer;
 public class JSONSerializer {
 
     private File mFile ;
+    private JSONObject mObject ;
 
     public JSONSerializer(Context context, String filename)  {
         mFile = new File(context.getFilesDir(), filename) ;
     }
 
+    public JSONSerializer(Context context, String filename, int rawId)  {
+        mFile = new File(context.getFilesDir(), filename) ;
+        if (mFile.length() == 0) {
+            JSONReader reader = new JSONReader(context, rawId) ;
+            put(reader.get()) ;
+        }
+    }
+
     public JSONObject get() {
+        if (mObject == null) {
+            mObject = read();
+        }
+        return mObject ;
+    }
+
+    public void put(JSONObject object) {
+        mObject = object ;
+        write(object) ;
+    }
+
+    public JSONObject read() {
         StringBuilder jsonString = new StringBuilder() ;
-        String line = null ;
+        String line ;
         try {
             InputStream inputStream ;
             inputStream = new FileInputStream(mFile);
@@ -47,7 +64,7 @@ public class JSONSerializer {
         }
     }
 
-    public void put(JSONObject object) {
+    public void write(JSONObject object) {
         try {
             OutputStream outputStream = new FileOutputStream(mFile) ;
             Writer writer = new OutputStreamWriter(outputStream);

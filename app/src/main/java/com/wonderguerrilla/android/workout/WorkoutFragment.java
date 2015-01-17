@@ -16,7 +16,7 @@ public class WorkoutFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState) ;
-        mWorkout = WorkoutHolder.get() ;
+        mWorkout = WorkoutHolder.getCurrent() ;
     }
 
     @Override
