@@ -17,7 +17,7 @@ public class StaticCoreWorkoutGenerator extends WorkoutGenerator {
     private static final int RAW_ID = R.raw.static_core_exercises ;
     private static final int CIRCUITS = 2 ;
 
-    private static ArrayList<Exercise> sExercises ;
+    private static ArrayList<StaticCoreExercise> sExercises ;
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -36,10 +36,15 @@ public class StaticCoreWorkoutGenerator extends WorkoutGenerator {
 
     @Override
     public ArrayList<Exercise> generateExercises() {
+        for (StaticCoreExercise exercise : sExercises) {
+            exercise.levelUp() ;
+        }
         Collections.shuffle(sExercises) ;
         ArrayList<Exercise> workout = new ArrayList<>(CIRCUITS * sExercises.size()) ;
         for (int i = 0 ; i < CIRCUITS ; i++) {
-            workout.addAll(sExercises) ;
+            for (StaticCoreExercise exercise : sExercises) {
+                workout.add(exercise.clone()) ;
+            }
         }
 
         return workout ;

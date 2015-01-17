@@ -29,6 +29,12 @@ public class ExerciseListFragment extends ListFragment {
         startActivity(intent) ;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume() ;
+        update() ;
+    }
+
     public void update() {
         ExerciseAdapter adapter = (ExerciseAdapter)getListAdapter() ;
         adapter.clear() ;

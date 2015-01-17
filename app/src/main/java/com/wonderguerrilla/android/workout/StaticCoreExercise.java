@@ -13,10 +13,16 @@ import org.json.JSONObject;
  * Created by sebluy on 12/25/14.
  */
 
-public class StaticCoreExercise extends Exercise {
+public class StaticCoreExercise extends Exercise implements Cloneable {
 
-    int mDuration;
-    TextView mDurationView;
+    private double mDuration;
+    private boolean mStarted ;
+    private TextView mDurationView;
+    private String mTimeLeft ;
+
+    private String formatDuration(double duration) {
+        return String.format("%.1f Seconds", duration) ;
+    }
 
     public StaticCoreExercise(String name, JSONObject object) {
         super(name);
@@ -24,6 +30,21 @@ public class StaticCoreExercise extends Exercise {
             mDuration = object.getInt("Duration");
         } catch (Exception e) {
         }
+        mTimeLeft = formatDuration(mDuration) ;
+    }
+
+    public StaticCoreExercise(String name, double duration) {
+        super(name) ;
+        mDuration = duration ;
+        mTimeLeft = formatDuration(mDuration) ;
+    }
+
+    public void levelUp() {
+        mDuration *= 1.05 ;
+    }
+
+    public StaticCoreExercise clone() {
+        return new StaticCoreExercise(getName(), mDuration) ;
     }
 
     @Override
@@ -40,22 +61,27 @@ public class StaticCoreExercise extends Exercise {
         mDurationView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new CountDownTimer(30000, 100) {
-                    @Override
-                    public void onTick(long millisUntilFinished) {
-                        mDurationView.setText(String.format("%.1f Seconds", millisUntilFinished / 1000.0));
-                    }
+                if (!mStarted) {
+                    new CountDownTimer((long)mDuration * 1000, 100) {
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+                            mTimeLeft = formatDuration(millisUntilFinished / 1000.0);
+                            mDurationView.setText(mTimeLeft) ;
+                        }
 
-                    @Override
-                    public void onFinish() {
-                        ((Vibrator)mDurationView.getContext().getSystemService(Context.VIBRATOR_SERVICE)).vibrate(500) ;
-                        mDurationView.setText("Done");
-                    }
-                }.start();
+                        @Override
+                        public void onFinish() {
+                            ((Vibrator)mDurationView.getContext().getSystemService(Context.VIBRATOR_SERVICE)).vibrate(500);
+                            mTimeLeft = "Done" ;
+                            mDurationView.setText(mTimeLeft) ;
+                        }
+                    }.start();
+                    mStarted = true ;
+                }
             }
         });
 
-        mDurationView.setText(mDuration + " Seconds");
+        mDurationView.setText(mTimeLeft);
     }
 
     @Override
