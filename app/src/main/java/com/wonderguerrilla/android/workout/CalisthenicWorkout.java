@@ -2,6 +2,7 @@ package com.wonderguerrilla.android.workout;
 
 import android.content.Context;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -13,13 +14,37 @@ import java.util.Stack;
 /**
  * Created by sebluy on 12/25/14.
  */
-public class CalisthenicWorkout {
+public class CalisthenicWorkout extends MultipleExerciseWorkout {
 
     public static final String NAME = "Calisthenic" ;
 
-    private static final String[] sOrder = {"Push-Up", "Squat", "Dynamic Core", "Pull-Up", "Lunge"} ;
+    private static ArrayList<String> sOrder ;
     private static HashMap<String, CalisthenicExerciseType> sTypes ;
     private static Workout sWorkout ;
+
+    public static Workout get(Context context) {
+        if (sWorkout == null) {
+            if (sTypes == null) {
+                loadTypes(context) ;
+            }
+            if (sOrder == null) {
+                loadOrder(context) ;
+            }
+            sWorkout = new CalisthenicWorkout() ;
+        }
+        return sWorkout ;
+    }
+
+    private static void loadOrder(Context context) {
+        sOrder = new ArrayList<>() ;
+        try {
+            JSONObject object = new JSONReader(context, R.raw.calisthenic_exercise_order).get() ;
+            JSONArray array = object.getJSONArray("Order") ;
+            for (int i = 0 ; i < array.length() ; i++) {
+                sOrder.add(array.getString(i)) ;
+            }
+        } catch (Exception e) {}
+    }
 
     private static void loadTypes(Context context) {
         sTypes = new HashMap<>() ;
@@ -34,20 +59,17 @@ public class CalisthenicWorkout {
         } catch (Exception e) {}
     }
 
-    public static Workout get(Context context) {
-        if (sWorkout == null) {
-            sWorkout = generate(context) ;
-        }
-        return sWorkout ;
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public CalisthenicWorkout() {
+        super(NAME, null, null) ;
     }
 
-    private static Workout generate(Context context) {
-        if (sTypes == null) {
-            loadTypes(context);
-        }
-        ArrayList<Exercise> exercises = new ArrayList<>() ;
+    protected ArrayList<Exercise> generateExercises() {
 
+        ArrayList<Exercise> exercises = new ArrayList<>() ;
         ArrayList<Stack<Exercise>> sets = new ArrayList<>();
+
         for (String type : sOrder) {
             sets.add(sTypes.get(type).generateUniqueSets());
         }
@@ -73,7 +95,7 @@ public class CalisthenicWorkout {
             }
         }
 
-        return new MultipleExerciseWorkout(NAME, exercises) ;
+        return exercises ;
     }
 
 }

@@ -6,14 +6,14 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/exercise_name"
+        android:id="@+id/name"
         android:textSize="30dp"
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
    <TextView
-        android:id="@+id/core_exercise_duration"
+        android:id="@+id/duration"
         android:textSize="30dp"
         android:gravity="center"
         android:layout_width="wrap_content"

@@ -10,16 +10,16 @@ import java.util.ArrayList;
 
 public class MultipleExerciseWorkout extends Workout {
 
-    protected ArrayList<Exercise> mExercises ;
+    private ArrayList<Exercise> mExercises ;
+    private WorkoutGenerator mGenerator ;
+    private WorkoutStorage mStorage ;
 
-    public MultipleExerciseWorkout(String name, ArrayList<Exercise> exercises) {
+    public MultipleExerciseWorkout(String name, WorkoutGenerator generator, WorkoutStorage storage) {
         super(name) ;
-        mExercises = exercises ;
+        mGenerator = generator ;
+        mStorage = storage ;
+        recreate() ;
     }
-
-    public void save() {}
-
-    public void recreate() {}
 
     public Exercise getExercise(int index) {
         return mExercises.get(index) ;
@@ -32,6 +32,12 @@ public class MultipleExerciseWorkout extends Workout {
     public int size() {
         return mExercises.size() ;
     }
+
+    public void recreate() {
+        mExercises = mGenerator.generateExercises() ;
+    }
+
+    public void save() {}
 
     public Fragment newFragment() {
         return new ExerciseListFragment() ;

@@ -16,28 +16,24 @@ import java.util.Random;
 
 public class LiftingWorkoutOrderGenerator {
 
-    private Context mContext;
-    private int mResourceId;
-    private boolean mLoaded;
-    private Random mRandom;
     private ArrayList<ArrayList<String>> mPrimaryPairs;
     private ArrayList<ArrayList<String>> mInjuryPrevention;
     private ArrayList<String> mOrder;
+    private Random mRandom;
 
-    public LiftingWorkoutOrderGenerator(Context context, int resourceId) {
-        mContext = context;
-        mResourceId = resourceId;
+    public LiftingWorkoutOrderGenerator(JSONObject object) {
+         try {
+            mPrimaryPairs = newArrayListArrayList(object.getJSONArray("Primary Pairs"));
+            mInjuryPrevention = newArrayListArrayList(object.getJSONArray("Injury Prevention"));
+            mRandom = new Random() ;
+        } catch (Exception e) {}
     }
 
-    public String[] generateOrder() {
-        if (!mLoaded) {
-            loadExercises();
-            mRandom = new Random() ;
-        }
-        mOrder = new ArrayList<>();
+    public ArrayList<String> generate() {
+        mOrder = new ArrayList<>() ;
         addPrimaryPairs() ;
         addInjuryPrevention() ;
-        return mOrder.toArray(new String[mOrder.size()]);
+        return mOrder ;
     }
 
     private ArrayList<ArrayList<String>> newArrayListArrayList(JSONArray json) {
@@ -59,19 +55,9 @@ public class LiftingWorkoutOrderGenerator {
     private ArrayList<ArrayList<String>> copyArrayListArrayList(ArrayList<ArrayList<String>> outer) {
         ArrayList<ArrayList<String>> copy = new ArrayList<>();
         for (int i = 0 ; i < outer.size() ; i++) {
-            copy.add(new ArrayList<String>(outer.get(i))) ;
+            copy.add(new ArrayList<>(outer.get(i))) ;
         }
         return copy ;
-    }
-
-    private void loadExercises() {
-        JSONObject object = new JSONReader(mContext, mResourceId).get();
-        try {
-            mPrimaryPairs = newArrayListArrayList(object.getJSONArray("Primary Pairs"));
-            mInjuryPrevention = newArrayListArrayList(object.getJSONArray("Injury Prevention"));
-            mLoaded = true;
-        } catch (Exception e) {
-        }
     }
 
     private void addPrimaryPairs() {

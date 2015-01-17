@@ -36,7 +36,7 @@ public class Workout {
     }
 
     public void fillLayout(View view) {
-        TextView title = (TextView)view.findViewById(R.id.workout_title) ;
+        TextView title = (TextView)view.findViewById(R.id.name) ;
         title.setText(mName) ;
     }
 

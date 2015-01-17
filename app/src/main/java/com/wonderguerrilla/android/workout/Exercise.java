@@ -30,15 +30,14 @@ public class Exercise {
     }
 
     public void fillLayout(View view) {
-        TextView name = (TextView)view.findViewById(R.id.exercise_name) ;
-        name.setText(mName);
+        TextView name = (TextView)view.findViewById(R.id.name) ;
+        name.setText(mName) ;
     }
     public int getListItemLayout() {
         return R.layout.list_item_exercise ;
     }
 
     public void fillListItemLayout(View view) {
-        TextView title = (TextView)view.findViewById(R.id.exercise_list_item_title) ;
-        title.setText(mName) ;
+        fillLayout(view) ;
     }
 }

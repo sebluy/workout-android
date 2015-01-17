@@ -4,18 +4,14 @@ import android.content.Context;
 
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Iterator;
 
 /**
  * Created by sebluy on 12/25/14.
  */
-public class StaticCoreWorkout {
+public class StaticCoreWorkout extends MultipleExerciseWorkout {
 
     public static final String NAME = "Static Core" ;
 
@@ -26,7 +22,10 @@ public class StaticCoreWorkout {
 
     public static Workout get(Context context) {
         if (sWorkout == null) {
-            sWorkout = generate(context) ;
+            if (sExercises == null) {
+                loadExercises(context) ;
+            }
+            sWorkout = new StaticCoreWorkout() ;
         }
         return sWorkout ;
     }
@@ -43,16 +42,20 @@ public class StaticCoreWorkout {
         } catch (Exception e) {}
     }
 
-    private static Workout generate(Context context) {
-        if (sExercises == null) {
-            loadExercises(context) ;
-        }
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 
+    public StaticCoreWorkout() {
+        super(NAME, null, null) ;
+    }
+
+    protected ArrayList<Exercise> generateExercises() {
         Collections.shuffle(sExercises) ;
         ArrayList<Exercise> workout = new ArrayList<>(CIRCUITS * sExercises.size()) ;
         for (int i = 0 ; i < CIRCUITS ; i++) {
             workout.addAll(sExercises) ;
         }
-        return new MultipleExerciseWorkout(NAME, workout) ;
+
+        return workout ;
     }
+
 }

@@ -24,7 +24,7 @@ public class BasketballWorkout extends Workout {
 
     public void fillLayout(View view) {
         super.fillLayout(view) ;
-        TextView duration = (TextView)view.findViewById(R.id.basketball_workout_duration) ;
+        TextView duration = (TextView)view.findViewById(R.id.duration) ;
         duration.setText(mDuration + " Minutes") ;
     }
 

@@ -11,4 +11,13 @@
         android:paddingLeft="4dp"
         android:paddingRight="4dp"/>
 
+    <TextView
+        android:id="@+id/duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:textSize="20dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"/>
+
 </RelativeLayout>

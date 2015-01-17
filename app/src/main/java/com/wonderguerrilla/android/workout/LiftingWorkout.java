@@ -1,7 +1,6 @@
 package com.wonderguerrilla.android.workout;
 
 import android.content.Context;
-
 /**
  * Created by sebluy on 12/25/14.
  */
@@ -29,40 +28,23 @@ public class LiftingWorkout extends MultipleExerciseWorkout {
     }
 
     private static LiftingWorkout newUpper(Context context) {
-        LiftingWorkoutGenerator generator = new LiftingWorkoutGenerator(
-                context,
-                "upper_lifting_exercises.json",
-                R.raw.upper_lifting_exercise_order) ;
-
-        return new LiftingWorkout(UPPER_NAME, generator) ;
+        return newInstance(UPPER_NAME, LiftingWorkoutStorage.getUpper(context)) ;
     }
 
     private static LiftingWorkout newLower(Context context) {
-        LiftingWorkoutGenerator generator = new LiftingWorkoutGenerator(
-                context,
-                "lower_lifting_exercises.json",
-                R.raw.lower_lifting_exercise_order) ;
+        return newInstance(LOWER_NAME, LiftingWorkoutStorage.getLower(context)) ;
+    }
 
-        return new LiftingWorkout(LOWER_NAME, generator) ;
+    private static LiftingWorkout newInstance(String name, LiftingWorkoutStorage storage) {
+        LiftingWorkoutOrderGenerator orderGenerator = new LiftingWorkoutOrderGenerator(storage.getOrder()) ;
+        LiftingWorkoutGenerator generator = new LiftingWorkoutGenerator(storage.getExercises(), orderGenerator) ;
+        return new LiftingWorkout(name, generator, storage) ;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
-    private LiftingWorkoutGenerator mGenerator ;
-
-    @Override
-    public void save() {
-        mGenerator.saveExercises();
-    }
-
-    public LiftingWorkout(String name, LiftingWorkoutGenerator generator) {
-        super(name, generator.generateExercises()) ;
-        mGenerator = generator ;
-    }
-
-    @Override
-    public void recreate() {
-        mExercises = mGenerator.generateExercises() ;
+    public LiftingWorkout(String name, LiftingWorkoutGenerator generator, LiftingWorkoutStorage storage) {
+        super(name, generator, storage) ;
     }
 
 }

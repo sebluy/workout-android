@@ -22,14 +22,20 @@ public class StaticCoreExercise extends Exercise {
 
     @Override
     public int getLayout() {
-        return R.layout.fragment_core_exercise ;
+        return R.layout.fragment_static_core_exercise ;
     }
 
     @Override
     public void fillLayout(View view) {
         super.fillLayout(view) ;
 
-        TextView duration = (TextView)view.findViewById(R.id.core_exercise_duration) ;
+        TextView duration = (TextView)view.findViewById(R.id.duration) ;
         duration.setText(mDuration + " Seconds") ;
     }
+
+    @Override
+    public int getListItemLayout() {
+        return R.layout.list_item_static_core_exercise ;
+    }
+
 }
