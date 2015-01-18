@@ -1,10 +1,13 @@
-package com.wonderguerrilla.android.workout;
+package com.wonderguerrilla.android.workout.LiftingWorkout;
 
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.wonderguerrilla.android.workout.Exercise;
+import com.wonderguerrilla.android.workout.R;
 
 /**
  * Created by sebluy on 12/20/14.

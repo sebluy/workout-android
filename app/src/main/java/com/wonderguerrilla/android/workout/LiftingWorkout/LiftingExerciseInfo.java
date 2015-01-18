@@ -1,4 +1,4 @@
-package com.wonderguerrilla.android.workout;
+package com.wonderguerrilla.android.workout.LiftingWorkout;
 
 /**
  * Created by sebluy on 12/20/14.

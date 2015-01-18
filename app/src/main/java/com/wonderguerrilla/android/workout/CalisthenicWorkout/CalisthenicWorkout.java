@@ -1,4 +1,4 @@
-package com.wonderguerrilla.android.workout;
+package com.wonderguerrilla.android.workout.CalisthenicWorkout;
 
 import android.content.Context;
 

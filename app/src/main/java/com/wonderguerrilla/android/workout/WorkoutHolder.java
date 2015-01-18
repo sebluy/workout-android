@@ -2,6 +2,10 @@ package com.wonderguerrilla.android.workout;
 
 import android.content.Context;
 
+import com.wonderguerrilla.android.workout.CalisthenicWorkout.CalisthenicWorkout;
+import com.wonderguerrilla.android.workout.CalisthenicWorkout.CalisthenicWorkoutGenerator;
+import com.wonderguerrilla.android.workout.LiftingWorkout.LiftingWorkoutInfo;
+
 import java.util.HashMap;
 
 public class WorkoutHolder {
@@ -29,11 +33,11 @@ public class WorkoutHolder {
     public static Workout create(String workoutName, Context context) {
         switch (workoutName) {
             case LiftingWorkoutInfo.UPPER_NAME:
-                return LiftingWorkoutGenerator.newUpper().generateWorkout() ;
+                return LiftingWorkoutInfo.newUpper().getGenerator().newWorkout() ;
             case CalisthenicWorkout.NAME:
                 return new MultipleExerciseWorkout(workoutName, new CalisthenicWorkoutGenerator()) ;
             case LiftingWorkoutInfo.LOWER_NAME:
-                return LiftingWorkoutGenerator.newLower().generateWorkout() ;
+                return LiftingWorkoutInfo.newLower().getGenerator().newWorkout() ;
             case BasketballWorkout.NAME:
                 return new BasketballWorkout(30) ;
             case StaticCoreWorkout.NAME:

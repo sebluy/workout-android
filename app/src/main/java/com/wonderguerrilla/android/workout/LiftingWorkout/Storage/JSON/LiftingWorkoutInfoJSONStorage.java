@@ -1,4 +1,8 @@
-package com.wonderguerrilla.android.workout;
+package com.wonderguerrilla.android.workout.LiftingWorkout.Storage.JSON;
+
+import com.wonderguerrilla.android.workout.JSONSerializer;
+import com.wonderguerrilla.android.workout.LiftingWorkout.LiftingExerciseInfo;
+import com.wonderguerrilla.android.workout.R;
 
 import org.json.JSONObject;
 
@@ -8,7 +12,7 @@ import java.util.Iterator;
 /**
  * Created by sebluy on 1/18/15.
  */
-public class LiftingWorkoutInfoStorage {
+public class LiftingWorkoutInfoJSONStorage {
 
     private static final String UPPER_FILENAME = "upper_lifting_exercises.json" ;
     private static final String LOWER_FILENAME = "lower_lifting_exercises.json" ;
@@ -16,12 +20,12 @@ public class LiftingWorkoutInfoStorage {
     private static final int UPPER_RAW_ID = R.raw.upper_lifting_exercises ;
     private static final int LOWER_RAW_ID = R.raw.lower_lifting_exercises ;
 
-    public static LiftingWorkoutInfoStorage newUpper() {
-        return new LiftingWorkoutInfoStorage(UPPER_FILENAME, UPPER_RAW_ID) ;
+    public static LiftingWorkoutInfoJSONStorage newUpper() {
+        return new LiftingWorkoutInfoJSONStorage(UPPER_FILENAME, UPPER_RAW_ID) ;
     }
 
-    public static LiftingWorkoutInfoStorage newLower() {
-        return new LiftingWorkoutInfoStorage(LOWER_FILENAME, LOWER_RAW_ID) ;
+    public static LiftingWorkoutInfoJSONStorage newLower() {
+        return new LiftingWorkoutInfoJSONStorage(LOWER_FILENAME, LOWER_RAW_ID) ;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -29,7 +33,7 @@ public class LiftingWorkoutInfoStorage {
     private String mFilename ;
     private int mRawId ;
 
-    public LiftingWorkoutInfoStorage(String filename, int rawId) {
+    public LiftingWorkoutInfoJSONStorage(String filename, int rawId) {
         mFilename = filename ;
         mRawId = rawId ;
     }

@@ -1,26 +1,27 @@
-package com.wonderguerrilla.android.workout;
+package com.wonderguerrilla.android.workout.LiftingWorkout.Storage.JSON;
+
+import com.wonderguerrilla.android.workout.JSONReader;
+import com.wonderguerrilla.android.workout.R;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 
 /**
  * Created by sebluy on 1/18/15.
  */
-public class LiftingWorkoutOrderStorage {
+public class LiftingWorkoutOrderJSONStorage {
 
     private static final int UPPER_RAW_ID = R.raw.upper_lifting_exercise_order ;
     private static final int LOWER_RAW_ID = R.raw.lower_lifting_exercise_order ;
 
-    public static LiftingWorkoutOrderStorage newUpper() {
-        return new LiftingWorkoutOrderStorage(UPPER_RAW_ID) ;
+    public static LiftingWorkoutOrderJSONStorage newUpper() {
+        return new LiftingWorkoutOrderJSONStorage(UPPER_RAW_ID) ;
     }
 
-    public static LiftingWorkoutOrderStorage newLower() {
-        return new LiftingWorkoutOrderStorage(LOWER_RAW_ID) ;
+    public static LiftingWorkoutOrderJSONStorage newLower() {
+        return new LiftingWorkoutOrderJSONStorage(LOWER_RAW_ID) ;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -28,7 +29,7 @@ public class LiftingWorkoutOrderStorage {
     private ArrayList<ArrayList<String>> mPrimaryPairs ;
     private ArrayList<ArrayList<String>> mInjuryPrevention ;
 
-    public LiftingWorkoutOrderStorage(int rawId) {
+    public LiftingWorkoutOrderJSONStorage(int rawId) {
         try {
             JSONObject object = new JSONReader(rawId).get() ;
             mPrimaryPairs = newArrayListArrayList(object.getJSONArray("Primary Pairs")) ;

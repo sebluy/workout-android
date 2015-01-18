@@ -1,13 +1,8 @@
-package com.wonderguerrilla.android.workout;
+package com.wonderguerrilla.android.workout.LiftingWorkout;
 
-import android.content.Context;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.wonderguerrilla.android.workout.LiftingWorkout.Storage.LiftingWorkoutStorage;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Random;
 
 /**
@@ -16,23 +11,13 @@ import java.util.Random;
 
 public class LiftingWorkoutOrderGenerator {
 
-    public static LiftingWorkoutOrderGenerator newUpper() {
-        return new LiftingWorkoutOrderGenerator(LiftingWorkoutOrderStorage.newUpper()) ;
-    }
-
-    public static LiftingWorkoutOrderGenerator newLower() {
-        return new LiftingWorkoutOrderGenerator(LiftingWorkoutOrderStorage.newLower()) ;
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////
-
     private ArrayList<ArrayList<String>> mPrimaryPairs;
     private ArrayList<ArrayList<String>> mInjuryPrevention;
     private ArrayList<String> mOrder;
     private Random mRandom;
 
 
-    public LiftingWorkoutOrderGenerator(LiftingWorkoutOrderStorage storage) {
+    public LiftingWorkoutOrderGenerator(LiftingWorkoutStorage storage) {
         mPrimaryPairs = storage.getPrimaryPairs() ;
         mInjuryPrevention = storage.getInjuryPrevention() ;
         mRandom = new Random() ;

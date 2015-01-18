@@ -1,6 +1,10 @@
-package com.wonderguerrilla.android.workout;
+package com.wonderguerrilla.android.workout.CalisthenicWorkout;
 
-import android.content.Context;
+import com.wonderguerrilla.android.workout.Exercise;
+import com.wonderguerrilla.android.workout.JSONReader;
+import com.wonderguerrilla.android.workout.JSONSerializer;
+import com.wonderguerrilla.android.workout.R;
+import com.wonderguerrilla.android.workout.WorkoutGenerator;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -24,7 +28,7 @@ public class CalisthenicWorkoutGenerator extends WorkoutGenerator {
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     private ArrayList<String> mOrder ;
-    private HashMap<String, CalisthenicExerciseType> mTypes ;
+    private HashMap<String, CalisthenicExerciseInfo> mTypes ;
 
     public CalisthenicWorkoutGenerator() {
         loadTypes() ;
@@ -49,7 +53,7 @@ public class CalisthenicWorkoutGenerator extends WorkoutGenerator {
             Iterator<String> keyIterator = object.keys();
             while (keyIterator.hasNext()) {
                 String key = keyIterator.next();
-                mTypes.put(key, new CalisthenicExerciseType(object.getJSONObject(key)));
+                mTypes.put(key, new CalisthenicExerciseInfo(object.getJSONObject(key)));
             }
         } catch (Exception e) {}
     }
