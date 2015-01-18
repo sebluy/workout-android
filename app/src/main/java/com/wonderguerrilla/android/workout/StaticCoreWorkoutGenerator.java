@@ -22,7 +22,7 @@ public class StaticCoreWorkoutGenerator extends WorkoutGenerator {
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     public StaticCoreWorkoutGenerator(Context context) {
-        JSONSerializer serializer = new JSONSerializer(context, EXERCISE_FILENAME, RAW_ID) ;
+        JSONSerializer serializer = new JSONSerializer(EXERCISE_FILENAME, RAW_ID) ;
         JSONObject object = serializer.get() ;
         sExercises = new ArrayList<>() ;
         try {

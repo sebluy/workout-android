@@ -16,17 +16,12 @@ import java.util.Random;
 
 public class LiftingWorkoutOrderGenerator {
 
-    private static final int UPPER_ORDER_ID = R.raw.upper_lifting_exercise_order ;
-    private static final int LOWER_ORDER_ID = R.raw.lower_lifting_exercise_order ;
-
-    public static LiftingWorkoutOrderGenerator getUpper(Context context) {
-        JSONReader reader = new JSONReader(context, UPPER_ORDER_ID) ;
-        return new LiftingWorkoutOrderGenerator(reader.get()) ;
+    public static LiftingWorkoutOrderGenerator newUpper() {
+        return new LiftingWorkoutOrderGenerator(LiftingWorkoutOrderStorage.newUpper()) ;
     }
 
-    public static LiftingWorkoutOrderGenerator getLower(Context context) {
-        JSONReader reader = new JSONReader(context, LOWER_ORDER_ID) ;
-        return new LiftingWorkoutOrderGenerator(reader.get()) ;
+    public static LiftingWorkoutOrderGenerator newLower() {
+        return new LiftingWorkoutOrderGenerator(LiftingWorkoutOrderStorage.newLower()) ;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -36,12 +31,11 @@ public class LiftingWorkoutOrderGenerator {
     private ArrayList<String> mOrder;
     private Random mRandom;
 
-    public LiftingWorkoutOrderGenerator(JSONObject object) {
-         try {
-            mPrimaryPairs = newArrayListArrayList(object.getJSONArray("Primary Pairs"));
-            mInjuryPrevention = newArrayListArrayList(object.getJSONArray("Injury Prevention"));
-            mRandom = new Random() ;
-        } catch (Exception e) {}
+
+    public LiftingWorkoutOrderGenerator(LiftingWorkoutOrderStorage storage) {
+        mPrimaryPairs = storage.getPrimaryPairs() ;
+        mInjuryPrevention = storage.getInjuryPrevention() ;
+        mRandom = new Random() ;
     }
 
     public ArrayList<String> generate() {
@@ -49,22 +43,6 @@ public class LiftingWorkoutOrderGenerator {
         addPrimaryPairs() ;
         addInjuryPrevention() ;
         return mOrder ;
-    }
-
-    private ArrayList<ArrayList<String>> newArrayListArrayList(JSONArray json) {
-        ArrayList<ArrayList<String>> outer = new ArrayList<>();
-        try {
-            for (int i = 0; i < json.length(); i++) {
-                JSONArray innerJson = json.getJSONArray(i);
-                ArrayList<String> innerArrayList = new ArrayList<>();
-                for (int j = 0; j < innerJson.length(); j++) {
-                    innerArrayList.add(innerJson.getString(j));
-                }
-                outer.add(innerArrayList);
-            }
-        } catch (Exception e) {
-        }
-        return outer;
     }
 
     private ArrayList<ArrayList<String>> copyArrayListArrayList(ArrayList<ArrayList<String>> outer) {

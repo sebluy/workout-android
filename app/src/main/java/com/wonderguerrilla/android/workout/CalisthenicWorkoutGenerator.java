@@ -26,13 +26,13 @@ public class CalisthenicWorkoutGenerator extends WorkoutGenerator {
     private ArrayList<String> mOrder ;
     private HashMap<String, CalisthenicExerciseType> mTypes ;
 
-    public CalisthenicWorkoutGenerator(Context context) {
-        loadTypes(context) ;
-        loadOrder(context) ;
+    public CalisthenicWorkoutGenerator() {
+        loadTypes() ;
+        loadOrder() ;
     }
 
-    private void loadOrder(Context context) {
-        JSONObject object = new JSONReader(context, ORDER_RAW_ID).get() ;
+    private void loadOrder() {
+        JSONObject object = new JSONReader(ORDER_RAW_ID).get() ;
         mOrder = new ArrayList<>() ;
         try {
             JSONArray array = object.getJSONArray("Order") ;
@@ -42,8 +42,8 @@ public class CalisthenicWorkoutGenerator extends WorkoutGenerator {
         } catch (Exception e) {}
     }
 
-    private void loadTypes(Context context) {
-        JSONObject object = new JSONSerializer(context, TYPES_FILENAME, TYPES_RAW_ID).get();
+    private void loadTypes() {
+        JSONObject object = new JSONSerializer(TYPES_FILENAME, TYPES_RAW_ID).get();
         mTypes = new HashMap<>() ;
         try {
             Iterator<String> keyIterator = object.keys();

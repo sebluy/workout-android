@@ -1,14 +1,10 @@
 package com.wonderguerrilla.android.workout;
 
-import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  * Created by sebluy on 12/20/14.
@@ -24,29 +20,6 @@ public class LiftingExercise extends Exercise {
         mWeight = weight ;
         mUnit = unit ;
         mRepetitions = repetitions ;
-    }
-
-    public LiftingExercise(String name, JSONObject object) {
-        super(name) ;
-
-        try {
-
-            mRepetitions = object.getInt("Repetitions") ;
-            mUnit = object.getString("Unit") ;
-            mWeight = object.getInt("Weight") ;
-
-        } catch (JSONException e) {
-        }
-    }
-
-    public JSONObject toJSON() {
-        JSONObject object = new JSONObject() ;
-        try {
-            object.put("Repetitions", mRepetitions);
-            object.put("Unit", mUnit) ;
-            object.put("Weight", mWeight) ;
-        } catch (Exception e) {}
-        return object ;
     }
 
     @Override

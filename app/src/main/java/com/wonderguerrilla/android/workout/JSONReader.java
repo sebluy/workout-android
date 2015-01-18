@@ -24,15 +24,15 @@ public class JSONReader {
 
     private InputStream mInputStream ;
 
-    public JSONReader(Context context, String filename)  {
-        File file = new File(context.getFilesDir(), filename) ;
+    public JSONReader(String filename)  {
+        File file = new File(WorkoutApplication.getContext().getFilesDir(), filename) ;
         try {
             mInputStream = new FileInputStream(file) ;
         } catch (Exception e) {}
     }
 
-    public JSONReader(Context context, int resourceID)  {
-        mInputStream = context.getResources().openRawResource(resourceID) ;
+    public JSONReader(int resourceID)  {
+        mInputStream = WorkoutApplication.getContext().getResources().openRawResource(resourceID) ;
     }
 
     public JSONObject get() {

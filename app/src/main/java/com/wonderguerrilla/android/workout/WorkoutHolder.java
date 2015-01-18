@@ -10,11 +10,11 @@ public class WorkoutHolder {
     private static final String SWIM = "Swim" ;
 
     private static final String[] sWorkoutNames = {
-        LiftingWorkout.UPPER_NAME,
+        LiftingWorkoutInfo.UPPER_NAME,
         RUN,
         CalisthenicWorkout.NAME,
         SWIM,
-        LiftingWorkout.LOWER_NAME,
+        LiftingWorkoutInfo.LOWER_NAME,
         BasketballWorkout.NAME,
         StaticCoreWorkout.NAME
     } ;
@@ -28,12 +28,12 @@ public class WorkoutHolder {
 
     public static Workout create(String workoutName, Context context) {
         switch (workoutName) {
-            case LiftingWorkout.UPPER_NAME:
-                return new MultipleExerciseWorkout(workoutName, LiftingWorkoutGenerator.getUpper(context)) ;
+            case LiftingWorkoutInfo.UPPER_NAME:
+                return LiftingWorkoutGenerator.newUpper().generateWorkout() ;
             case CalisthenicWorkout.NAME:
-                return new MultipleExerciseWorkout(workoutName, new CalisthenicWorkoutGenerator(context)) ;
-            case LiftingWorkout.LOWER_NAME:
-                return new MultipleExerciseWorkout(workoutName, LiftingWorkoutGenerator.getLower(context)) ;
+                return new MultipleExerciseWorkout(workoutName, new CalisthenicWorkoutGenerator()) ;
+            case LiftingWorkoutInfo.LOWER_NAME:
+                return LiftingWorkoutGenerator.newLower().generateWorkout() ;
             case BasketballWorkout.NAME:
                 return new BasketballWorkout(30) ;
             case StaticCoreWorkout.NAME:

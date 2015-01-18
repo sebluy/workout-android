@@ -18,20 +18,16 @@ import java.io.Writer;
 
 /**
  * Created by sebluy on 12/22/14.
- */
-public class JSONSerializer {
+ */ public class JSONSerializer {
 
     private File mFile ;
     private JSONObject mObject ;
 
-    public JSONSerializer(Context context, String filename)  {
-        mFile = new File(context.getFilesDir(), filename) ;
-    }
-
-    public JSONSerializer(Context context, String filename, int rawId)  {
+    public JSONSerializer(String filename, int rawId)  {
+        Context context = WorkoutApplication.getContext() ;
         mFile = new File(context.getFilesDir(), filename) ;
         if (mFile.length() == 0) {
-            JSONReader reader = new JSONReader(context, rawId) ;
+            JSONReader reader = new JSONReader(rawId) ;
             put(reader.get()) ;
         }
     }
