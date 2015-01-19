@@ -36,6 +36,11 @@ public class LiftingWorkoutJSONStorage implements LiftingWorkoutStorage {
     }
 
     @Override
+    public void putExercises(HashMap<String, LiftingExerciseInfo> exercises) {
+        mInfoStorage.putExercises(exercises) ;
+    }
+
+    @Override
     public ArrayList<ArrayList<String>> getPrimaryPairs() {
         return mOrderStorage.getPrimaryPairs() ;
     }

@@ -9,4 +9,6 @@ public interface WorkoutGenerator {
 
     ArrayList<Exercise> generateExercises() ;
 
+    void commit(ArrayList<Exercise> exercises) ;
+
 }

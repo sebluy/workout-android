@@ -35,6 +35,10 @@ public class CalisthenicWorkoutGenerator implements WorkoutGenerator {
         return new MultipleExerciseWorkout(mInfo.getName(), this) ;
     }
 
+
+    @Override
+    public void commit(ArrayList<Exercise> exercises) {}
+
     @Override
     public ArrayList<Exercise> generateExercises() {
 

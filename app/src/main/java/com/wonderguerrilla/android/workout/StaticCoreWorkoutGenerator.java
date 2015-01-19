@@ -35,6 +35,10 @@ public class StaticCoreWorkoutGenerator implements WorkoutGenerator {
     }
 
     @Override
+    public void commit(ArrayList<Exercise> exercises) {
+    }
+
+    @Override
     public ArrayList<Exercise> generateExercises() {
         for (StaticCoreExercise exercise : sExercises) {
             exercise.levelUp() ;

@@ -23,7 +23,7 @@ public class Workout {
         return mName ;
     }
 
-    public void save() {}
+    public void commit() {}
 
     public void recreate() {}
 

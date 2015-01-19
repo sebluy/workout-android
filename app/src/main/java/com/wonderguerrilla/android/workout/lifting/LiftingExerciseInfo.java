@@ -6,15 +6,35 @@ package com.wonderguerrilla.android.workout.lifting;
 public class LiftingExerciseInfo {
 
     private String mName ;
-    private int mWeight ;
+    private double mWeight ;
     private String mUnit ;
     private int mRepetitions ;
 
-    public LiftingExerciseInfo(String name, int weight, String unit, int repetitions) {
+    public LiftingExerciseInfo(String name, double weight, String unit, int repetitions) {
         mName = name ;
         mWeight = weight ;
         mUnit = unit ;
         mRepetitions = repetitions ;
+    }
+
+    public int getRepetitions() {
+        return mRepetitions;
+    }
+
+    public void setRepetitions(int repetitions) {
+        mRepetitions = repetitions;
+    }
+
+    public double getWeight() {
+        return mWeight;
+    }
+
+    public void setWeight(double weight) {
+        mWeight = weight;
+    }
+
+    public String getUnit() {
+        return mUnit;
     }
 
     public LiftingExercise newExercise() {
