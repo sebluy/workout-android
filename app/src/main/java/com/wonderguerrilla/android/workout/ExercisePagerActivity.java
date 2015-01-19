@@ -8,6 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.WindowManager;
 
+import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
+
 /**
  * Created by sebluy on 12/25/14.
  */

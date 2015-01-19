@@ -5,23 +5,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.wonderguerrilla.android.workout.workout.Workout;
+
 public class WorkoutActivity extends SingleFragmentActivity {
 
-    Workout mWorkout ;
+    private Workout mWorkout ;
+    private WorkoutUI mWorkoutUI;
 
     @Override
     protected void setTitle() {
-        setTitle(mWorkout.getName()) ;
+        setTitle(mWorkoutUI.getTitle()) ;
     }
 
     @Override
     protected Fragment newFragment() {
-        return mWorkout.newFragment() ;
+        return mWorkoutUI.newFragment() ;
     }
 
     @Override
     protected void initialize() {
         mWorkout = WorkoutHolder.getCurrent() ;
+        mWorkoutUI = new WorkoutUI(mWorkout) ;
     }
 
     @Override

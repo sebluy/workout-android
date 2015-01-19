@@ -1,12 +1,11 @@
 package com.wonderguerrilla.android.workout;
 
-import android.content.Context;
-
-import com.wonderguerrilla.android.workout.calisthenic.CalisthenicWorkout;
-import com.wonderguerrilla.android.workout.calisthenic.CalisthenicWorkoutGenerator;
-import com.wonderguerrilla.android.workout.calisthenic.CalisthenicWorkoutInfo;
-import com.wonderguerrilla.android.workout.lifting.LiftingWorkoutInfo;
-import com.wonderguerrilla.android.workout.staticcore.StaticCoreWorkoutInfo;
+import com.wonderguerrilla.android.workout.workout.BasketballWorkout;
+import com.wonderguerrilla.android.workout.workout.Workout;
+import com.wonderguerrilla.android.workout.workout.calisthenic.CalisthenicWorkout;
+import com.wonderguerrilla.android.workout.workout.calisthenic.CalisthenicWorkoutInfo;
+import com.wonderguerrilla.android.workout.workout.lifting.LiftingWorkoutInfo;
+import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkoutInfo;
 
 import java.util.HashMap;
 
@@ -22,7 +21,7 @@ public class WorkoutHolder {
         SWIM,
         LiftingWorkoutInfo.LOWER_NAME,
         BasketballWorkout.NAME,
-        StaticCoreWorkout.NAME
+        StaticCoreWorkoutInfo.NAME
     } ;
 
     private static HashMap<String, Workout> sWorkouts = new HashMap<>() ;
@@ -42,7 +41,7 @@ public class WorkoutHolder {
                 return LiftingWorkoutInfo.newLower().getGenerator().newWorkout() ;
             case BasketballWorkout.NAME:
                 return new BasketballWorkout(30) ;
-            case StaticCoreWorkout.NAME:
+            case StaticCoreWorkoutInfo.NAME:
                 return new StaticCoreWorkoutInfo().getGenerator().newWorkout() ;
             default:
                 return new Workout(workoutName) ;

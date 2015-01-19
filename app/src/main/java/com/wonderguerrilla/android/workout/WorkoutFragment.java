@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.wonderguerrilla.android.workout.workout.Workout;
+
 /**
  * Created by sebluy on 1/16/15.
  */

@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.wonderguerrilla.android.workout.workout.Exercise;
+import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
+
 import java.util.ArrayList;
 
 public class ExerciseListFragment extends ListFragment {
