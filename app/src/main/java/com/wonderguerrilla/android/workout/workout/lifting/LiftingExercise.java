@@ -33,50 +33,11 @@ public class LiftingExercise extends Exercise {
         return mRepetitions;
     }
 
-    @Override
-    public int getLayout() {
-        return R.layout.fragment_lifting_exercise ;
+    public void setRepetitions(int repetitions) {
+        mRepetitions = repetitions;
     }
 
-    @Override
-    public void fillLayout(View view) {
-        super.fillLayout(view) ;
-
-        TextView weight = (TextView)view.findViewById(R.id.weight) ;
-        EditText repetitions = (EditText)view.findViewById(R.id.edit_repetitions) ;
-        repetitions.addTextChangedListener(new TextWatcher() {
-            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String string = s.toString() ;
-                if (!string.equals("")) {
-                    mRepetitions = Integer.parseInt(string);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {}
-        });
-
-        weight.setText(mWeight + " " + mUnit) ;
-        repetitions.setText(String.valueOf(mRepetitions)) ;
-
+    public String getUnit() {
+        return mUnit;
     }
-
-    @Override
-    public int getListItemLayout() {
-        return R.layout.list_item_lifting_exercise ;
-    }
-
-    @Override
-    public void fillListItemLayout(View view) {
-        super.fillLayout(view) ;
-
-        TextView weight = (TextView)view.findViewById(R.id.weight) ;
-        weight.setText(String.valueOf(mWeight + " " + mUnit)) ;
-
-        TextView repetitions = (TextView)view.findViewById(R.id.repetitions) ;
-        repetitions.setText(String.valueOf(mRepetitions + " Repetitions")) ;
-    }
-
 }

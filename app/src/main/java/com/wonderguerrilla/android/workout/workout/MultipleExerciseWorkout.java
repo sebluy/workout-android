@@ -41,7 +41,4 @@ public class MultipleExerciseWorkout extends Workout {
         mGenerator.commit(mExercises) ;
     }
 
-    public Fragment newFragment() {
-        return new ExerciseListFragment() ;
-    }
 }

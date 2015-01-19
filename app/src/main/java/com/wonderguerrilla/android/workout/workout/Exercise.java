@@ -24,24 +24,4 @@ public class Exercise {
         return mName ;
     }
 
-    public JSONObject toJSON() {
-        return new JSONObject() ;
-    }
-
-    public int getLayout() {
-        return R.layout.fragment_exercise ;
-    }
-
-    public void fillLayout(View view) {
-        TextView name = (TextView)view.findViewById(R.id.name) ;
-        name.setText(mName) ;
-    }
-
-    public int getListItemLayout() {
-        return R.layout.list_item_exercise ;
-    }
-
-    public void fillListItemLayout(View view) {
-        fillLayout(view) ;
-    }
 }

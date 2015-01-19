@@ -18,25 +18,7 @@ public class CalisthenicExercise extends Exercise {
         mRepetitions = repetitions ;
     }
 
-    @Override
-    public int getLayout() {
-        return R.layout.fragment_calisthenic_exercise ;
-    }
-
-    @Override
-    public void fillLayout(View view) {
-        super.fillLayout(view) ;
-        TextView repetitions = (TextView)view.findViewById(R.id.repetitions) ;
-        repetitions.setText(mRepetitions + " Repetitions") ;
-    }
-
-    @Override
-    public int getListItemLayout() {
-        return R.layout.list_item_calisthenic_exercise ;
-    }
-
-    @Override
-    public void fillListItemLayout(View view) {
-        fillLayout(view) ;
+    public int getRepetitions() {
+        return mRepetitions;
     }
 }

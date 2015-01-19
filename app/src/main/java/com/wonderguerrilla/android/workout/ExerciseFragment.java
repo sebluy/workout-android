@@ -17,7 +17,7 @@ public class ExerciseFragment extends Fragment {
     public static final String EXTRA_EXERCISE_NUMBER =
             "com.wonderguerrilla.android.workout.exercise_number" ;
 
-    private Exercise mExercise ;
+    private ExerciseUI mExerciseUI ;
 
     public static ExerciseFragment newInstance(int exerciseNumber) {
         Bundle args = new Bundle() ;
@@ -34,14 +34,15 @@ public class ExerciseFragment extends Fragment {
         super.onCreate(savedInstanceState) ;
         int exerciseNumber = getArguments().getInt(EXTRA_EXERCISE_NUMBER) ;
         MultipleExerciseWorkout workout = (MultipleExerciseWorkout)WorkoutHolder.getCurrent() ;
-        mExercise = workout.getExercise(exerciseNumber) ;
+        Exercise exercise = workout.getExercise(exerciseNumber) ;
+        mExerciseUI = ExerciseUI.get(exercise) ;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
 
-        View v = inflater.inflate(mExercise.getLayout(), parent, false) ;
-        mExercise.fillLayout(v) ;
+        View v = inflater.inflate(mExerciseUI.getLayout(), parent, false) ;
+        mExerciseUI.fillLayout(v) ;
 
         return v ;
     }

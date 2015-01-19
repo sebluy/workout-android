@@ -21,6 +21,7 @@ public class ExerciseListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState) ;
         mWorkout = (MultipleExerciseWorkout)WorkoutHolder.getCurrent() ;
+
         ArrayList<Exercise> names = new ArrayList<>(mWorkout.getExercises()) ;
         setListAdapter(new ExerciseAdapter(names)) ;
     }
@@ -57,12 +58,13 @@ public class ExerciseListFragment extends ListFragment {
         public View getView(int position, View convertView, ViewGroup parent) {
 
             Exercise exercise = getItem(position) ;
+            ExerciseUI exerciseUI = ExerciseUI.get(exercise) ;
 
             if (convertView == null) {
-                convertView = getActivity().getLayoutInflater().inflate(exercise.getListItemLayout(), null) ;
+                convertView = getActivity().getLayoutInflater().inflate(exerciseUI.getListItemLayout(), null) ;
             }
 
-            exercise.fillListItemLayout(convertView) ;
+            exerciseUI.fillListItemLayout(convertView) ;
 
             return convertView ;
         }

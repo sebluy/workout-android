@@ -27,10 +27,6 @@ public class WorkoutFragmentUI {
         mWorkout = workout ;
     }
 
-    public Workout getWorkout() {
-        return mWorkout ;
-    }
-
     public int getLayout() {
         return R.layout.fragment_workout ;
     }

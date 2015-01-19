@@ -15,7 +15,7 @@ public class BasketballWorkoutFragmentUI extends WorkoutFragmentUI {
 
     public BasketballWorkoutFragmentUI(Workout workout) {
         super(workout) ;
-        mWorkout = (BasketballWorkout)getWorkout() ;
+        mWorkout = (BasketballWorkout)workout ;
     }
 
     public int getLayout() {
