@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public interface StaticCoreWorkoutStorage {
 
-    public ArrayList<StaticCoreExerciseInfo> getExercises();
+    ArrayList<StaticCoreExerciseInfo> getExercises();
 
 }
 
