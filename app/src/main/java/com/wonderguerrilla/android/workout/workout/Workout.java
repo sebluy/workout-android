@@ -30,17 +30,4 @@ public class Workout {
 
     public void recreate() {}
 
-    public Fragment newFragment() {
-        return new WorkoutFragment() ;
-    }
-
-    public int getLayout() {
-        return R.layout.fragment_workout ;
-    }
-
-    public void fillLayout(View view) {
-        TextView title = (TextView)view.findViewById(R.id.name) ;
-        title.setText(mName) ;
-    }
-
 }

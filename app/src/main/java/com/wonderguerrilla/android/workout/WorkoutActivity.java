@@ -10,7 +10,7 @@ import com.wonderguerrilla.android.workout.workout.Workout;
 public class WorkoutActivity extends SingleFragmentActivity {
 
     private Workout mWorkout ;
-    private WorkoutUI mWorkoutUI;
+    private WorkoutActivityUI mWorkoutUI;
 
     @Override
     protected void setTitle() {
@@ -25,7 +25,7 @@ public class WorkoutActivity extends SingleFragmentActivity {
     @Override
     protected void initialize() {
         mWorkout = WorkoutHolder.getCurrent() ;
-        mWorkoutUI = new WorkoutUI(mWorkout) ;
+        mWorkoutUI = WorkoutActivityUI.get(mWorkout) ;
     }
 
     @Override

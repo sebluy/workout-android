@@ -13,20 +13,18 @@ import com.wonderguerrilla.android.workout.workout.Workout;
  */
 public class WorkoutFragment extends Fragment {
 
-    private Workout mWorkout ;
+    private WorkoutFragmentUI mUI ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState) ;
-        mWorkout = WorkoutHolder.getCurrent() ;
+        mUI = WorkoutFragmentUI.get(WorkoutHolder.getCurrent()) ;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
-
-        View v = inflater.inflate(mWorkout.getLayout(), parent, false) ;
-        mWorkout.fillLayout(v) ;
-
-        return v ;
+        View view = inflater.inflate(mUI.getLayout(), parent, false) ;
+        mUI.fillLayout(view) ;
+        return view ;
     }
 }

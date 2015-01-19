@@ -20,14 +20,10 @@ public class BasketballWorkout extends Workout {
         mDuration = duration ;
     }
 
-    public int getLayout() {
-        return R.layout.fragment_basketball_workout ;
+    public int getDuration() {
+        return mDuration;
     }
 
-    public void fillLayout(View view) {
-        super.fillLayout(view) ;
-        TextView duration = (TextView)view.findViewById(R.id.duration) ;
-        duration.setText(mDuration + " Minutes") ;
-    }
+
 
 }

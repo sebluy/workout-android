@@ -8,21 +8,21 @@ import com.wonderguerrilla.android.workout.workout.Workout;
 /**
  * Created by sebluy on 1/19/15.
  */
-public class WorkoutUI {
+public class WorkoutActivityUI {
 
-    public static WorkoutUI get(Workout workout) {
-        //if (workout.getClass() == MultipleExerciseWorkout.class) {
-        //    return new MultipleExerciseWorkoutUI(workout) ;
-        //} else {
-            return new WorkoutUI(workout) ;
-        //}
+    public static WorkoutActivityUI get(Workout workout) {
+        if (workout.getClass() == MultipleExerciseWorkout.class) {
+            return new MultipleExerciseWorkoutActivityUI(workout) ;
+        } else {
+            return new WorkoutActivityUI(workout) ;
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     private Workout mWorkout;
 
-    public WorkoutUI(Workout workout) {
+    public WorkoutActivityUI(Workout workout) {
         mWorkout = workout ;
     }
 
