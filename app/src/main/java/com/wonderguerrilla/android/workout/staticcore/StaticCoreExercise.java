@@ -1,11 +1,13 @@
-package com.wonderguerrilla.android.workout;
+package com.wonderguerrilla.android.workout.staticcore;
 
 import android.content.Context;
-import android.os.Vibrator;
-import android.support.v4.app.Fragment;
 import android.os.CountDownTimer;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.TextView;
+
+import com.wonderguerrilla.android.workout.Exercise;
+import com.wonderguerrilla.android.workout.R;
 
 import org.json.JSONObject;
 

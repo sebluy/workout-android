@@ -9,3 +9,5 @@
 - Include run/swim
 
 - Show old reps/new reps + weight on workout list for lifting workout
+
+- Decouple android view/fragment/activity from business logic

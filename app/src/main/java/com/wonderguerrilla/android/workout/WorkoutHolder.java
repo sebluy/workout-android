@@ -6,6 +6,7 @@ import com.wonderguerrilla.android.workout.calisthenic.CalisthenicWorkout;
 import com.wonderguerrilla.android.workout.calisthenic.CalisthenicWorkoutGenerator;
 import com.wonderguerrilla.android.workout.calisthenic.CalisthenicWorkoutInfo;
 import com.wonderguerrilla.android.workout.lifting.LiftingWorkoutInfo;
+import com.wonderguerrilla.android.workout.staticcore.StaticCoreWorkoutInfo;
 
 import java.util.HashMap;
 
@@ -31,7 +32,7 @@ public class WorkoutHolder {
         return sWorkoutNames ;
     }
 
-    public static Workout create(String workoutName, Context context) {
+    public static Workout create(String workoutName) {
         switch (workoutName) {
             case LiftingWorkoutInfo.UPPER_NAME:
                 return LiftingWorkoutInfo.newUpper().getGenerator().newWorkout() ;
@@ -42,24 +43,24 @@ public class WorkoutHolder {
             case BasketballWorkout.NAME:
                 return new BasketballWorkout(30) ;
             case StaticCoreWorkout.NAME:
-                return new MultipleExerciseWorkout(workoutName, new StaticCoreWorkoutGenerator(context)) ;
+                return new StaticCoreWorkoutInfo().getGenerator().newWorkout() ;
             default:
                 return new Workout(workoutName) ;
         }
     }
 
-    public static Workout get(String name, Context context) {
+    public static Workout get(String name) {
         if (sWorkouts.containsKey(name)) {
             return sWorkouts.get(name) ;
         } else {
-            Workout newWorkout = create(name, context) ;
+            Workout newWorkout = create(name) ;
             sWorkouts.put(name, newWorkout) ;
             return newWorkout ;
         }
     }
 
-    public static Workout getFromPosition(int position, Context context) {
-        return get(sWorkoutNames[position], context) ;
+    public static Workout getFromPosition(int position) {
+        return get(sWorkoutNames[position]) ;
     }
 
     public static Workout getCurrent() {

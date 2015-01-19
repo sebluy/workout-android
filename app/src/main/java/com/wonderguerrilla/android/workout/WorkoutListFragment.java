@@ -19,7 +19,7 @@ public class WorkoutListFragment extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        Workout newWorkout = WorkoutHolder.getFromPosition(position, getActivity()) ;
+        Workout newWorkout = WorkoutHolder.getFromPosition(position) ;
         WorkoutHolder.setCurrent(newWorkout) ;
         Intent intent = new Intent(getActivity(), WorkoutActivity.class) ;
         startActivity(intent) ;
