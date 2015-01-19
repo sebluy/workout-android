@@ -1,7 +1,5 @@
 package com.wonderguerrilla.android.workout.workout.lifting;
 
-import com.wonderguerrilla.android.workout.workout.lifting.storage.LiftingWorkoutStorage;
-
 import java.util.ArrayList;
 import java.util.Random;
 

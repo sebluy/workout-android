@@ -17,6 +17,7 @@ public class StaticCoreExerciseUI extends ExerciseUI {
 
     private StaticCoreExercise mExercise ;
     private TextView mDurationView;
+    private boolean mIsReady ;
     private String mTimeLeft ;
 
     private String formatDuration(double duration) {
@@ -26,7 +27,8 @@ public class StaticCoreExerciseUI extends ExerciseUI {
     public StaticCoreExerciseUI(Exercise exercise) {
         super(exercise) ;
         mExercise = (StaticCoreExercise)exercise ;
-        mTimeLeft = formatDuration(mExercise.getTimeLeft()) ;
+        mTimeLeft = formatDuration(mExercise.getDuration()) ;
+        mIsReady = true ;
     }
 
     @Override
@@ -43,12 +45,12 @@ public class StaticCoreExerciseUI extends ExerciseUI {
         mDurationView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mExercise.isReady()) {
-                    new CountDownTimer((long)mExercise.getTimeLeft() * 1000, 100) {
+                if (mIsReady) {
+                    mIsReady = false ;
+                    new CountDownTimer((long)mExercise.getDuration() * 1000, 100) {
                         @Override
                         public void onTick(long millisUntilFinished) {
                             double timeLeft = millisUntilFinished/1000.0 ;
-                            mExercise.setTimeLeft(timeLeft) ;
                             mTimeLeft = formatDuration(timeLeft) ;
                             mDurationView.setText(mTimeLeft) ;
                         }
@@ -56,11 +58,10 @@ public class StaticCoreExerciseUI extends ExerciseUI {
                         @Override
                         public void onFinish() {
                             ((Vibrator)mDurationView.getContext().getSystemService(Context.VIBRATOR_SERVICE)).vibrate(500);
-                            mExercise.setTimeLeft(0) ;
                             mTimeLeft = "Done" ;
                             mDurationView.setText(mTimeLeft) ;
                         }
-                    }.start();
+                    }.start() ;
                 }
             }
         });

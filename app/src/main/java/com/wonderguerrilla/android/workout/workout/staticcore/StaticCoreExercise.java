@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 public class StaticCoreExercise extends Exercise implements Cloneable {
 
-    private double mDuration;
+    private double mDuration ;
 
     public StaticCoreExercise(String name, double duration) {
         super(name) ;
@@ -25,6 +25,6 @@ public class StaticCoreExercise extends Exercise implements Cloneable {
     }
 
     public double getDuration() {
-        return mDuration;
+        return mDuration ;
     }
 }

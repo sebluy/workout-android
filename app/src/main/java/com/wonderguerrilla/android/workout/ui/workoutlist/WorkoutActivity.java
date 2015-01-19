@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.wonderguerrilla.android.workout.R;
+import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.ExerciseListFragment;
 import com.wonderguerrilla.android.workout.workout.Workout;
 
 public class WorkoutActivity extends SingleFragmentActivity {

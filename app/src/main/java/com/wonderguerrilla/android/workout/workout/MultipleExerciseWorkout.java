@@ -1,9 +1,5 @@
 package com.wonderguerrilla.android.workout.workout;
 
-import android.support.v4.app.Fragment;
-
-import com.wonderguerrilla.android.workout.ExerciseListFragment;
-
 import java.util.ArrayList;
 
 /**

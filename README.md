@@ -5,9 +5,8 @@
 - Add more UI with workout info, change workout, etc... (read and write JSON)
 
 - Add a countdown timer to static workout
+	- Create new static core workout activity/fragment/...
 
 - Include run/swim
 
 - Show old reps/new reps + weight on workout list for lifting workout
-
-- Decouple android view/fragment/activity from business logic

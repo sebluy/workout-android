@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wonderguerrilla.android.workout.ui.workoutlist.WorkoutHolder;
+import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.exercises.ExerciseUI;
 import com.wonderguerrilla.android.workout.workout.Exercise;
 import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
 

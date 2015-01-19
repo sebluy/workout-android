@@ -1,6 +1,6 @@
 package com.wonderguerrilla.android.workout.storage.json.calisthenic;
 
-import com.wonderguerrilla.android.workout.JSONSerializer;
+import com.wonderguerrilla.android.workout.storage.json.JSONSerializer;
 import com.wonderguerrilla.android.workout.R;
 import com.wonderguerrilla.android.workout.workout.calisthenic.CalisthenicExerciseInfo;
 

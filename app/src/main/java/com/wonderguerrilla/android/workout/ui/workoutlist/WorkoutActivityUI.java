@@ -2,6 +2,7 @@ package com.wonderguerrilla.android.workout.ui.workoutlist;
 
 import android.support.v4.app.Fragment;
 
+import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.MultipleExerciseWorkoutActivityUI;
 import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
 import com.wonderguerrilla.android.workout.workout.Workout;
 

@@ -1,7 +1,6 @@
 package com.wonderguerrilla.android.workout.workout.calisthenic;
 
-import com.wonderguerrilla.android.workout.workout.calisthenic.storage.CalisthenicWorkoutStorage;
-import com.wonderguerrilla.android.workout.workout.calisthenic.storage.json.CalisthenicWorkoutJSONStorage;
+import com.wonderguerrilla.android.workout.storage.json.calisthenic.CalisthenicWorkoutJSONStorage;
 
 /**
  * Created by sebluy on 12/25/14.
