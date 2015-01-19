@@ -1,7 +1,7 @@
-package com.wonderguerrilla.android.workout.LiftingWorkout.Storage.JSON;
+package com.wonderguerrilla.android.workout.lifting.storage.json;
 
 import com.wonderguerrilla.android.workout.JSONSerializer;
-import com.wonderguerrilla.android.workout.LiftingWorkout.LiftingExerciseInfo;
+import com.wonderguerrilla.android.workout.lifting.LiftingExerciseInfo;
 import com.wonderguerrilla.android.workout.R;
 
 import org.json.JSONObject;

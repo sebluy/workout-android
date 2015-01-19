@@ -1,7 +1,7 @@
-package com.wonderguerrilla.android.workout.LiftingWorkout;
+package com.wonderguerrilla.android.workout.lifting;
 
-import com.wonderguerrilla.android.workout.LiftingWorkout.Storage.JSON.LiftingWorkoutJSONStorage;
-import com.wonderguerrilla.android.workout.LiftingWorkout.Storage.LiftingWorkoutStorage;
+import com.wonderguerrilla.android.workout.lifting.storage.LiftingWorkoutStorage;
+import com.wonderguerrilla.android.workout.lifting.storage.json.LiftingWorkoutJSONStorage;
 
 /**
  * Created by sebluy on 1/18/15.

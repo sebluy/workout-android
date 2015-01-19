@@ -11,7 +11,7 @@ import java.util.Iterator;
 /**
  * Created by sebluy on 12/25/14.
  */
-public class StaticCoreWorkoutGenerator extends WorkoutGenerator {
+public class StaticCoreWorkoutGenerator implements WorkoutGenerator {
 
     private static final String EXERCISE_FILENAME = "static_core_exercises.json" ;
     private static final int RAW_ID = R.raw.static_core_exercises ;

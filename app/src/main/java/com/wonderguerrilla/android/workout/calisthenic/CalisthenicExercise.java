@@ -1,12 +1,10 @@
-package com.wonderguerrilla.android.workout.CalisthenicWorkout;
+package com.wonderguerrilla.android.workout.calisthenic;
 
 import android.view.View;
 import android.widget.TextView;
 
 import com.wonderguerrilla.android.workout.Exercise;
 import com.wonderguerrilla.android.workout.R;
-
-import java.util.Random;
 
 /**
  * Created by sebluy on 12/22/14.

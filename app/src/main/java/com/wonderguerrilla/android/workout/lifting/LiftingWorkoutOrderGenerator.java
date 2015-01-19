@@ -1,6 +1,6 @@
-package com.wonderguerrilla.android.workout.LiftingWorkout;
+package com.wonderguerrilla.android.workout.lifting;
 
-import com.wonderguerrilla.android.workout.LiftingWorkout.Storage.LiftingWorkoutStorage;
+import com.wonderguerrilla.android.workout.lifting.storage.LiftingWorkoutStorage;
 
 import java.util.ArrayList;
 import java.util.Random;

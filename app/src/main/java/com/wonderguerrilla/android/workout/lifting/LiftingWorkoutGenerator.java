@@ -1,4 +1,4 @@
-package com.wonderguerrilla.android.workout.LiftingWorkout;
+package com.wonderguerrilla.android.workout.lifting;
 
 import com.wonderguerrilla.android.workout.Exercise;
 import com.wonderguerrilla.android.workout.MultipleExerciseWorkout;
@@ -11,7 +11,7 @@ import java.util.HashMap;
  * Created by sebluy on 12/25/14.
  */
 
-public class LiftingWorkoutGenerator extends WorkoutGenerator {
+public class LiftingWorkoutGenerator implements WorkoutGenerator {
 
     private LiftingWorkoutInfo mInfo ;
     private LiftingWorkoutOrderGenerator mOrderGenerator ;
@@ -27,6 +27,7 @@ public class LiftingWorkoutGenerator extends WorkoutGenerator {
         return new MultipleExerciseWorkout(mInfo.getName(), this) ;
     }
 
+    @Override
     public ArrayList<Exercise> generateExercises() {
         ArrayList<String> order = mOrderGenerator.generate() ;
         int size = order.size() ;

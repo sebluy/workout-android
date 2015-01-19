@@ -2,9 +2,10 @@ package com.wonderguerrilla.android.workout;
 
 import android.content.Context;
 
-import com.wonderguerrilla.android.workout.CalisthenicWorkout.CalisthenicWorkout;
-import com.wonderguerrilla.android.workout.CalisthenicWorkout.CalisthenicWorkoutGenerator;
-import com.wonderguerrilla.android.workout.LiftingWorkout.LiftingWorkoutInfo;
+import com.wonderguerrilla.android.workout.calisthenic.CalisthenicWorkout;
+import com.wonderguerrilla.android.workout.calisthenic.CalisthenicWorkoutGenerator;
+import com.wonderguerrilla.android.workout.calisthenic.CalisthenicWorkoutInfo;
+import com.wonderguerrilla.android.workout.lifting.LiftingWorkoutInfo;
 
 import java.util.HashMap;
 
@@ -35,7 +36,7 @@ public class WorkoutHolder {
             case LiftingWorkoutInfo.UPPER_NAME:
                 return LiftingWorkoutInfo.newUpper().getGenerator().newWorkout() ;
             case CalisthenicWorkout.NAME:
-                return new MultipleExerciseWorkout(workoutName, new CalisthenicWorkoutGenerator()) ;
+                return new CalisthenicWorkoutInfo().getGenerator().newWorkout() ;
             case LiftingWorkoutInfo.LOWER_NAME:
                 return LiftingWorkoutInfo.newLower().getGenerator().newWorkout() ;
             case BasketballWorkout.NAME:

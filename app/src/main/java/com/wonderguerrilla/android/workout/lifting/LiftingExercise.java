@@ -1,4 +1,4 @@
-package com.wonderguerrilla.android.workout.LiftingWorkout;
+package com.wonderguerrilla.android.workout.lifting;
 
 import android.text.Editable;
 import android.text.TextWatcher;
