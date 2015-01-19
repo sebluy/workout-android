@@ -1,34 +1,30 @@
-package com.wonderguerrilla.android.workout;
+package com.wonderguerrilla.android.workout.calisthenic;
+
+import com.wonderguerrilla.android.workout.Exercise;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Stack;
 
 /**
  * Created by sebluy on 12/22/14.
  */
-public class CalisthenicExerciseType {
+public class CalisthenicExerciseInfo {
 
+    private String mName ;
     private ArrayList<String> mVariations;
     private int mRepetitions ;
     private int mSets ;
 
-    public CalisthenicExerciseType(JSONObject object) {
-        try {
-            mRepetitions = object.getInt("Repetitions") ;
-            mSets = object.getInt("Sets") ;
-            JSONArray variations = object.getJSONArray("Variations") ;
-            mVariations = new ArrayList<>(variations.length()) ;
-            for (int i = 0 ; i < variations.length() ; i++) {
-                mVariations.add(variations.getString(i)) ;
-            }
-        } catch (JSONException e) {
-        }
+    public CalisthenicExerciseInfo(String name, ArrayList<String> variations, int repetitions, int sets) {
+        mName = name ;
+        mVariations = variations ;
+        mRepetitions = repetitions ;
+        mSets = sets ;
     }
 
     public Stack<Exercise> generateUniqueSets() {

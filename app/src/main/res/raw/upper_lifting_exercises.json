@@ -1,86 +1,86 @@
 {
     "Bench Press": {
-        "Weight": 45,
+        "Weight": 50,
         "Unit": "lbs",
-        "Repetitions": 10
+        "Repetitions": 8
     },
 
     "Seated Row Pull": {
-        "Weight": 7,
+        "Weight": 7.5,
         "Unit": "Plates",
-        "Repetitions": 10
+        "Repetitions": 8
     },
 
     "Shoulder Press": {
-        "Weight": 30,
+        "Weight": 35,
         "Unit": "lbs",
-        "Repetitions": 10
+        "Repetitions": 8
     },
 
     "Lat Pull Down": {
-        "Weight": 100,
+        "Weight": 105,
         "Unit": "lbs",
-        "Repetitions": 10
+        "Repetitions": 8
     },
 
     "Tricep Extension": {
-        "Weight": 40,
+        "Weight": 45,
         "Unit": "lbs",
-        "Repetitions": 10
+        "Repetitions": 8
     },
 
     "Bicep Curl": {
-        "Weight": 25,
+        "Weight": 30,
         "Unit": "lbs",
-        "Repetitions": 10
+        "Repetitions": 8
     },
 
     "Deltoid Lateral Raise": {
-        "Weight": 10,
+        "Weight": 15,
         "Unit": "lbs",
-        "Repetitions": 10
+        "Repetitions": 8
     },
 
     "Upright Row": {
-        "Weight": 25,
+        "Weight": 30,
         "Unit": "lbs",
-        "Repetitions": 10
+        "Repetitions": 8
     },
 
     "Thumbs Down": {
-        "Weight": 5,
+        "Weight": 7.5,
         "Unit": "lbs",
-        "Repetitions": 10
+        "Repetitions": 8
     },
 
     "External Rotation": {
-        "Weight": 2,
+        "Weight": 2.5,
         "Unit": "Plates",
-        "Repetitions": 10
+        "Repetitions": 8
     },
 
     "Internal Rotation": {
-        "Weight": 2,
+        "Weight": 2.5,
         "Unit": "Plates",
-        "Repetitions": 10
+        "Repetitions": 8
     },
 
     "Y": {
-        "Weight": 5,
+        "Weight": 7.5,
         "Unit": "lbs",
-        "Repetitions": 10
+        "Repetitions": 8
     },
 
     "T": {
-        "Weight": 5,
+        "Weight": 7.5,
         "Unit": "lbs",
-        "Repetitions": 10
+        "Repetitions": 8
     },
 
     "W": {
-        "Weight": 5,
+        "Weight": 7.5,
         "Unit": "lbs",
-        "Repetitions": 10
+        "Repetitions": 8
     }
 }
 

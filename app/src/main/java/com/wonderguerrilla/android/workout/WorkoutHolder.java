@@ -2,6 +2,11 @@ package com.wonderguerrilla.android.workout;
 
 import android.content.Context;
 
+import com.wonderguerrilla.android.workout.calisthenic.CalisthenicWorkout;
+import com.wonderguerrilla.android.workout.calisthenic.CalisthenicWorkoutGenerator;
+import com.wonderguerrilla.android.workout.calisthenic.CalisthenicWorkoutInfo;
+import com.wonderguerrilla.android.workout.lifting.LiftingWorkoutInfo;
+
 import java.util.HashMap;
 
 public class WorkoutHolder {
@@ -10,11 +15,11 @@ public class WorkoutHolder {
     private static final String SWIM = "Swim" ;
 
     private static final String[] sWorkoutNames = {
-        LiftingWorkout.UPPER_NAME,
+        LiftingWorkoutInfo.UPPER_NAME,
         RUN,
         CalisthenicWorkout.NAME,
         SWIM,
-        LiftingWorkout.LOWER_NAME,
+        LiftingWorkoutInfo.LOWER_NAME,
         BasketballWorkout.NAME,
         StaticCoreWorkout.NAME
     } ;
@@ -28,12 +33,12 @@ public class WorkoutHolder {
 
     public static Workout create(String workoutName, Context context) {
         switch (workoutName) {
-            case LiftingWorkout.UPPER_NAME:
-                return new MultipleExerciseWorkout(workoutName, LiftingWorkoutGenerator.getUpper(context)) ;
+            case LiftingWorkoutInfo.UPPER_NAME:
+                return LiftingWorkoutInfo.newUpper().getGenerator().newWorkout() ;
             case CalisthenicWorkout.NAME:
-                return new MultipleExerciseWorkout(workoutName, new CalisthenicWorkoutGenerator(context)) ;
-            case LiftingWorkout.LOWER_NAME:
-                return new MultipleExerciseWorkout(workoutName, LiftingWorkoutGenerator.getLower(context)) ;
+                return new CalisthenicWorkoutInfo().getGenerator().newWorkout() ;
+            case LiftingWorkoutInfo.LOWER_NAME:
+                return LiftingWorkoutInfo.newLower().getGenerator().newWorkout() ;
             case BasketballWorkout.NAME:
                 return new BasketballWorkout(30) ;
             case StaticCoreWorkout.NAME:

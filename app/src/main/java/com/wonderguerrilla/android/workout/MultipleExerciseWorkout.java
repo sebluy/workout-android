@@ -35,7 +35,9 @@ public class MultipleExerciseWorkout extends Workout {
         mExercises = mGenerator.generateExercises() ;
     }
 
-    public void save() {}
+    public void commit() {
+        mGenerator.commit(mExercises) ;
+    }
 
     public Fragment newFragment() {
         return new ExerciseListFragment() ;

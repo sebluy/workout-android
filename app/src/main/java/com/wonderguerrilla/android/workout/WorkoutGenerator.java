@@ -5,10 +5,10 @@ import java.util.ArrayList;
 /**
  * Created by sebluy on 1/16/15.
  */
-public class WorkoutGenerator {
+public interface WorkoutGenerator {
 
-    public ArrayList<Exercise> generateExercises() {
-        return new ArrayList<>() ;
-    }
+    ArrayList<Exercise> generateExercises() ;
+
+    void commit(ArrayList<Exercise> exercises) ;
 
 }

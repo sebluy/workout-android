@@ -11,7 +11,7 @@ import java.util.Iterator;
 /**
  * Created by sebluy on 12/25/14.
  */
-public class StaticCoreWorkoutGenerator extends WorkoutGenerator {
+public class StaticCoreWorkoutGenerator implements WorkoutGenerator {
 
     private static final String EXERCISE_FILENAME = "static_core_exercises.json" ;
     private static final int RAW_ID = R.raw.static_core_exercises ;
@@ -22,7 +22,7 @@ public class StaticCoreWorkoutGenerator extends WorkoutGenerator {
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     public StaticCoreWorkoutGenerator(Context context) {
-        JSONSerializer serializer = new JSONSerializer(context, EXERCISE_FILENAME, RAW_ID) ;
+        JSONSerializer serializer = new JSONSerializer(EXERCISE_FILENAME, RAW_ID) ;
         JSONObject object = serializer.get() ;
         sExercises = new ArrayList<>() ;
         try {
@@ -32,6 +32,10 @@ public class StaticCoreWorkoutGenerator extends WorkoutGenerator {
                 sExercises.add(new StaticCoreExercise(name, object.getJSONObject(name)));
             }
         } catch (Exception e) {}
+    }
+
+    @Override
+    public void commit(ArrayList<Exercise> exercises) {
     }
 
     @Override
