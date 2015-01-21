@@ -31,13 +31,13 @@ public class LiftingWorkoutJSONStorage implements LiftingWorkoutStorage {
     }
 
     @Override
-    public HashMap<String, LiftingExerciseInfo> getExercises() {
-        return mInfoStorage.getExercises() ;
+    public LiftingExerciseInfo getExercise(String name) {
+        return mInfoStorage.getExercise(name) ;
     }
 
     @Override
-    public void putExercises(HashMap<String, LiftingExerciseInfo> exercises) {
-        mInfoStorage.putExercises(exercises) ;
+    public void commit() {
+        mInfoStorage.commit() ;
     }
 
     @Override

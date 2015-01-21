@@ -7,17 +7,23 @@ package com.wonderguerrilla.android.workout.workout;
 public class Workout {
 
     private String mName ;
+    private WorkoutInfo mInfo ;
 
-    public Workout(String name) {
+    public Workout(String name, WorkoutInfo info) {
         mName = name ;
+        mInfo = info ;
     }
 
     public String getName() {
         return mName ;
     }
 
-    public void commit() {}
+    public void commit() {
+        mInfo.commit(this) ;
+    }
 
-    public void recreate() {}
+    public Workout generate() {
+        return mInfo.generate() ;
+    }
 
 }

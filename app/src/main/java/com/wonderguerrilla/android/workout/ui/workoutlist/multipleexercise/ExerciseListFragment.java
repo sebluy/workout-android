@@ -22,7 +22,7 @@ public class ExerciseListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState) ;
-        mWorkout = (MultipleExerciseWorkout) WorkoutHolder.getCurrent() ;
+        mWorkout = (MultipleExerciseWorkout)WorkoutHolder.getCurrent() ;
 
         ArrayList<Exercise> names = new ArrayList<>(mWorkout.getExercises()) ;
         setListAdapter(new ExerciseAdapter(names)) ;
@@ -44,6 +44,7 @@ public class ExerciseListFragment extends ListFragment {
     public void update() {
         ExerciseAdapter adapter = (ExerciseAdapter)getListAdapter() ;
         adapter.clear() ;
+        mWorkout = (MultipleExerciseWorkout)WorkoutHolder.getCurrent() ;
         ArrayList<Exercise> exercises = mWorkout.getExercises() ;
         for (int i = 0 ; i < exercises.size() ; i++) {
             adapter.add(exercises.get(i)) ;

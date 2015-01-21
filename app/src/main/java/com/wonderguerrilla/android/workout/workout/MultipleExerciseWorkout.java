@@ -9,12 +9,10 @@ import java.util.ArrayList;
 public class MultipleExerciseWorkout extends Workout {
 
     private ArrayList<Exercise> mExercises ;
-    private WorkoutGenerator mGenerator ;
 
-    public MultipleExerciseWorkout(String name, WorkoutGenerator generator) {
-        super(name) ;
-        mGenerator = generator ;
-        recreate() ;
+    public MultipleExerciseWorkout(String name, WorkoutInfo info, ArrayList<Exercise> exercises) {
+        super(name, info) ;
+        mExercises = exercises ;
     }
 
     public Exercise getExercise(int index) {
@@ -27,14 +25,6 @@ public class MultipleExerciseWorkout extends Workout {
 
     public int size() {
         return mExercises.size() ;
-    }
-
-    public void recreate() {
-        mExercises = mGenerator.generateExercises() ;
-    }
-
-    public void commit() {
-        mGenerator.commit(mExercises) ;
     }
 
 }

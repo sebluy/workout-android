@@ -16,7 +16,7 @@ public class BasketballWorkout extends Workout {
     private int mDuration ;
 
     public BasketballWorkout(int duration) {
-        super(NAME) ;
+        super(NAME, null) ;
         mDuration = duration ;
     }
 

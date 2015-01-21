@@ -2,7 +2,7 @@ package com.wonderguerrilla.android.workout.workout.staticcore;
 
 import com.wonderguerrilla.android.workout.workout.Exercise;
 import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
-import com.wonderguerrilla.android.workout.workout.WorkoutGenerator;
+import com.wonderguerrilla.android.workout.workout.Workout;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,7 +10,7 @@ import java.util.Collections;
 /**
  * Created by sebluy on 12/25/14.
  */
-public class StaticCoreWorkoutGenerator implements WorkoutGenerator {
+public class StaticCoreWorkoutGenerator {
 
     private static final int CIRCUITS = 2 ;
 
@@ -24,16 +24,11 @@ public class StaticCoreWorkoutGenerator implements WorkoutGenerator {
         mExercises = info.getStorage().getExercises() ;
     }
 
-    public MultipleExerciseWorkout newWorkout() {
-        return new MultipleExerciseWorkout(mInfo.getName(), this) ;
+    public Workout generate() {
+        return new MultipleExerciseWorkout(mInfo.getName(), mInfo, generateExercises()) ;
     }
 
-    @Override
-    public void commit(ArrayList<Exercise> exercises) {
-    }
-
-    @Override
-    public ArrayList<Exercise> generateExercises() {
+    private ArrayList<Exercise> generateExercises() {
         Collections.shuffle(mExercises) ;
         ArrayList<Exercise> workout = new ArrayList<>(CIRCUITS * mExercises.size()) ;
         for (int i = 0 ; i < CIRCUITS ; i++) {

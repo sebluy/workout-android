@@ -1,8 +1,8 @@
 package com.wonderguerrilla.android.workout.storage.json.lifting;
 
+import com.wonderguerrilla.android.workout.R;
 import com.wonderguerrilla.android.workout.storage.json.JSONSerializer;
 import com.wonderguerrilla.android.workout.workout.lifting.LiftingExerciseInfo;
-import com.wonderguerrilla.android.workout.R;
 
 import org.json.JSONObject;
 
@@ -31,12 +31,31 @@ public class LiftingWorkoutInfoJSONStorage {
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     private JSONSerializer mSerializer ;
+    private HashMap<String, LiftingExerciseInfo> mExercises ;
 
     public LiftingWorkoutInfoJSONStorage(String filename, int rawId) {
         mSerializer = new JSONSerializer(filename, rawId) ;
+        mExercises = getExercises() ;
     }
 
-    public HashMap<String, LiftingExerciseInfo> getExercises() {
+    public void commit() {
+         try {
+            JSONObject object = new JSONObject() ;
+            Iterator<String> nameIterator = mExercises.keySet().iterator() ;
+            while (nameIterator.hasNext()) {
+                String name = nameIterator.next() ;
+                LiftingExerciseInfo exercise = mExercises.get(name) ;
+                object.put(name, convertToJSON(name, exercise)) ;
+            }
+            mSerializer.put(object) ;
+        } catch (Exception e) {}
+    }
+
+    public LiftingExerciseInfo getExercise(String name) {
+        return mExercises.get(name) ;
+    }
+
+    private HashMap<String, LiftingExerciseInfo> getExercises() {
         HashMap<String, LiftingExerciseInfo> exercises = new HashMap<>() ;
         JSONObject object = mSerializer.get() ;
         try {
@@ -48,19 +67,6 @@ public class LiftingWorkoutInfoJSONStorage {
             }
         } catch (Exception e) {}
         return exercises ;
-    }
-
-    public void putExercises(HashMap<String, LiftingExerciseInfo> exercises) {
-         try {
-            JSONObject object = new JSONObject() ;
-            Iterator<String> nameIterator = exercises.keySet().iterator() ;
-            while (nameIterator.hasNext()) {
-                String name = nameIterator.next() ;
-                LiftingExerciseInfo exercise = exercises.get(name) ;
-                object.put(name, convertToJSON(name, exercise)) ;
-            }
-            mSerializer.put(object) ;
-        } catch (Exception e) {}
     }
 
     private JSONObject convertToJSON(String name, LiftingExerciseInfo exercise) {

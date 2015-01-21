@@ -45,7 +45,7 @@ public class WorkoutActivity extends SingleFragmentActivity {
                 Toast.makeText(this, "Much success!", Toast.LENGTH_SHORT).show() ;
                 return true ;
             case R.id.menu_workout_item_new:
-                mWorkout.recreate() ;
+                WorkoutHolder.setCurrent(mWorkout.generate()) ;
                 ((ExerciseListFragment)getFragment()).update() ;
                 return true ;
             default:

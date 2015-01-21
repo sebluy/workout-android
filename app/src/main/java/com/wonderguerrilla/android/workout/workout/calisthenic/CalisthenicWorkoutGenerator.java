@@ -2,7 +2,7 @@ package com.wonderguerrilla.android.workout.workout.calisthenic;
 
 import com.wonderguerrilla.android.workout.workout.Exercise;
 import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
-import com.wonderguerrilla.android.workout.workout.WorkoutGenerator;
+import com.wonderguerrilla.android.workout.workout.Workout;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,28 +12,23 @@ import java.util.Stack;
 /**
  * Created by sebluy on 12/25/14.
  */
-public class CalisthenicWorkoutGenerator implements WorkoutGenerator {
+public class CalisthenicWorkoutGenerator {
 
-    private CalisthenicWorkoutInfo mInfo ;
-    private ArrayList<String> mOrder ;
-    private HashMap<String, CalisthenicExerciseInfo> mExercises ;
+    private CalisthenicWorkoutInfo mInfo;
+    private ArrayList<String> mOrder;
+    private HashMap<String, CalisthenicExerciseInfo> mExercises;
 
     public CalisthenicWorkoutGenerator(CalisthenicWorkoutInfo info) {
-        mInfo = info ;
-        mExercises = info.getStorage().getExercises() ;
-        mOrder = info.getStorage().getOrder() ;
+        mInfo = info;
+        mExercises = info.getStorage().getExercises();
+        mOrder = info.getStorage().getOrder();
     }
 
-    public MultipleExerciseWorkout newWorkout() {
-        return new MultipleExerciseWorkout(mInfo.getName(), this) ;
+    public Workout generate() {
+        return new MultipleExerciseWorkout(mInfo.getName(), mInfo, generateExercises()) ;
     }
 
-
-    @Override
-    public void commit(ArrayList<Exercise> exercises) {}
-
-    @Override
-    public ArrayList<Exercise> generateExercises() {
+    private ArrayList<Exercise> generateExercises() {
 
         ArrayList<Exercise> exercises = new ArrayList<>() ;
         ArrayList<Stack<Exercise>> sets = new ArrayList<>();

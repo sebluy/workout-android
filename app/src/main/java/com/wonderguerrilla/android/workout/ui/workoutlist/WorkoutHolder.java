@@ -2,7 +2,6 @@ package com.wonderguerrilla.android.workout.ui.workoutlist;
 
 import com.wonderguerrilla.android.workout.workout.BasketballWorkout;
 import com.wonderguerrilla.android.workout.workout.Workout;
-import com.wonderguerrilla.android.workout.workout.calisthenic.CalisthenicWorkout;
 import com.wonderguerrilla.android.workout.workout.calisthenic.CalisthenicWorkoutInfo;
 import com.wonderguerrilla.android.workout.workout.lifting.LiftingWorkoutInfo;
 import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkoutInfo;
@@ -17,7 +16,7 @@ public class WorkoutHolder {
     private static final String[] sWorkoutNames = {
         LiftingWorkoutInfo.UPPER_NAME,
         RUN,
-        CalisthenicWorkout.NAME,
+        CalisthenicWorkoutInfo.NAME,
         SWIM,
         LiftingWorkoutInfo.LOWER_NAME,
         BasketballWorkout.NAME,
@@ -34,17 +33,17 @@ public class WorkoutHolder {
     public static Workout create(String workoutName) {
         switch (workoutName) {
             case LiftingWorkoutInfo.UPPER_NAME:
-                return LiftingWorkoutInfo.newUpper().getGenerator().newWorkout() ;
-            case CalisthenicWorkout.NAME:
-                return new CalisthenicWorkoutInfo().getGenerator().newWorkout() ;
+                return LiftingWorkoutInfo.newUpper().generate() ;
+            case CalisthenicWorkoutInfo.NAME:
+                return new CalisthenicWorkoutInfo().generate() ;
             case LiftingWorkoutInfo.LOWER_NAME:
-                return LiftingWorkoutInfo.newLower().getGenerator().newWorkout() ;
+                return LiftingWorkoutInfo.newLower().generate() ;
             case BasketballWorkout.NAME:
                 return new BasketballWorkout(30) ;
             case StaticCoreWorkoutInfo.NAME:
-                return new StaticCoreWorkoutInfo().getGenerator().newWorkout() ;
+                return new StaticCoreWorkoutInfo().generate() ;
             default:
-                return new Workout(workoutName) ;
+                return new Workout(workoutName, null) ;
         }
     }
 
