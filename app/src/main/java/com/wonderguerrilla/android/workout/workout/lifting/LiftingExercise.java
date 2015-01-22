@@ -29,6 +29,10 @@ public class LiftingExercise extends Exercise {
         return mWeight;
     }
 
+    public void setWeight(double weight) {
+        mWeight = weight;
+    }
+
     public int getRepetitions() {
         return mRepetitions;
     }

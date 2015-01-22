@@ -45,7 +45,7 @@ public class LiftingWorkoutInfoJSONStorage {
             while (nameIterator.hasNext()) {
                 String name = nameIterator.next() ;
                 LiftingExerciseInfo exercise = mExercises.get(name) ;
-                object.put(name, convertToJSON(name, exercise)) ;
+                object.put(name, convertToJSON(exercise)) ;
             }
             mSerializer.put(object) ;
         } catch (Exception e) {}
@@ -69,7 +69,7 @@ public class LiftingWorkoutInfoJSONStorage {
         return exercises ;
     }
 
-    private JSONObject convertToJSON(String name, LiftingExerciseInfo exercise) {
+    private JSONObject convertToJSON(LiftingExerciseInfo exercise) {
         try {
 
             JSONObject object = new JSONObject() ;

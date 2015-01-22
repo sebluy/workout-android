@@ -48,6 +48,7 @@ public class LiftingWorkoutInfo implements WorkoutInfo {
         for (Exercise exercise : exerciseWorkout.getExercises()) {
             LiftingExerciseInfo changedExercise = mStorage.getExercise(exercise.getName()) ;
             changedExercise.setRepetitions(((LiftingExercise)exercise).getRepetitions()) ;
+            changedExercise.setWeight(((LiftingExercise)exercise).getWeight()) ;
         }
         mStorage.commit() ;
     }
