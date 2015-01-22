@@ -4,6 +4,7 @@ import com.wonderguerrilla.android.workout.workout.BasketballWorkout;
 import com.wonderguerrilla.android.workout.workout.Workout;
 import com.wonderguerrilla.android.workout.workout.calisthenic.CalisthenicWorkoutInfo;
 import com.wonderguerrilla.android.workout.workout.lifting.LiftingWorkoutInfo;
+import com.wonderguerrilla.android.workout.workout.run.RunWorkoutInfo;
 import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkoutInfo;
 
 import java.util.HashMap;
@@ -42,6 +43,8 @@ public class WorkoutHolder {
                 return new BasketballWorkout(30) ;
             case StaticCoreWorkoutInfo.NAME:
                 return new StaticCoreWorkoutInfo().generate() ;
+            case RunWorkoutInfo.NAME:
+                return new RunWorkoutInfo().generate() ;
             default:
                 return new Workout(workoutName, null) ;
         }

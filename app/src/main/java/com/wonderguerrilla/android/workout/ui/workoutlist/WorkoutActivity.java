@@ -12,22 +12,20 @@ import com.wonderguerrilla.android.workout.workout.Workout;
 public class WorkoutActivity extends SingleFragmentActivity {
 
     private Workout mWorkout ;
-    private WorkoutActivityUI mWorkoutUI;
 
     @Override
-    protected void setTitle() {
-        setTitle(mWorkoutUI.getTitle()) ;
+    public Fragment newFragment() {
+        return WorkoutFragment.get(mWorkout) ;
     }
 
     @Override
-    protected Fragment newFragment() {
-        return mWorkoutUI.newFragment() ;
+    public void setTitle() {
+        setTitle(mWorkout.getName()) ;
     }
 
     @Override
     protected void initialize() {
         mWorkout = WorkoutHolder.getCurrent() ;
-        mWorkoutUI = WorkoutActivityUI.get(mWorkout) ;
     }
 
     @Override

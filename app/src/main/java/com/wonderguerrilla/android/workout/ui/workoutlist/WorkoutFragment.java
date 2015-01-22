@@ -5,24 +5,55 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.wonderguerrilla.android.workout.R;
+import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.ExerciseListFragment;
+import com.wonderguerrilla.android.workout.workout.BasketballWorkout;
+import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
+import com.wonderguerrilla.android.workout.workout.Workout;
+import com.wonderguerrilla.android.workout.workout.run.RunWorkout;
 
 /**
- * Created by sebluy on 1/16/15.
+ * Created by sebluy on 1/19/15.
  */
 public class WorkoutFragment extends Fragment {
 
-    private WorkoutFragmentUI mUI ;
+    public static Fragment get(Workout workout) {
+        if (workout.getClass() == MultipleExerciseWorkout.class) {
+            return new ExerciseListFragment() ;
+        } else if (workout.getClass() == RunWorkout.class) {
+            return new RunWorkoutFragment() ;
+        } else if (workout.getClass() == BasketballWorkout.class) {
+            return new BasketballWorkoutFragment() ;
+        } else {
+            return new WorkoutFragment() ;
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    private Workout mWorkout ;
+
+    public int getLayout() {
+        return R.layout.fragment_workout ;
+    }
+
+    public void fillLayout(View view) {
+        TextView title = (TextView)view.findViewById(R.id.name) ;
+        title.setText(mWorkout.getName()) ;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState) ;
-        mUI = WorkoutFragmentUI.get(WorkoutHolder.getCurrent()) ;
+        mWorkout = WorkoutHolder.getCurrent() ;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
-        View view = inflater.inflate(mUI.getLayout(), parent, false) ;
-        mUI.fillLayout(view) ;
+        View view = inflater.inflate(getLayout(), parent, false) ;
+        fillLayout(view) ;
         return view ;
     }
 }

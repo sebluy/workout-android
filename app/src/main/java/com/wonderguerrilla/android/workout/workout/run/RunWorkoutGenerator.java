@@ -19,7 +19,7 @@ public class RunWorkoutGenerator  {
     }
 
     public Workout generate() {
-        return new Workout(mInfo.getName(), mInfo) ;
+        return new RunWorkout(mInfo, mOrder) ;
     }
 
 }
