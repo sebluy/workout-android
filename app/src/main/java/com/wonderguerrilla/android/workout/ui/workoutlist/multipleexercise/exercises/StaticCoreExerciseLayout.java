@@ -13,7 +13,7 @@ import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreExercise
 /**
  * Created by sebluy on 1/19/15.
  */
-public class StaticCoreExerciseUI extends ExerciseUI {
+public class StaticCoreExerciseLayout extends ExerciseLayout {
 
     private StaticCoreExercise mExercise ;
     private TextView mDurationView;
@@ -24,7 +24,7 @@ public class StaticCoreExerciseUI extends ExerciseUI {
         return String.format("%.1f Seconds", duration) ;
     }
 
-    public StaticCoreExerciseUI(Exercise exercise) {
+    public StaticCoreExerciseLayout(Exercise exercise) {
         super(exercise) ;
         mExercise = (StaticCoreExercise)exercise ;
         mTimeLeft = formatDuration(mExercise.getDuration()) ;

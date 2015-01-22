@@ -2,19 +2,19 @@ package com.wonderguerrilla.android.workout.workout.staticcore;
 
 import com.wonderguerrilla.android.workout.storage.json.staticcore.StaticCoreWorkoutJSONStorage;
 import com.wonderguerrilla.android.workout.workout.Workout;
-import com.wonderguerrilla.android.workout.workout.WorkoutInfo;
+import com.wonderguerrilla.android.workout.workout.WorkoutController;
 
 /**
  * Created by sebluy on 12/25/14.
  */
-public class StaticCoreWorkoutInfo implements WorkoutInfo {
+public class StaticCoreWorkoutController implements WorkoutController {
 
     public static final String NAME = "Static Core" ;
 
     private StaticCoreWorkoutGenerator mGenerator ;
     private StaticCoreWorkoutStorage mStorage ;
 
-    public StaticCoreWorkoutInfo() {
+    public StaticCoreWorkoutController() {
         mStorage = new StaticCoreWorkoutJSONStorage() ;
         mGenerator = new StaticCoreWorkoutGenerator(this) ;
     }

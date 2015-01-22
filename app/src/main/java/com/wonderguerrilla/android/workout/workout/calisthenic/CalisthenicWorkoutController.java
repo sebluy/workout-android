@@ -2,12 +2,12 @@ package com.wonderguerrilla.android.workout.workout.calisthenic;
 
 import com.wonderguerrilla.android.workout.storage.json.calisthenic.CalisthenicWorkoutJSONStorage;
 import com.wonderguerrilla.android.workout.workout.Workout;
-import com.wonderguerrilla.android.workout.workout.WorkoutInfo;
+import com.wonderguerrilla.android.workout.workout.WorkoutController;
 
 /**
  * Created by sebluy on 12/25/14.
  */
-public class CalisthenicWorkoutInfo implements WorkoutInfo {
+public class CalisthenicWorkoutController implements WorkoutController {
 
     public static final String NAME = "Calisthenic" ;
 
@@ -16,7 +16,7 @@ public class CalisthenicWorkoutInfo implements WorkoutInfo {
     private CalisthenicWorkoutGenerator mGenerator ;
     private CalisthenicWorkoutStorage mStorage ;
 
-    public CalisthenicWorkoutInfo() {
+    public CalisthenicWorkoutController() {
         mStorage = new CalisthenicWorkoutJSONStorage() ;
         mGenerator = new CalisthenicWorkoutGenerator(this) ;
     }

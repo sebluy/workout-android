@@ -4,22 +4,22 @@ import com.wonderguerrilla.android.workout.storage.json.lifting.LiftingWorkoutJS
 import com.wonderguerrilla.android.workout.workout.Exercise;
 import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
 import com.wonderguerrilla.android.workout.workout.Workout;
-import com.wonderguerrilla.android.workout.workout.WorkoutInfo;
+import com.wonderguerrilla.android.workout.workout.WorkoutController;
 
 /**
  * Created by sebluy on 1/18/15.
  */
-public class LiftingWorkoutInfo implements WorkoutInfo {
+public class LiftingWorkoutController implements WorkoutController {
 
     public static final String UPPER_NAME = "Upper Lifting" ;
     public static final String LOWER_NAME = "Lower Lifting" ;
 
-    public static LiftingWorkoutInfo newUpper() {
-        return new LiftingWorkoutInfo(UPPER_NAME, LiftingWorkoutJSONStorage.newUpper()) ;
+    public static LiftingWorkoutController newUpper() {
+        return new LiftingWorkoutController(UPPER_NAME, LiftingWorkoutJSONStorage.newUpper()) ;
     }
 
-    public static LiftingWorkoutInfo newLower() {
-        return new LiftingWorkoutInfo(LOWER_NAME , LiftingWorkoutJSONStorage.newLower()) ;
+    public static LiftingWorkoutController newLower() {
+        return new LiftingWorkoutController(LOWER_NAME , LiftingWorkoutJSONStorage.newLower()) ;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -30,7 +30,7 @@ public class LiftingWorkoutInfo implements WorkoutInfo {
     private LiftingWorkoutGenerator mGenerator ;
     private LiftingWorkoutStorage mStorage ;
 
-    public LiftingWorkoutInfo(String name, LiftingWorkoutJSONStorage storage) {
+    public LiftingWorkoutController(String name, LiftingWorkoutJSONStorage storage) {
         mName = name ;
         mStorage = storage ;
         mOrderGenerator = new LiftingWorkoutOrderGenerator(storage) ;

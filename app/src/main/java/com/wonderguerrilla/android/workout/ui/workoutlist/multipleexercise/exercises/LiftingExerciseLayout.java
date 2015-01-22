@@ -13,11 +13,11 @@ import com.wonderguerrilla.android.workout.workout.lifting.LiftingExercise;
 /**
  * Created by sebluy on 1/19/15.
  */
-public class LiftingExerciseUI extends ExerciseUI {
+public class LiftingExerciseLayout extends ExerciseLayout {
 
     private LiftingExercise mExercise ;
 
-    public LiftingExerciseUI(Exercise exercise) {
+    public LiftingExerciseLayout(Exercise exercise) {
         super(exercise) ;
         mExercise = (LiftingExercise)exercise ;
     }

@@ -12,17 +12,17 @@ import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreExercise
 /**
  * Created by sebluy on 1/19/15.
  */
-public class ExerciseUI {
+public class ExerciseLayout {
 
-    public static ExerciseUI get(Exercise exercise) {
+    public static ExerciseLayout get(Exercise exercise) {
         if (exercise.getClass() == LiftingExercise.class) {
-            return new LiftingExerciseUI(exercise);
+            return new LiftingExerciseLayout(exercise);
         } else if (exercise.getClass() == StaticCoreExercise.class) {
-            return new StaticCoreExerciseUI(exercise) ;
+            return new StaticCoreExerciseLayout(exercise) ;
         } else if (exercise.getClass() == CalisthenicExercise.class) {
-            return new CalisthenicExerciseUI(exercise) ;
+            return new CalisthenicExerciseLayout(exercise) ;
         } else {
-            return new ExerciseUI(exercise);
+            return new ExerciseLayout(exercise);
         }
     }
 
@@ -30,7 +30,7 @@ public class ExerciseUI {
 
     private Exercise mExercise ;
 
-    public ExerciseUI(Exercise exercise) {
+    public ExerciseLayout(Exercise exercise) {
         mExercise = exercise ;
     }
 

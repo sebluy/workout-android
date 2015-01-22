@@ -10,11 +10,11 @@ import com.wonderguerrilla.android.workout.workout.calisthenic.CalisthenicExerci
 /**
  * Created by sebluy on 1/19/15.
  */
-public class CalisthenicExerciseUI extends ExerciseUI {
+public class CalisthenicExerciseLayout extends ExerciseLayout {
 
     private CalisthenicExercise mExercise ;
 
-    public CalisthenicExerciseUI(Exercise exercise) {
+    public CalisthenicExerciseLayout(Exercise exercise) {
         super(exercise) ;
         mExercise = (CalisthenicExercise)exercise ;
     }
