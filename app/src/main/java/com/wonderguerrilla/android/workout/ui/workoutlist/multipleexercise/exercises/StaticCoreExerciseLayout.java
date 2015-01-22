@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.wonderguerrilla.android.workout.R;
+import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.exercises.ExerciseLayout;
 import com.wonderguerrilla.android.workout.workout.Exercise;
 import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreExercise;
 
@@ -72,6 +73,13 @@ public class StaticCoreExerciseLayout extends ExerciseLayout {
     @Override
     public int getListItemLayout() {
         return R.layout.list_item_static_core_exercise;
+    }
+
+    @Override
+    public void fillListItemLayout(View view) {
+        super.fillLayout(view) ;
+        mDurationView = (TextView) view.findViewById(R.id.duration);
+        mDurationView.setText(mTimeLeft);
     }
 
 }

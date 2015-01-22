@@ -16,10 +16,10 @@ public class StaticCoreWorkoutGenerator {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
-    private StaticCoreWorkoutInfo mInfo ;
+    private StaticCoreWorkoutController mInfo ;
     private ArrayList<StaticCoreExerciseInfo> mExercises ;
 
-    public StaticCoreWorkoutGenerator(StaticCoreWorkoutInfo info) {
+    public StaticCoreWorkoutGenerator(StaticCoreWorkoutController info) {
         mInfo = info ;
         mExercises = info.getStorage().getExercises() ;
     }

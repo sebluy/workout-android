@@ -1,7 +1,7 @@
 package com.wonderguerrilla.android.workout.workout.run;
 
 import com.wonderguerrilla.android.workout.workout.Workout;
-import com.wonderguerrilla.android.workout.workout.WorkoutInfo;
+import com.wonderguerrilla.android.workout.workout.WorkoutController;
 
 import java.util.ArrayList;
 
@@ -13,8 +13,8 @@ public class RunWorkout extends Workout {
 
     private ArrayList<String> mOrder ;
 
-    public RunWorkout(WorkoutInfo info, ArrayList<String> order) {
-        super(RunWorkoutInfo.NAME, info) ;
+    public RunWorkout(WorkoutController info, ArrayList<String> order) {
+        super(RunWorkoutController.NAME, info) ;
         mOrder = order ;
     }
 

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wonderguerrilla.android.workout.R;
 import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.ExerciseListFragment;
@@ -42,6 +43,11 @@ public class WorkoutFragment extends Fragment {
     public void fillLayout(View view) {
         TextView title = (TextView)view.findViewById(R.id.name) ;
         title.setText(mWorkout.getName()) ;
+    }
+
+    public void commit() {
+        mWorkout.commit() ;
+        Toast.makeText(getActivity(), "Much success!", Toast.LENGTH_SHORT).show() ;
     }
 
     @Override

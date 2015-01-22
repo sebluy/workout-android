@@ -7,9 +7,9 @@ package com.wonderguerrilla.android.workout.workout;
 public class Workout {
 
     private String mName ;
-    private WorkoutInfo mInfo ;
+    private WorkoutController mInfo ;
 
-    public Workout(String name, WorkoutInfo info) {
+    public Workout(String name, WorkoutController info) {
         mName = name ;
         mInfo = info ;
     }

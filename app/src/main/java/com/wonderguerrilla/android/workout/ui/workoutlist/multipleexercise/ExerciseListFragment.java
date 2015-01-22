@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.wonderguerrilla.android.workout.ui.workoutlist.WorkoutHolder;
-import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.exercises.ExerciseUI;
+import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.exercises.ExerciseLayout;
 import com.wonderguerrilla.android.workout.workout.Exercise;
 import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
 
@@ -61,13 +61,13 @@ public class ExerciseListFragment extends ListFragment {
         public View getView(int position, View convertView, ViewGroup parent) {
 
             Exercise exercise = getItem(position) ;
-            ExerciseUI exerciseUI = ExerciseUI.get(exercise) ;
+            ExerciseLayout exerciseLayout = ExerciseLayout.get(exercise) ;
 
             if (convertView == null) {
-                convertView = getActivity().getLayoutInflater().inflate(exerciseUI.getListItemLayout(), null) ;
+                convertView = getActivity().getLayoutInflater().inflate(exerciseLayout.getListItemLayout(), null) ;
             }
 
-            exerciseUI.fillListItemLayout(convertView) ;
+            exerciseLayout.fillListItemLayout(convertView) ;
 
             return convertView ;
         }

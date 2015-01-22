@@ -5,7 +5,6 @@ import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
 import com.wonderguerrilla.android.workout.workout.Workout;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by sebluy on 12/25/14.
@@ -13,10 +12,10 @@ import java.util.HashMap;
 
 public class LiftingWorkoutGenerator {
 
-    private LiftingWorkoutInfo mInfo ;
+    private LiftingWorkoutController mInfo ;
     private LiftingWorkoutOrderGenerator mOrderGenerator ;
 
-    public LiftingWorkoutGenerator(LiftingWorkoutInfo info) {
+    public LiftingWorkoutGenerator(LiftingWorkoutController info) {
         mInfo = info ;
         mOrderGenerator = info.getOrderGenerator() ;
     }

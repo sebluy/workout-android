@@ -10,7 +10,7 @@ public class MultipleExerciseWorkout extends Workout {
 
     private ArrayList<Exercise> mExercises ;
 
-    public MultipleExerciseWorkout(String name, WorkoutInfo info, ArrayList<Exercise> exercises) {
+    public MultipleExerciseWorkout(String name, WorkoutController info, ArrayList<Exercise> exercises) {
         super(name, info) ;
         mExercises = exercises ;
     }

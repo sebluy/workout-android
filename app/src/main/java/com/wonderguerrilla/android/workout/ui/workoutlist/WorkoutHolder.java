@@ -2,10 +2,10 @@ package com.wonderguerrilla.android.workout.ui.workoutlist;
 
 import com.wonderguerrilla.android.workout.workout.BasketballWorkout;
 import com.wonderguerrilla.android.workout.workout.Workout;
-import com.wonderguerrilla.android.workout.workout.calisthenic.CalisthenicWorkoutInfo;
-import com.wonderguerrilla.android.workout.workout.lifting.LiftingWorkoutInfo;
-import com.wonderguerrilla.android.workout.workout.run.RunWorkoutInfo;
-import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkoutInfo;
+import com.wonderguerrilla.android.workout.workout.calisthenic.CalisthenicWorkoutController;
+import com.wonderguerrilla.android.workout.workout.lifting.LiftingWorkoutController;
+import com.wonderguerrilla.android.workout.workout.run.RunWorkoutController;
+import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkoutController;
 
 import java.util.HashMap;
 
@@ -15,13 +15,13 @@ public class WorkoutHolder {
     private static final String SWIM = "Swim" ;
 
     private static final String[] sWorkoutNames = {
-        LiftingWorkoutInfo.UPPER_NAME,
+        LiftingWorkoutController.UPPER_NAME,
         RUN,
-        CalisthenicWorkoutInfo.NAME,
+        CalisthenicWorkoutController.NAME,
         SWIM,
-        LiftingWorkoutInfo.LOWER_NAME,
+        LiftingWorkoutController.LOWER_NAME,
         BasketballWorkout.NAME,
-        StaticCoreWorkoutInfo.NAME
+        StaticCoreWorkoutController.NAME
     } ;
 
     private static HashMap<String, Workout> sWorkouts = new HashMap<>() ;
@@ -33,18 +33,18 @@ public class WorkoutHolder {
 
     public static Workout create(String workoutName) {
         switch (workoutName) {
-            case LiftingWorkoutInfo.UPPER_NAME:
-                return LiftingWorkoutInfo.newUpper().generate() ;
-            case CalisthenicWorkoutInfo.NAME:
-                return new CalisthenicWorkoutInfo().generate() ;
-            case LiftingWorkoutInfo.LOWER_NAME:
-                return LiftingWorkoutInfo.newLower().generate() ;
+            case LiftingWorkoutController.UPPER_NAME:
+                return LiftingWorkoutController.newUpper().generate() ;
+            case CalisthenicWorkoutController.NAME:
+                return new CalisthenicWorkoutController().generate() ;
+            case LiftingWorkoutController.LOWER_NAME:
+                return LiftingWorkoutController.newLower().generate() ;
             case BasketballWorkout.NAME:
                 return new BasketballWorkout(30) ;
-            case StaticCoreWorkoutInfo.NAME:
-                return new StaticCoreWorkoutInfo().generate() ;
-            case RunWorkoutInfo.NAME:
-                return new RunWorkoutInfo().generate() ;
+            case StaticCoreWorkoutController.NAME:
+                return new StaticCoreWorkoutController().generate() ;
+            case RunWorkoutController.NAME:
+                return new RunWorkoutController().generate() ;
             default:
                 return new Workout(workoutName, null) ;
         }

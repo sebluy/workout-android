@@ -39,8 +39,7 @@ public class WorkoutActivity extends SingleFragmentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_workout_item_commit:
-                mWorkout.commit() ;
-                Toast.makeText(this, "Much success!", Toast.LENGTH_SHORT).show() ;
+                ((WorkoutFragment)getFragment()).commit() ;
                 return true ;
             case R.id.menu_workout_item_new:
                 WorkoutHolder.setCurrent(mWorkout.generate()) ;

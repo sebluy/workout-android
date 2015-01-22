@@ -14,11 +14,11 @@ import java.util.Stack;
  */
 public class CalisthenicWorkoutGenerator {
 
-    private CalisthenicWorkoutInfo mInfo;
+    private CalisthenicWorkoutController mInfo;
     private ArrayList<String> mOrder;
     private HashMap<String, CalisthenicExerciseInfo> mExercises;
 
-    public CalisthenicWorkoutGenerator(CalisthenicWorkoutInfo info) {
+    public CalisthenicWorkoutGenerator(CalisthenicWorkoutController info) {
         mInfo = info;
         mExercises = info.getStorage().getExercises();
         mOrder = info.getStorage().getOrder();

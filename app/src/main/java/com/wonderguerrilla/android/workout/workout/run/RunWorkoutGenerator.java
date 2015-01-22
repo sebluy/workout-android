@@ -9,11 +9,11 @@ import java.util.ArrayList;
  */
 public class RunWorkoutGenerator  {
 
-    private RunWorkoutInfo mInfo ;
+    private RunWorkoutController mInfo ;
 
     private ArrayList<String> mOrder ;
 
-    public RunWorkoutGenerator(RunWorkoutInfo info) {
+    public RunWorkoutGenerator(RunWorkoutController info) {
         mInfo = info ;
         mOrder = info.getStorage().getOrder() ;
     }
