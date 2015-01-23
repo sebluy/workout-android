@@ -26,6 +26,9 @@
         <activity
             android:name=".ui.workoutlist.multipleexercise.ExercisePagerActivity"/>
 
+        <activity
+            android:name=".ui.workoutlist.CommitWorkoutActivity"/>
+
     </application>
 
 </manifest>

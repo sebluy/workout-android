@@ -1,9 +1,9 @@
 package com.wonderguerrilla.android.workout.ui.workoutlist;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.wonderguerrilla.android.workout.R;
 import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.ExerciseListFragment;
@@ -39,7 +39,7 @@ public class WorkoutActivity extends SingleFragmentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_workout_item_commit:
-                ((WorkoutFragment)getFragment()).commit() ;
+                startCommitActivity() ;
                 return true ;
             case R.id.menu_workout_item_new:
                 WorkoutHolder.setCurrent(mWorkout.generate()) ;
@@ -48,5 +48,10 @@ public class WorkoutActivity extends SingleFragmentActivity {
             default:
                 return super.onOptionsItemSelected(item) ;
         }
+    }
+
+    public void startCommitActivity() {
+        Intent intent = new Intent(this, CommitWorkoutActivity.class) ;
+        startActivity(intent) ;
     }
 }
