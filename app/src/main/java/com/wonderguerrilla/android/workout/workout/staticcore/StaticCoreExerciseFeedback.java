@@ -21,4 +21,8 @@ public class StaticCoreExerciseFeedback {
         mDifficulty = difficulty ;
     }
 
+    public StaticCoreExercise getExercise() {
+        return mExercise ;
+    }
+
 }

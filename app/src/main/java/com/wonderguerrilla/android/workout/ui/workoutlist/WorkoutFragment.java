@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.wonderguerrilla.android.workout.R;
 import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.ExerciseListFragment;
 import com.wonderguerrilla.android.workout.workout.BasketballWorkout;
-import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
+import com.wonderguerrilla.android.workout.workout.ExerciseWorkout;
 import com.wonderguerrilla.android.workout.workout.Workout;
 import com.wonderguerrilla.android.workout.workout.run.RunWorkout;
 
@@ -21,7 +21,7 @@ import com.wonderguerrilla.android.workout.workout.run.RunWorkout;
 public class WorkoutFragment extends Fragment {
 
     public static Fragment get(Workout workout) {
-        if (workout.getClass() == MultipleExerciseWorkout.class) {
+        if (workout.getClass() == ExerciseWorkout.class) {
             return new ExerciseListFragment() ;
         } else if (workout.getClass() == RunWorkout.class) {
             return new RunWorkoutFragment() ;

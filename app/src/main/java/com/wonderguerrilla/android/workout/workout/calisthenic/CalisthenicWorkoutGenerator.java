@@ -1,7 +1,9 @@
 package com.wonderguerrilla.android.workout.workout.calisthenic;
 
+import com.wonderguerrilla.android.workout.workout.BaseExerciseWorkout;
+import com.wonderguerrilla.android.workout.workout.BaseWorkout;
 import com.wonderguerrilla.android.workout.workout.Exercise;
-import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
+import com.wonderguerrilla.android.workout.workout.ExerciseWorkout;
 import com.wonderguerrilla.android.workout.workout.Workout;
 
 import java.util.ArrayList;
@@ -25,7 +27,8 @@ public class CalisthenicWorkoutGenerator {
     }
 
     public Workout generate() {
-        return new MultipleExerciseWorkout(mInfo.getName(), mInfo, generateExercises()) ;
+        BaseWorkout base = new BaseWorkout(mInfo.getName(), mInfo) ;
+        return new BaseExerciseWorkout(base, generateExercises()) ;
     }
 
     private ArrayList<Exercise> generateExercises() {

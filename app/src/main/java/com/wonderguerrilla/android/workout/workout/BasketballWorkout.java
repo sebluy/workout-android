@@ -9,14 +9,13 @@ import com.wonderguerrilla.android.workout.R;
  * Created by sebluy on 12/25/14.
  */
 
-public class BasketballWorkout extends Workout {
+public class BasketballWorkout implements Workout {
 
     public static final String NAME = "Basketball" ;
 
     private int mDuration ;
 
     public BasketballWorkout(int duration) {
-        super(NAME, null) ;
         mDuration = duration ;
     }
 
@@ -24,6 +23,18 @@ public class BasketballWorkout extends Workout {
         return mDuration;
     }
 
+    @Override
+    public String getName() {
+        return NAME ;
+    }
+
+    @Override
+    public void commit() {}
+
+    @Override
+    public Workout generate() {
+        return this ;
+    }
 
 
 }

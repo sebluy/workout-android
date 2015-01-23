@@ -1,7 +1,7 @@
 package com.wonderguerrilla.android.workout.workout.staticcore;
 
 import com.wonderguerrilla.android.workout.workout.Exercise;
-import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
+import com.wonderguerrilla.android.workout.workout.ExerciseWorkout;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,7 +14,7 @@ public class StaticCoreWorkoutFeedback {
 
     private ArrayList<StaticCoreExerciseFeedback> mFeedbackList ;
 
-    public StaticCoreWorkoutFeedback(MultipleExerciseWorkout workout) {
+    public StaticCoreWorkoutFeedback(StaticCoreWorkout workout) {
         HashSet<String> added = new HashSet<String>() ;
         for (Exercise exercise : workout.getExercises()) {
             String exerciseName = exercise.getName() ;

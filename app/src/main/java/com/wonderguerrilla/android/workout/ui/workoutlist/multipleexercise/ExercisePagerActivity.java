@@ -10,7 +10,7 @@ import android.view.WindowManager;
 
 import com.wonderguerrilla.android.workout.R;
 import com.wonderguerrilla.android.workout.ui.workoutlist.WorkoutHolder;
-import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
+import com.wonderguerrilla.android.workout.workout.ExerciseWorkout;
 
 /**
  * Created by sebluy on 12/25/14.
@@ -18,7 +18,7 @@ import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
 public class ExercisePagerActivity extends ActionBarActivity {
 
     private ViewPager mViewPager ;
-    private MultipleExerciseWorkout mWorkout ;
+    private ExerciseWorkout mWorkout ;
 
     @Override
     public void onCreate(Bundle savedInstanceBundle) {
@@ -31,7 +31,7 @@ public class ExercisePagerActivity extends ActionBarActivity {
         int exerciseNumber = getIntent().getIntExtra(ExerciseFragment.EXTRA_EXERCISE_NUMBER, 0) ;
         setContentView(mViewPager);
 
-        mWorkout = (MultipleExerciseWorkout) WorkoutHolder.getCurrent() ;
+        mWorkout = (ExerciseWorkout) WorkoutHolder.getCurrent() ;
         setTitle(mWorkout.getName());
 
         FragmentManager fm = getSupportFragmentManager();

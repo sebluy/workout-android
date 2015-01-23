@@ -2,7 +2,7 @@ package com.wonderguerrilla.android.workout.workout.lifting;
 
 import com.wonderguerrilla.android.workout.storage.json.lifting.LiftingWorkoutJSONStorage;
 import com.wonderguerrilla.android.workout.workout.Exercise;
-import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
+import com.wonderguerrilla.android.workout.workout.ExerciseWorkout;
 import com.wonderguerrilla.android.workout.workout.Workout;
 import com.wonderguerrilla.android.workout.workout.WorkoutController;
 
@@ -11,15 +11,12 @@ import com.wonderguerrilla.android.workout.workout.WorkoutController;
  */
 public class LiftingWorkoutController implements WorkoutController {
 
-    public static final String UPPER_NAME = "Upper Lifting" ;
-    public static final String LOWER_NAME = "Lower Lifting" ;
-
     public static LiftingWorkoutController newUpper() {
-        return new LiftingWorkoutController(UPPER_NAME, LiftingWorkoutJSONStorage.newUpper()) ;
+        return new LiftingWorkoutController(LiftingWorkout.UPPER_NAME, LiftingWorkoutJSONStorage.newUpper()) ;
     }
 
     public static LiftingWorkoutController newLower() {
-        return new LiftingWorkoutController(LOWER_NAME , LiftingWorkoutJSONStorage.newLower()) ;
+        return new LiftingWorkoutController(LiftingWorkout.LOWER_NAME , LiftingWorkoutJSONStorage.newLower()) ;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -44,7 +41,7 @@ public class LiftingWorkoutController implements WorkoutController {
 
     @Override
     public void commit(Workout workout) {
-        MultipleExerciseWorkout exerciseWorkout = (MultipleExerciseWorkout)workout ;
+        ExerciseWorkout exerciseWorkout = (ExerciseWorkout)workout ;
         for (Exercise exercise : exerciseWorkout.getExercises()) {
             LiftingExerciseInfo changedExercise = mStorage.getExercise(exercise.getName()) ;
             changedExercise.setRepetitions(((LiftingExercise)exercise).getRepetitions()) ;
@@ -59,10 +56,6 @@ public class LiftingWorkoutController implements WorkoutController {
 
     public LiftingWorkoutStorage getStorage() {
         return mStorage ;
-    }
-
-    public LiftingWorkoutGenerator getGenerator() {
-        return mGenerator ;
     }
 
     public String getName() {

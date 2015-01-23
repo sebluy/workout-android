@@ -11,18 +11,18 @@ import android.widget.ListView;
 import com.wonderguerrilla.android.workout.ui.workoutlist.WorkoutHolder;
 import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.exercises.ExerciseLayout;
 import com.wonderguerrilla.android.workout.workout.Exercise;
-import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
+import com.wonderguerrilla.android.workout.workout.ExerciseWorkout;
 
 import java.util.ArrayList;
 
 public class ExerciseListFragment extends ListFragment {
 
-    MultipleExerciseWorkout mWorkout ;
+    ExerciseWorkout mWorkout ;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState) ;
-        mWorkout = (MultipleExerciseWorkout)WorkoutHolder.getCurrent() ;
+        mWorkout = (ExerciseWorkout)WorkoutHolder.getCurrent() ;
 
         ArrayList<Exercise> names = new ArrayList<>(mWorkout.getExercises()) ;
         setListAdapter(new ExerciseAdapter(names)) ;
@@ -44,7 +44,7 @@ public class ExerciseListFragment extends ListFragment {
     public void update() {
         ExerciseAdapter adapter = (ExerciseAdapter)getListAdapter() ;
         adapter.clear() ;
-        mWorkout = (MultipleExerciseWorkout)WorkoutHolder.getCurrent() ;
+        mWorkout = (ExerciseWorkout)WorkoutHolder.getCurrent() ;
         ArrayList<Exercise> exercises = mWorkout.getExercises() ;
         for (int i = 0 ; i < exercises.size() ; i++) {
             adapter.add(exercises.get(i)) ;

@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.wonderguerrilla.android.workout.R;
 import com.wonderguerrilla.android.workout.workout.Workout;
+import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkout;
 
 /**
  * Created by sebluy on 1/19/15.
@@ -17,7 +18,11 @@ import com.wonderguerrilla.android.workout.workout.Workout;
 public class CommitWorkoutFragment extends Fragment {
 
     public static Fragment get(Workout workout) {
-        return new CommitWorkoutFragment() ;
+        if (workout.getClass() == StaticCoreWorkout.class) {
+            return new CommitStaticCoreWorkoutFragment() ;
+        } else {
+            return new CommitWorkoutFragment() ;
+        }
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////

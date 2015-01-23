@@ -1,7 +1,7 @@
 package com.wonderguerrilla.android.workout.workout.staticcore;
 
 import com.wonderguerrilla.android.workout.workout.Exercise;
-import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
+import com.wonderguerrilla.android.workout.workout.ExerciseWorkout;
 import com.wonderguerrilla.android.workout.workout.Workout;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class StaticCoreWorkoutGenerator {
     }
 
     public Workout generate() {
-        return new MultipleExerciseWorkout(mInfo.getName(), mInfo, generateExercises()) ;
+        return new ExerciseWorkout(mInfo.getName(), mInfo, generateExercises()) ;
     }
 
     private ArrayList<Exercise> generateExercises() {

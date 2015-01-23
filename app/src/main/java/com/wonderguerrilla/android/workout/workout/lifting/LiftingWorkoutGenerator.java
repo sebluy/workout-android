@@ -1,7 +1,9 @@
 package com.wonderguerrilla.android.workout.workout.lifting;
 
+import com.wonderguerrilla.android.workout.workout.BaseExerciseWorkout;
+import com.wonderguerrilla.android.workout.workout.BaseWorkout;
 import com.wonderguerrilla.android.workout.workout.Exercise;
-import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
+import com.wonderguerrilla.android.workout.workout.ExerciseWorkout;
 import com.wonderguerrilla.android.workout.workout.Workout;
 
 import java.util.ArrayList;
@@ -12,16 +14,16 @@ import java.util.ArrayList;
 
 public class LiftingWorkoutGenerator {
 
-    private LiftingWorkoutController mInfo ;
+    private LiftingWorkoutController mController ;
     private LiftingWorkoutOrderGenerator mOrderGenerator ;
 
-    public LiftingWorkoutGenerator(LiftingWorkoutController info) {
-        mInfo = info ;
-        mOrderGenerator = info.getOrderGenerator() ;
+    public LiftingWorkoutGenerator(LiftingWorkoutController controller) {
+        mController = controller ;
+        mOrderGenerator = controller.getOrderGenerator() ;
     }
 
     public Workout generate() {
-        return new MultipleExerciseWorkout(mInfo.getName(), mInfo, generateExercises()) ;
+        return new LiftingWorkout(mController, generateExercises()) ;
     }
 
     private ArrayList<Exercise> generateExercises() {
@@ -31,7 +33,7 @@ public class LiftingWorkoutGenerator {
 
         for (int i = 0 ; i < size ; i++) {
             String exerciseName = order.get(i) ;
-            LiftingExerciseInfo exerciseInfo = mInfo.getExercise(exerciseName) ;
+            LiftingExerciseInfo exerciseInfo = mController.getExercise(exerciseName) ;
             exerciseList.add(exerciseInfo.newExercise()) ;
         }
 

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.wonderguerrilla.android.workout.ui.workoutlist.WorkoutHolder;
 import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.exercises.ExerciseLayout;
 import com.wonderguerrilla.android.workout.workout.Exercise;
-import com.wonderguerrilla.android.workout.workout.MultipleExerciseWorkout;
+import com.wonderguerrilla.android.workout.workout.ExerciseWorkout;
 
 /**
  * Created by sebluy on 12/25/14.
@@ -35,7 +35,7 @@ public class ExerciseFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState) ;
         int exerciseNumber = getArguments().getInt(EXTRA_EXERCISE_NUMBER) ;
-        MultipleExerciseWorkout workout = (MultipleExerciseWorkout)WorkoutHolder.getCurrent() ;
+        ExerciseWorkout workout = (ExerciseWorkout)WorkoutHolder.getCurrent() ;
         Exercise exercise = workout.getExercise(exerciseNumber) ;
         mExerciseLayout = ExerciseLayout.get(exercise) ;
     }

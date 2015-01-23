@@ -6,12 +6,14 @@ import java.util.ArrayList;
  * Created by sebluy on 12/25/14.
  */
 
-public class MultipleExerciseWorkout extends Workout {
+public class BaseExerciseWorkout extends BaseWorkout {
+
+    public static final String NAME = "Base Exercise" ;
 
     private ArrayList<Exercise> mExercises ;
 
-    public MultipleExerciseWorkout(String name, WorkoutController info, ArrayList<Exercise> exercises) {
-        super(name, info) ;
+    public BaseExerciseWorkout(WorkoutController controller, ArrayList<Exercise> exercises) {
+        super(controller) ;
         mExercises = exercises ;
     }
 
@@ -25,6 +27,11 @@ public class MultipleExerciseWorkout extends Workout {
 
     public int size() {
         return mExercises.size() ;
+    }
+
+    @Override
+    public String getName() {
+        return NAME ;
     }
 
 }
