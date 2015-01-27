@@ -1,5 +1,6 @@
 package com.wonderguerrilla.android.workout.workout.staticcore;
 
+import com.wonderguerrilla.android.workout.workout.BaseExerciseWorkout;
 import com.wonderguerrilla.android.workout.workout.Exercise;
 import com.wonderguerrilla.android.workout.workout.ExerciseWorkout;
 import com.wonderguerrilla.android.workout.workout.Workout;
@@ -16,16 +17,16 @@ public class StaticCoreWorkoutGenerator {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
-    private StaticCoreWorkoutController mInfo ;
+    private StaticCoreWorkoutController mController;
     private ArrayList<StaticCoreExerciseInfo> mExercises ;
 
     public StaticCoreWorkoutGenerator(StaticCoreWorkoutController info) {
-        mInfo = info ;
+        mController = info ;
         mExercises = info.getStorage().getExercises() ;
     }
 
     public Workout generate() {
-        return new ExerciseWorkout(mInfo.getName(), mInfo, generateExercises()) ;
+        return new BaseExerciseWorkout(mController, generateExercises()) ;
     }
 
     private ArrayList<Exercise> generateExercises() {

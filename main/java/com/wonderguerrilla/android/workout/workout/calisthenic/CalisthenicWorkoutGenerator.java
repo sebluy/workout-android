@@ -3,7 +3,6 @@ package com.wonderguerrilla.android.workout.workout.calisthenic;
 import com.wonderguerrilla.android.workout.workout.BaseExerciseWorkout;
 import com.wonderguerrilla.android.workout.workout.BaseWorkout;
 import com.wonderguerrilla.android.workout.workout.Exercise;
-import com.wonderguerrilla.android.workout.workout.ExerciseWorkout;
 import com.wonderguerrilla.android.workout.workout.Workout;
 
 import java.util.ArrayList;
@@ -16,19 +15,18 @@ import java.util.Stack;
  */
 public class CalisthenicWorkoutGenerator {
 
-    private CalisthenicWorkoutController mInfo;
+    private CalisthenicWorkoutController mController;
     private ArrayList<String> mOrder;
     private HashMap<String, CalisthenicExerciseInfo> mExercises;
 
     public CalisthenicWorkoutGenerator(CalisthenicWorkoutController info) {
-        mInfo = info;
+        mController = info;
         mExercises = info.getStorage().getExercises();
         mOrder = info.getStorage().getOrder();
     }
 
     public Workout generate() {
-        BaseWorkout base = new BaseWorkout(mInfo.getName(), mInfo) ;
-        return new BaseExerciseWorkout(base, generateExercises()) ;
+        return new BaseExerciseWorkout(mController, generateExercises()) ;
     }
 
     private ArrayList<Exercise> generateExercises() {

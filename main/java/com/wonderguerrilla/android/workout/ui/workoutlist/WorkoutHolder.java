@@ -1,8 +1,10 @@
 package com.wonderguerrilla.android.workout.ui.workoutlist;
 
+import com.wonderguerrilla.android.workout.workout.BaseWorkout;
 import com.wonderguerrilla.android.workout.workout.BasketballWorkout;
 import com.wonderguerrilla.android.workout.workout.Workout;
 import com.wonderguerrilla.android.workout.workout.calisthenic.CalisthenicWorkoutController;
+import com.wonderguerrilla.android.workout.workout.lifting.LiftingWorkout;
 import com.wonderguerrilla.android.workout.workout.lifting.LiftingWorkoutController;
 import com.wonderguerrilla.android.workout.workout.run.RunWorkoutController;
 import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkoutController;
@@ -15,11 +17,11 @@ public class WorkoutHolder {
     private static final String SWIM = "Swim" ;
 
     private static final String[] sWorkoutNames = {
-        LiftingWorkoutController.UPPER_NAME,
+        LiftingWorkout.UPPER_NAME,
         RUN,
         CalisthenicWorkoutController.NAME,
         SWIM,
-        LiftingWorkoutController.LOWER_NAME,
+        LiftingWorkout.LOWER_NAME,
         BasketballWorkout.NAME,
         StaticCoreWorkoutController.NAME
     } ;
@@ -33,11 +35,11 @@ public class WorkoutHolder {
 
     public static Workout create(String workoutName) {
         switch (workoutName) {
-            case LiftingWorkoutController.UPPER_NAME:
+            case LiftingWorkout.UPPER_NAME:
                 return LiftingWorkoutController.newUpper().generate() ;
             case CalisthenicWorkoutController.NAME:
                 return new CalisthenicWorkoutController().generate() ;
-            case LiftingWorkoutController.LOWER_NAME:
+            case LiftingWorkout.LOWER_NAME:
                 return LiftingWorkoutController.newLower().generate() ;
             case BasketballWorkout.NAME:
                 return new BasketballWorkout(30) ;
@@ -46,7 +48,7 @@ public class WorkoutHolder {
             case RunWorkoutController.NAME:
                 return new RunWorkoutController().generate() ;
             default:
-                return new Workout(workoutName, null) ;
+                return new BaseWorkout(null) ;
         }
     }
 
