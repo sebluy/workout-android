@@ -54,7 +54,7 @@ public class WorkoutHolder {
 
     public static Workout get(String name) {
         if (sWorkouts.containsKey(name)) {
-            return sWorkouts.get(name) ;
+            return sWorkouts.get(name).generate() ;
         } else {
             Workout newWorkout = create(name) ;
             sWorkouts.put(name, newWorkout) ;

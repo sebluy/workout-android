@@ -16,6 +16,7 @@ import com.wonderguerrilla.android.workout.workout.lifting.LiftingExercise;
 public class LiftingExerciseLayout extends ExerciseLayout {
 
     private LiftingExercise mExercise ;
+    private EditText mRepetitions ;
 
     public LiftingExerciseLayout(Exercise exercise) {
         super(exercise) ;
@@ -53,24 +54,24 @@ public class LiftingExerciseLayout extends ExerciseLayout {
         TextView unit = (TextView)view.findViewById(R.id.unit) ;
         unit.setText(mExercise.getUnit()) ;
 
-        EditText repetitions = (EditText)view.findViewById(R.id.edit_repetitions) ;
-        repetitions.addTextChangedListener(new TextWatcher() {
+        mRepetitions = (EditText)view.findViewById(R.id.edit_repetitions) ;
+        mRepetitions.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
                 String string = s.toString() ;
                 if (!string.equals("")) {
                     mExercise.setRepetitions(Integer.parseInt(string)) ;
                 }
             }
-
-            @Override
-            public void afterTextChanged(Editable s) {}
         }) ;
 
-        repetitions.setText(String.valueOf(mExercise.getRepetitions())) ;
+        mRepetitions.setText(String.valueOf(mExercise.getRepetitions())) ;
 
     }
 

@@ -12,6 +12,7 @@ import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkout;
 
 public class WorkoutActivity extends SingleFragmentActivity {
 
+    private static final int COMMIT_WORKOUT_REQUEST = 0 ;
     private Workout mWorkout ;
 
     @Override
@@ -40,7 +41,7 @@ public class WorkoutActivity extends SingleFragmentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_workout_item_commit:
-                startCommitActivity() ;
+                commit() ;
                 return true ;
             case R.id.menu_workout_item_new:
                 WorkoutHolder.setCurrent(mWorkout.generate()) ;
@@ -51,13 +52,20 @@ public class WorkoutActivity extends SingleFragmentActivity {
         }
     }
 
-    public void startCommitActivity() {
-        Intent intent ;
+    private void commit() {
         if (mWorkout instanceof StaticCoreWorkout) {
+            Intent intent ;
             intent = new Intent(this, CommitStaticCoreWorkoutActivity.class) ;
+            startActivityForResult(intent, COMMIT_WORKOUT_REQUEST) ;
         } else {
-            intent = new Intent(this, CommitWorkoutActivity.class);
+            mWorkout.commit() ;
+            finish() ;
         }
-        startActivity(intent) ;
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == COMMIT_WORKOUT_REQUEST) {
+            finish() ;
+        }
     }
 }

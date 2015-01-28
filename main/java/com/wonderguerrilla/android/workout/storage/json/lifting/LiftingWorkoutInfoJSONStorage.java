@@ -1,6 +1,7 @@
 package com.wonderguerrilla.android.workout.storage.json.lifting;
 
 import com.wonderguerrilla.android.workout.R;
+import com.wonderguerrilla.android.workout.storage.json.JSONReader;
 import com.wonderguerrilla.android.workout.storage.json.JSONSerializer;
 import com.wonderguerrilla.android.workout.workout.lifting.LiftingExerciseInfo;
 
@@ -31,6 +32,7 @@ public class LiftingWorkoutInfoJSONStorage {
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     private JSONSerializer mSerializer ;
+
     private HashMap<String, LiftingExerciseInfo> mExercises ;
 
     public LiftingWorkoutInfoJSONStorage(String filename, int rawId) {

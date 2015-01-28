@@ -10,14 +10,13 @@ import java.util.HashMap;
  */
 public interface LiftingWorkoutStorage {
 
-    public LiftingExerciseInfo getExercise(String name) ;
+    LiftingExerciseInfo getExercise(String name) ;
 
-    public void commit() ;
+    void commit() ;
 
-    public ArrayList<ArrayList<String>> getPrimaryPairs() ;
+    ArrayList<ArrayList<String>> getPrimaryPairs() ;
 
-    public ArrayList<ArrayList<String>> getInjuryPrevention() ;
-
+    ArrayList<ArrayList<String>> getInjuryPrevention() ;
 
 }
 

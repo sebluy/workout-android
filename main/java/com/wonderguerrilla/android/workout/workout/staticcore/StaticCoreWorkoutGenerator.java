@@ -20,9 +20,9 @@ public class StaticCoreWorkoutGenerator {
     private StaticCoreWorkoutController mController;
     private ArrayList<StaticCoreExerciseInfo> mExercises ;
 
-    public StaticCoreWorkoutGenerator(StaticCoreWorkoutController info) {
-        mController = info ;
-        mExercises = info.getStorage().getExercises() ;
+    public StaticCoreWorkoutGenerator(StaticCoreWorkoutController controller) {
+        mController = controller ;
+        mExercises = controller.getStorage().getExerciseList() ;
     }
 
     public Workout generate() {

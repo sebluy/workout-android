@@ -9,10 +9,23 @@ import com.wonderguerrilla.android.workout.workout.Exercise;
 public class StaticCoreExerciseInfo {
 
     private String mName ;
+
     private double mDuration;
 
     public StaticCoreExerciseInfo(String name, double duration) {
         mName = name ;
+        mDuration = duration ;
+    }
+
+    public String getName() {
+        return mName ;
+    }
+
+    public double getDuration() {
+        return mDuration ;
+    }
+
+    public void setDuration(double duration) {
         mDuration = duration ;
     }
 
