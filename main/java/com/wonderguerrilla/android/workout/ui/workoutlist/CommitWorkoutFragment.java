@@ -19,7 +19,7 @@ public class CommitWorkoutFragment extends Fragment {
 
     public static Fragment get(Workout workout) {
         if (workout.getClass() == StaticCoreWorkout.class) {
-            return new CommitStaticCoreWorkoutFragment() ;
+            return new StaticCoreExerciseFeedbackFragment() ;
         } else {
             return new CommitWorkoutFragment() ;
         }

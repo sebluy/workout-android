@@ -18,10 +18,11 @@ public class StaticCoreWorkout extends BaseExerciseWorkout {
 
     public StaticCoreWorkout(WorkoutController controller, ArrayList<Exercise> exercises) {
         super(controller, exercises) ;
+        mFeedback = new StaticCoreWorkoutFeedback(this) ;
     }
 
-    public void attachFeedback(StaticCoreWorkoutFeedback feedback) {
-        mFeedback = feedback ;
+    public StaticCoreWorkoutFeedback getFeedback() {
+        return mFeedback ;
     }
 
     @Override

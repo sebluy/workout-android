@@ -26,7 +26,7 @@ public class StaticCoreWorkoutGenerator {
     }
 
     public Workout generate() {
-        return new BaseExerciseWorkout(mController, generateExercises()) ;
+        return new StaticCoreWorkout(mController, generateExercises()) ;
     }
 
     private ArrayList<Exercise> generateExercises() {

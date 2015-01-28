@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import com.wonderguerrilla.android.workout.R;
 import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.ExerciseListFragment;
 import com.wonderguerrilla.android.workout.workout.Workout;
+import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkout;
 
 public class WorkoutActivity extends SingleFragmentActivity {
 
@@ -51,7 +52,12 @@ public class WorkoutActivity extends SingleFragmentActivity {
     }
 
     public void startCommitActivity() {
-        Intent intent = new Intent(this, CommitWorkoutActivity.class) ;
+        Intent intent ;
+        if (mWorkout instanceof StaticCoreWorkout) {
+            intent = new Intent(this, CommitStaticCoreWorkoutActivity.class) ;
+        } else {
+            intent = new Intent(this, CommitWorkoutActivity.class);
+        }
         startActivity(intent) ;
     }
 }

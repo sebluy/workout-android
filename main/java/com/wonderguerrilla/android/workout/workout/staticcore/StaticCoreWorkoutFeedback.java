@@ -16,6 +16,7 @@ public class StaticCoreWorkoutFeedback {
 
     public StaticCoreWorkoutFeedback(StaticCoreWorkout workout) {
         HashSet<String> added = new HashSet<String>() ;
+        mFeedbackList = new ArrayList<>() ;
         for (Exercise exercise : workout.getExercises()) {
             String exerciseName = exercise.getName() ;
             if (!added.contains(exerciseName)) {
