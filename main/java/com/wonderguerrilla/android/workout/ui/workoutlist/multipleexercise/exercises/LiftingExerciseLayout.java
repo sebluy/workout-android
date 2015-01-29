@@ -32,27 +32,8 @@ public class LiftingExerciseLayout extends ExerciseLayout {
     public void fillLayout(View view) {
        super.fillLayout(view) ;
 
-        EditText weight = (EditText)view.findViewById(R.id.edit_weight) ;
-        weight.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String string = s.toString() ;
-                if (!string.equals("")) {
-                    mExercise.setWeight(Double.parseDouble(string)) ;
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {}
-        }) ;
-
-        weight.setText(String.valueOf(mExercise.getWeight())) ;
-
-        TextView unit = (TextView)view.findViewById(R.id.unit) ;
-        unit.setText(mExercise.getUnit()) ;
+        TextView weight = (TextView)view.findViewById(R.id.weight) ;
+        weight.setText(mExercise.getWeight()) ;
 
         mRepetitions = (EditText)view.findViewById(R.id.edit_repetitions) ;
         mRepetitions.addTextChangedListener(new TextWatcher() {
@@ -85,7 +66,7 @@ public class LiftingExerciseLayout extends ExerciseLayout {
         super.fillLayout(view) ;
 
         TextView weight = (TextView)view.findViewById(R.id.weight) ;
-        weight.setText(String.valueOf(mExercise.getWeight() + " " + mExercise.getUnit())) ;
+        weight.setText(mExercise.getWeight()) ;
 
         TextView repetitions = (TextView)view.findViewById(R.id.repetitions) ;
         repetitions.setText(String.valueOf(mExercise.getRepetitions() + " Repetitions")) ; }

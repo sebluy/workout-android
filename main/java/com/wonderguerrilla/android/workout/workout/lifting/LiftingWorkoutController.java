@@ -26,12 +26,14 @@ public class LiftingWorkoutController implements WorkoutController {
     private LiftingWorkoutOrderGenerator mOrderGenerator ;
     private LiftingWorkoutGenerator mGenerator ;
     private LiftingWorkoutStorage mStorage ;
+    private LiftingWorkoutCommitter mCommitter ;
 
     public LiftingWorkoutController(String name, LiftingWorkoutJSONStorage storage) {
         mName = name ;
         mStorage = storage ;
         mOrderGenerator = new LiftingWorkoutOrderGenerator(storage) ;
         mGenerator = new LiftingWorkoutGenerator(this) ;
+        mCommitter = new LiftingWorkoutCommitter(this) ;
     }
 
     @Override
@@ -41,13 +43,7 @@ public class LiftingWorkoutController implements WorkoutController {
 
     @Override
     public void commit(Workout workout) {
-        ExerciseWorkout exerciseWorkout = (ExerciseWorkout)workout ;
-        for (Exercise exercise : exerciseWorkout.getExercises()) {
-            LiftingExerciseInfo changedExercise = mStorage.getExercise(exercise.getName()) ;
-            changedExercise.setRepetitions(((LiftingExercise)exercise).getRepetitions()) ;
-            changedExercise.setWeight(((LiftingExercise)exercise).getWeight()) ;
-        }
-        mStorage.commit() ;
+        mCommitter.commit(workout) ;
     }
 
     public LiftingExerciseInfo getExercise(String name) {

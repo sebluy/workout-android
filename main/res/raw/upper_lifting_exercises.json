@@ -1,86 +1,113 @@
 {
     "Bench Press": {
-        "Weight": 50,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Dumbbell",
+            "Force": 50
+        },
         "Repetitions": 9
     },
 
     "Seated Row Pull": {
-        "Weight": 7.5,
-        "Unit": "Plates",
+        "Weight": {
+            "Name": "Plate",
+            "Force": 7.5
+        },
         "Repetitions": 12
     },
 
     "Shoulder Press": {
-        "Weight": 35,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Dumbbell",
+            "Force": 35
+        },
         "Repetitions": 7
     },
 
     "Lat Pull Down": {
-        "Weight": 105,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Machine (lbs)",
+            "Force": 105
+        },
         "Repetitions": 9
     },
 
     "Tricep Extension": {
-        "Weight": 45,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Dumbbell",
+            "Force": 45
+        },
         "Repetitions": 9
     },
 
     "Bicep Curl": {
-        "Weight": 30,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Dumbbell",
+            "Force": 30
+        },
         "Repetitions": 7
     },
 
     "Deltoid Lateral Raise": {
-        "Weight": 15,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Dumbbell",
+            "Force": 15
+        },
         "Repetitions": 9
     },
 
     "Upright Row": {
-        "Weight": 30,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Dumbbell",
+            "Force": 30
+        },
         "Repetitions": 9
     },
 
     "Thumbs Down": {
-        "Weight": 7.5,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Dumbbell",
+            "Force": 7.5
+        },
         "Repetitions": 12
     },
 
     "External Rotation": {
-        "Weight": 2.5,
-        "Unit": "Plates",
+        "Weight": {
+            "Name": "Plate",
+            "Force": 2.5
+        },
         "Repetitions": 5
     },
 
     "Internal Rotation": {
-        "Weight": 2.5,
-        "Unit": "Plates",
+        "Weight": {
+            "Name": "Plate",
+            "Force": 2.5
+        },
         "Repetitions": 15
     },
 
     "Y": {
-        "Weight": 7.5,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Dumbbell",
+            "Force": 7.5
+        },
         "Repetitions": 10
     },
 
     "T": {
-        "Weight": 7.5,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Dumbbell",
+            "Force": 7.5
+        },
         "Repetitions": 9
     },
 
     "W": {
-        "Weight": 7.5,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Dumbbell",
+            "Force": 7.5
+        },
         "Repetitions": 10
     }
 }
-

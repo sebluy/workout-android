@@ -1,57 +1,74 @@
 {
     "Front Squat": {
-        "Weight": 27.5,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Barbell",
+            "Force": 27.5
+        },
         "Repetitions": 12
     },
 
     "Deadlift": {
-        "Weight": 47.5,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Barbell",
+            "Force": 47.5
+        },
         "Repetitions": 12
     },
 
     "Leg Extension": {
-        "Weight": 75,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Machine (lbs)",
+            "Force": 75
+        },
         "Repetitions": 12
     },
 
     "Leg Curl": {
-        "Weight": 75,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Machine (lbs)",
+            "Force": 75
+        },
         "Repetitions": 13
     },
 
     "Lunge": {
-        "Weight": 40,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Dumbbell",
+            "Force": 40
+        },
         "Repetitions": 8
     },
 
     "Calf Raise": {
-        "Weight": 110,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Calf Machine",
+            "Force": 110
+        },
         "Repetitions": 14
     },
 
     "Hip Abduction": {
-        "Weight": 175,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Machine (lbs)",
+            "Force": 175
+        },
         "Repetitions": 12
     },
 
     "Hip Adduction": {
-        "Weight": 175,
-        "Unit": "lbs",
+        "Weight": {
+            "Name": "Machine (lbs)",
+            "Force": 175
+        },
         "Repetitions": 12
     },
 
     "Terminal Knee Extension": {
-        "Weight": 6,
-        "Unit": "Plates",
+        "Weight": {
+            "Name": "Plate",
+            "Force": 6
+        },
         "Repetitions": 12
     }
-
 }
 

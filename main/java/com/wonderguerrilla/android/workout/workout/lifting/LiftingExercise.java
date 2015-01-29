@@ -14,22 +14,20 @@ import com.wonderguerrilla.android.workout.R;
  */
 public class LiftingExercise extends Exercise {
 
-    private double mWeight ;
-    private String mUnit ;
+    private String mWeight ;
     private int mRepetitions ;
 
-    public LiftingExercise(String name, double weight, String unit, int repetitions) {
+    public LiftingExercise(String name, String weight, int repetitions) {
         super(name) ;
         mWeight = weight ;
-        mUnit = unit ;
         mRepetitions = repetitions ;
     }
 
-    public double getWeight() {
+    public String getWeight() {
         return mWeight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(String weight) {
         mWeight = weight;
     }
 
@@ -39,9 +37,5 @@ public class LiftingExercise extends Exercise {
 
     public void setRepetitions(int repetitions) {
         mRepetitions = repetitions;
-    }
-
-    public String getUnit() {
-        return mUnit;
     }
 }

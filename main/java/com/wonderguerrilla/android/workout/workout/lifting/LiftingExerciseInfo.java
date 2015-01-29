@@ -1,44 +1,43 @@
 package com.wonderguerrilla.android.workout.workout.lifting;
 
+import com.wonderguerrilla.android.workout.workout.lifting.weight.Weight;
+
 /**
  * Created by sebluy on 12/20/14.
  */
 public class LiftingExerciseInfo {
 
     private String mName ;
-    private double mWeight ;
-    private String mUnit ;
+    private Weight mWeight ;
     private int mRepetitions ;
 
-    public LiftingExerciseInfo(String name, double weight, String unit, int repetitions) {
+    public LiftingExerciseInfo(String name, Weight weight, int repetitions) {
         mName = name ;
         mWeight = weight ;
-        mUnit = unit ;
         mRepetitions = repetitions ;
+    }
+
+    public LiftingExercise newExercise() {
+        return new LiftingExercise(mName, mWeight.toString(), mRepetitions) ;
+    }
+
+    public void update(LiftingExercise exercise) {
+        int workoutRepetitions = exercise.getRepetitions() ;
+        if (workoutRepetitions > 2) {
+            mRepetitions = workoutRepetitions - 2 ;
+        } else if (workoutRepetitions > 0) {
+            mRepetitions = 1 ;
+        } else {
+            mRepetitions = 20 ;
+        }
+        mWeight.update(workoutRepetitions, mRepetitions) ;
     }
 
     public int getRepetitions() {
         return mRepetitions;
     }
 
-    public void setRepetitions(int repetitions) {
-        mRepetitions = repetitions;
-    }
-
-    public double getWeight() {
+    public Weight getWeight() {
         return mWeight;
     }
-
-    public void setWeight(double weight) {
-        mWeight = weight;
-    }
-
-    public String getUnit() {
-        return mUnit;
-    }
-
-    public LiftingExercise newExercise() {
-        return new LiftingExercise(mName, mWeight, mUnit, mRepetitions) ;
-    }
-
 }

@@ -32,11 +32,13 @@ public class LiftingWorkoutInfoJSONStorage {
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     private JSONSerializer mSerializer ;
+    private JSONReader mReader ;
 
     private HashMap<String, LiftingExerciseInfo> mExercises ;
 
     public LiftingWorkoutInfoJSONStorage(String filename, int rawId) {
         mSerializer = new JSONSerializer(filename, rawId) ;
+        mReader = new JSONReader(rawId) ;
         mExercises = getExercises() ;
     }
 
@@ -47,7 +49,8 @@ public class LiftingWorkoutInfoJSONStorage {
             while (nameIterator.hasNext()) {
                 String name = nameIterator.next() ;
                 LiftingExerciseInfo exercise = mExercises.get(name) ;
-                object.put(name, convertToJSON(exercise)) ;
+                JSONObject exerciseJSON = LiftingExerciseInfoJSONConverter.toJSON(exercise) ;
+                object.put(name, exerciseJSON) ;
             }
             mSerializer.put(object) ;
         } catch (Exception e) {}
@@ -59,42 +62,19 @@ public class LiftingWorkoutInfoJSONStorage {
 
     private HashMap<String, LiftingExerciseInfo> getExercises() {
         HashMap<String, LiftingExerciseInfo> exercises = new HashMap<>() ;
-        JSONObject object = mSerializer.get() ;
+//        JSONObject object = mSerializer.get() ;
+        JSONObject object = mReader.get() ;
+        mSerializer.put(object) ;
         try {
             Iterator<String> nameIterator = object.keys() ;
             while (nameIterator.hasNext()) {
                 String name = nameIterator.next() ;
-                JSONObject exerciseInfo = object.getJSONObject(name) ;
-                exercises.put(name, convertFromJSON(name, exerciseInfo)) ;
+                JSONObject exerciseJSON = object.getJSONObject(name) ;
+                LiftingExerciseInfo exercise =
+                        LiftingExerciseInfoJSONConverter.fromJSON(name, exerciseJSON) ;
+                exercises.put(name, exercise) ;
             }
         } catch (Exception e) {}
         return exercises ;
-    }
-
-    private JSONObject convertToJSON(LiftingExerciseInfo exercise) {
-        try {
-
-            JSONObject object = new JSONObject() ;
-            object.put("Repetitions", exercise.getRepetitions()) ;
-            object.put("Unit", exercise.getUnit()) ;
-            object.put("Weight", exercise.getWeight()) ;
-            return object ;
-
-        } catch (Exception e) {
-            return null ;
-        }
-    }
-
-    private LiftingExerciseInfo convertFromJSON(String name, JSONObject object) {
-        try {
-
-            int repetitions = object.getInt("Repetitions") ;
-            String unit = object.getString("Unit") ;
-            double weight = object.getDouble("Weight") ;
-            return new LiftingExerciseInfo(name, weight, unit, repetitions) ;
-
-        } catch (Exception e) {
-            return null ;
-        }
     }
 }
