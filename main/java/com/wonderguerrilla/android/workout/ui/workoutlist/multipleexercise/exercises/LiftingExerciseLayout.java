@@ -16,11 +16,10 @@ import com.wonderguerrilla.android.workout.workout.lifting.LiftingExercise;
 public class LiftingExerciseLayout extends ExerciseLayout {
 
     private LiftingExercise mExercise ;
-    private EditText mRepetitions ;
+    private EditText mPerformedRepetitions ;
 
     public LiftingExerciseLayout(Exercise exercise) {
-        super(exercise) ;
-        mExercise = (LiftingExercise)exercise ;
+        super(exercise) ; mExercise = (LiftingExercise)exercise ;
     }
 
     @Override
@@ -35,8 +34,11 @@ public class LiftingExerciseLayout extends ExerciseLayout {
         TextView weight = (TextView)view.findViewById(R.id.weight) ;
         weight.setText(mExercise.getWeight()) ;
 
-        mRepetitions = (EditText)view.findViewById(R.id.edit_repetitions) ;
-        mRepetitions.addTextChangedListener(new TextWatcher() {
+        TextView goalRepetitions = (TextView)view.findViewById(R.id.repetition_goal) ;
+        goalRepetitions.setText(String.valueOf(mExercise.getRepetitionGoal())) ;
+
+        mPerformedRepetitions = (EditText)view.findViewById(R.id.edit_performed_repetitions) ;
+        mPerformedRepetitions.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
@@ -47,12 +49,12 @@ public class LiftingExerciseLayout extends ExerciseLayout {
             public void afterTextChanged(Editable s) {
                 String string = s.toString() ;
                 if (!string.equals("")) {
-                    mExercise.setRepetitions(Integer.parseInt(string)) ;
+                    mExercise.setPerformedRepetitions(Integer.parseInt(string));
                 }
             }
         }) ;
 
-        mRepetitions.setText(String.valueOf(mExercise.getRepetitions())) ;
+        mPerformedRepetitions.setText(String.valueOf(mExercise.getPerformedRepetitions())) ;
 
     }
 
@@ -68,7 +70,10 @@ public class LiftingExerciseLayout extends ExerciseLayout {
         TextView weight = (TextView)view.findViewById(R.id.weight) ;
         weight.setText(mExercise.getWeight()) ;
 
-        TextView repetitions = (TextView)view.findViewById(R.id.repetitions) ;
-        repetitions.setText(String.valueOf(mExercise.getRepetitions() + " Repetitions")) ; }
+        TextView repetitions = (TextView)view.findViewById(R.id.performed_repetitions) ;
+
+        repetitions.setText(mExercise.getRepetitionGoal() + " -> " + mExercise.getPerformedRepetitions() +
+                " Repetitions") ;
+    }
 
 }

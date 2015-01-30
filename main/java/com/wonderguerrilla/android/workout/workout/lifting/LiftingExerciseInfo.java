@@ -22,15 +22,15 @@ public class LiftingExerciseInfo {
     }
 
     public void update(LiftingExercise exercise) {
-        int workoutRepetitions = exercise.getRepetitions() ;
-        if (workoutRepetitions > 2) {
-            mRepetitions = workoutRepetitions - 2 ;
-        } else if (workoutRepetitions > 0) {
+        int performedRepetitions = exercise.getPerformedRepetitions() ;
+        if (performedRepetitions > 2) {
+            mRepetitions = performedRepetitions - 2 ;
+        } else if (performedRepetitions > 0) {
             mRepetitions = 1 ;
         } else {
             mRepetitions = 20 ;
         }
-        mWeight.update(workoutRepetitions, mRepetitions) ;
+        mWeight.update(performedRepetitions, mRepetitions) ;
     }
 
     public int getRepetitions() {

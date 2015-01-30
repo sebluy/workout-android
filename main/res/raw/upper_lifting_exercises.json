@@ -2,20 +2,60 @@
     "Bench Press": {
         "Weight": {
             "Name": "Dumbbell",
-            "Force": 50
+            "Force": 55
         },
-        "Repetitions": 9
+        "Repetitions": 7
     },
 
     "Seated Row Pull": {
         "Weight": {
             "Name": "Plate",
-            "Force": 7.5
+            "Force": 8
         },
-        "Repetitions": 12
+        "Repetitions": 10
     },
 
     "Shoulder Press": {
+        "Weight": {
+            "Name": "Dumbbell",
+            "Force": 40
+        },
+        "Repetitions": 5
+    },
+
+    "Lat Pull Down": {
+        "Weight": {
+            "Name": "Machine (lbs)",
+            "Force": 110
+        },
+        "Repetitions": 7
+    },
+
+    "Tricep Extension": {
+        "Weight": {
+            "Name": "Dumbbell",
+            "Force": 50
+        },
+        "Repetitions": 7
+    },
+
+    "Bicep Curl": {
+        "Weight": {
+            "Name": "Dumbbell",
+            "Force": 35
+        },
+        "Repetitions": 5
+    },
+
+    "Deltoid Lateral Raise": {
+        "Weight": {
+            "Name": "Dumbbell",
+            "Force": 17.5
+        },
+        "Repetitions": 7
+    },
+
+    "Upright Row": {
         "Weight": {
             "Name": "Dumbbell",
             "Force": 35
@@ -23,91 +63,51 @@
         "Repetitions": 7
     },
 
-    "Lat Pull Down": {
-        "Weight": {
-            "Name": "Machine (lbs)",
-            "Force": 105
-        },
-        "Repetitions": 9
-    },
-
-    "Tricep Extension": {
-        "Weight": {
-            "Name": "Dumbbell",
-            "Force": 45
-        },
-        "Repetitions": 9
-    },
-
-    "Bicep Curl": {
-        "Weight": {
-            "Name": "Dumbbell",
-            "Force": 30
-        },
-        "Repetitions": 7
-    },
-
-    "Deltoid Lateral Raise": {
-        "Weight": {
-            "Name": "Dumbbell",
-            "Force": 15
-        },
-        "Repetitions": 9
-    },
-
-    "Upright Row": {
-        "Weight": {
-            "Name": "Dumbbell",
-            "Force": 30
-        },
-        "Repetitions": 9
-    },
-
     "Thumbs Down": {
         "Weight": {
             "Name": "Dumbbell",
-            "Force": 7.5
+            "Force": 10
         },
-        "Repetitions": 12
+        "Repetitions": 10
     },
 
     "External Rotation": {
         "Weight": {
             "Name": "Plate",
-            "Force": 2.5
+            "Force": 3
         },
-        "Repetitions": 5
+        "Repetitions": 3
     },
 
     "Internal Rotation": {
         "Weight": {
             "Name": "Plate",
-            "Force": 2.5
+            "Force": 3
         },
-        "Repetitions": 15
+        "Repetitions": 13
     },
 
     "Y": {
         "Weight": {
             "Name": "Dumbbell",
-            "Force": 7.5
+            "Force": 10
         },
-        "Repetitions": 10
+        "Repetitions": 8
     },
 
     "T": {
         "Weight": {
             "Name": "Dumbbell",
-            "Force": 7.5
+            "Force": 10
         },
-        "Repetitions": 9
+        "Repetitions": 7
     },
 
     "W": {
         "Weight": {
             "Name": "Dumbbell",
-            "Force": 7.5
+            "Force": 10
         },
-        "Repetitions": 10
+        "Repetitions": 8
     }
 }

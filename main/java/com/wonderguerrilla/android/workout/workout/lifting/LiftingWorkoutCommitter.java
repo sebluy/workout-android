@@ -12,7 +12,6 @@ import com.wonderguerrilla.android.workout.workout.WorkoutController;
 public class LiftingWorkoutCommitter {
 
 
-    private LiftingWorkout mWorkout ;
     private LiftingWorkoutStorage mStorage ;
 
     public LiftingWorkoutCommitter(LiftingWorkoutController controller) {
@@ -20,8 +19,7 @@ public class LiftingWorkoutCommitter {
     }
 
     public void commit(Workout workout) {
-        mWorkout = (LiftingWorkout)workout ;
-        for (Exercise exercise : mWorkout.getExercises()) {
+        for (Exercise exercise : ((LiftingWorkout)workout).getExercises()) {
             LiftingExerciseInfo changedExercise = mStorage.getExercise(exercise.getName()) ;
             changedExercise.update((LiftingExercise)exercise) ;
         }

@@ -1,13 +1,6 @@
 package com.wonderguerrilla.android.workout.workout.lifting;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
-
 import com.wonderguerrilla.android.workout.workout.Exercise;
-import com.wonderguerrilla.android.workout.R;
 
 /**
  * Created by sebluy on 12/20/14.
@@ -15,12 +8,14 @@ import com.wonderguerrilla.android.workout.R;
 public class LiftingExercise extends Exercise {
 
     private String mWeight ;
-    private int mRepetitions ;
+    private int mRepetitionGoal ;
+    private int mPerformedRepetitions ;
 
-    public LiftingExercise(String name, String weight, int repetitions) {
+    public LiftingExercise(String name, String weight, int repetitionGoal) {
         super(name) ;
         mWeight = weight ;
-        mRepetitions = repetitions ;
+        mRepetitionGoal = repetitionGoal ;
+        mPerformedRepetitions = repetitionGoal ;
     }
 
     public String getWeight() {
@@ -31,11 +26,15 @@ public class LiftingExercise extends Exercise {
         mWeight = weight;
     }
 
-    public int getRepetitions() {
-        return mRepetitions;
+    public int getRepetitionGoal() {
+        return mRepetitionGoal ;
     }
 
-    public void setRepetitions(int repetitions) {
-        mRepetitions = repetitions;
+    public int getPerformedRepetitions() {
+        return mPerformedRepetitions ;
+    }
+
+    public void setPerformedRepetitions(int performedRepetitions) {
+        mPerformedRepetitions = performedRepetitions ;
     }
 }
