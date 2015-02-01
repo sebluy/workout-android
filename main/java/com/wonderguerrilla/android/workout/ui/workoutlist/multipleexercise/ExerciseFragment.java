@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wonderguerrilla.android.workout.ui.workoutlist.WorkoutHolder;
-import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.exercises.ExerciseLayout;
+import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.exercises.ExerciseView;
 import com.wonderguerrilla.android.workout.workout.Exercise;
 import com.wonderguerrilla.android.workout.workout.ExerciseWorkout;
 
@@ -19,7 +19,7 @@ public class ExerciseFragment extends Fragment {
     public static final String EXTRA_EXERCISE_NUMBER =
             "com.wonderguerrilla.android.workout.exercise_number" ;
 
-    private ExerciseLayout mExerciseLayout;
+    private ExerciseView mExerciseView;
 
     public static ExerciseFragment newInstance(int exerciseNumber) {
         Bundle args = new Bundle() ;
@@ -37,14 +37,14 @@ public class ExerciseFragment extends Fragment {
         int exerciseNumber = getArguments().getInt(EXTRA_EXERCISE_NUMBER) ;
         ExerciseWorkout workout = (ExerciseWorkout)WorkoutHolder.getCurrent() ;
         Exercise exercise = workout.getExercise(exerciseNumber) ;
-        mExerciseLayout = ExerciseLayout.get(exercise) ;
+        mExerciseView = ExerciseView.get(exercise) ;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
 
-        View v = inflater.inflate(mExerciseLayout.getLayout(), parent, false) ;
-        mExerciseLayout.fillLayout(v) ;
+        View v = inflater.inflate(mExerciseView.getLayout(), parent, false) ;
+        mExerciseView.fillLayout(v) ;
 
         return v ;
     }

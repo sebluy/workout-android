@@ -13,12 +13,12 @@ import com.wonderguerrilla.android.workout.workout.lifting.LiftingExercise;
 /**
  * Created by sebluy on 1/19/15.
  */
-public class LiftingExerciseLayout extends ExerciseLayout {
+public class LiftingExerciseView extends ExerciseView {
 
     private LiftingExercise mExercise ;
     private EditText mPerformedRepetitions ;
 
-    public LiftingExerciseLayout(Exercise exercise) {
+    public LiftingExerciseView(Exercise exercise) {
         super(exercise) ; mExercise = (LiftingExercise)exercise ;
     }
 

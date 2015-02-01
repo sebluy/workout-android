@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.wonderguerrilla.android.workout.ui.workoutlist.WorkoutHolder;
-import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.exercises.ExerciseLayout;
+import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.exercises.ExerciseView;
 import com.wonderguerrilla.android.workout.workout.Exercise;
 import com.wonderguerrilla.android.workout.workout.ExerciseWorkout;
 
@@ -42,13 +42,8 @@ public class ExerciseListFragment extends ListFragment {
     }
 
     public void update() {
-        ExerciseAdapter adapter = (ExerciseAdapter)getListAdapter() ;
-        adapter.clear() ;
         mWorkout = (ExerciseWorkout)WorkoutHolder.getCurrent() ;
-        ArrayList<Exercise> exercises = mWorkout.getExercises() ;
-        for (int i = 0 ; i < exercises.size() ; i++) {
-            adapter.add(exercises.get(i)) ;
-        }
+        setListAdapter(new ExerciseAdapter(mWorkout.getExercises()));
     }
 
     private class ExerciseAdapter extends ArrayAdapter<Exercise> {
@@ -61,13 +56,13 @@ public class ExerciseListFragment extends ListFragment {
         public View getView(int position, View convertView, ViewGroup parent) {
 
             Exercise exercise = getItem(position) ;
-            ExerciseLayout exerciseLayout = ExerciseLayout.get(exercise) ;
+            ExerciseView exerciseView = ExerciseView.get(exercise) ;
 
             if (convertView == null) {
-                convertView = getActivity().getLayoutInflater().inflate(exerciseLayout.getListItemLayout(), null) ;
+                convertView = getActivity().getLayoutInflater().inflate(exerciseView.getListItemLayout(), null) ;
             }
 
-            exerciseLayout.fillListItemLayout(convertView) ;
+            exerciseView.fillListItemLayout(convertView) ;
 
             return convertView ;
         }

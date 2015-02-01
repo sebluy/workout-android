@@ -2,24 +2,13 @@ package com.wonderguerrilla.android.workout.ui.workoutlist;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TextView;
 
-import com.wonderguerrilla.android.workout.R;
-import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.exercises.StaticCoreExerciseFeedbackLayout;
+import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.exercises.StaticCoreExerciseFeedbackView;
 import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreExerciseFeedback;
 import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkout;
-import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkoutFeedback;
-
-import java.util.ArrayList;
 
 /**
  * Created by sebluy on 1/19/15.
@@ -29,7 +18,7 @@ public class StaticCoreExerciseFeedbackFragment extends Fragment {
     public static final String EXTRA_EXERCISE_FEEDBACK_NUMBER =
             "com.wonderguerrilla.android.workout.exercise_feedback_number" ;
 
-    private StaticCoreExerciseFeedbackLayout mLayout ;
+    private StaticCoreExerciseFeedbackView mLayout ;
 
     public static StaticCoreExerciseFeedbackFragment newInstance(int number) {
         Bundle args = new Bundle() ;
@@ -48,7 +37,7 @@ public class StaticCoreExerciseFeedbackFragment extends Fragment {
         StaticCoreWorkout workout = (StaticCoreWorkout)WorkoutHolder.getCurrent() ;
 
         StaticCoreExerciseFeedback feedback = workout.getFeedback().getFeedbackList().get(number) ;
-        mLayout = new StaticCoreExerciseFeedbackLayout(feedback) ;
+        mLayout = new StaticCoreExerciseFeedbackView(feedback) ;
     }
 
     @Override

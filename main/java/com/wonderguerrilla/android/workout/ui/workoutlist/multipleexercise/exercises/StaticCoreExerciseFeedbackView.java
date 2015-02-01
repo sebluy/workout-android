@@ -12,13 +12,13 @@ import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreExercise
 /**
  * Created by sebluy on 1/19/15.
  */
-public class StaticCoreExerciseFeedbackLayout {
+public class StaticCoreExerciseFeedbackView {
 
     private int mPosition;
     private StaticCoreExercise mExercise ;
     private StaticCoreExerciseFeedback mFeedback ;
 
-    public StaticCoreExerciseFeedbackLayout(StaticCoreExerciseFeedback feedback) {
+    public StaticCoreExerciseFeedbackView(StaticCoreExerciseFeedback feedback) {
         mFeedback = feedback ;
         mExercise = feedback.getExercise() ;
     }
