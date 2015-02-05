@@ -10,12 +10,10 @@ import android.widget.Toast;
 
 import com.wonderguerrilla.android.workout.R;
 import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.ExerciseListFragment;
-import com.wonderguerrilla.android.workout.workout.BaseExerciseWorkout;
-import com.wonderguerrilla.android.workout.workout.BasketballWorkout;
-import com.wonderguerrilla.android.workout.workout.ExerciseWorkout;
-import com.wonderguerrilla.android.workout.workout.Workout;
-import com.wonderguerrilla.android.workout.workout.lifting.LiftingWorkout;
-import com.wonderguerrilla.android.workout.workout.run.RunWorkout;
+import workout.BaseExerciseWorkout;
+import workout.BasketballWorkout;
+import workout.Workout;
+import workout.run.RunWorkout;
 
 /**
  * Created by sebluy on 1/19/15.

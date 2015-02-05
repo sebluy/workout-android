@@ -2,8 +2,7 @@ package com.wonderguerrilla.android.workout.storage.json.run;
 
 import com.wonderguerrilla.android.workout.R;
 import com.wonderguerrilla.android.workout.storage.json.JSONSerializer;
-import com.wonderguerrilla.android.workout.workout.run.INTRunWorkoutInfo;
-import com.wonderguerrilla.android.workout.workout.run.LSDRunWorkoutInfo;
+import workout.run.INTRunWorkoutInfo;
 
 import org.json.JSONObject;
 

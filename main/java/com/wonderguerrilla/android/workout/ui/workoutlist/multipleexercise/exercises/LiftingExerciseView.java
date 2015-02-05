@@ -7,8 +7,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.wonderguerrilla.android.workout.R;
-import com.wonderguerrilla.android.workout.workout.Exercise;
-import com.wonderguerrilla.android.workout.workout.lifting.LiftingExercise;
+
+import workout.Exercise;
+import workout.lifting.LiftingExercise;
 
 /**
  * Created by sebluy on 1/19/15.

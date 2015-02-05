@@ -7,8 +7,9 @@ import android.view.MenuItem;
 
 import com.wonderguerrilla.android.workout.R;
 import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.ExerciseListFragment;
-import com.wonderguerrilla.android.workout.workout.Workout;
-import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkout;
+
+import workout.Workout;
+import workout.staticcore.StaticCoreWorkout;
 
 public class WorkoutActivity extends SingleFragmentActivity {
 

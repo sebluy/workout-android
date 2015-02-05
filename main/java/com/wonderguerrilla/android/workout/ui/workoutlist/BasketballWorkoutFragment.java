@@ -5,8 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.wonderguerrilla.android.workout.R;
-import com.wonderguerrilla.android.workout.workout.BasketballWorkout;
-import com.wonderguerrilla.android.workout.workout.Workout;
+import workout.BasketballWorkout;
 
 /**
  * Created by sebluy on 1/19/15.

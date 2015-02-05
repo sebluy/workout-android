@@ -1,9 +1,7 @@
 package com.wonderguerrilla.android.workout.ui.workoutlist;
 
 import android.support.v4.app.Fragment;
-
-import com.wonderguerrilla.android.workout.workout.Workout;
-import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkout;
+import workout.Workout;
 
 public class CommitWorkoutActivity extends SingleFragmentActivity {
 

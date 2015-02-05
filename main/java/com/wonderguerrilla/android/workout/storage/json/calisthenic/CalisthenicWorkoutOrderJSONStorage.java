@@ -1,8 +1,7 @@
 package com.wonderguerrilla.android.workout.storage.json.calisthenic;
 
-import com.wonderguerrilla.android.workout.storage.json.JSONReader;
 import com.wonderguerrilla.android.workout.R;
-
+import com.wonderguerrilla.android.workout.storage.json.JSONReader;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

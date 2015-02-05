@@ -1,10 +1,10 @@
 package com.wonderguerrilla.android.workout.storage.json.lifting;
 
-import com.wonderguerrilla.android.workout.workout.lifting.LiftingExerciseInfo;
-import com.wonderguerrilla.android.workout.workout.lifting.LiftingWorkoutStorage;
+
+import workout.lifting.LiftingExerciseInfo;
+import workout.lifting.LiftingWorkoutStorage;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by sebluy on 1/18/15.

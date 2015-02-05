@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.exercises.StaticCoreExerciseFeedbackView;
-import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreExerciseFeedback;
-import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkout;
+import workout.staticcore.StaticCoreExerciseFeedback;
+import workout.staticcore.StaticCoreWorkout;
 
 /**
  * Created by sebluy on 1/19/15.

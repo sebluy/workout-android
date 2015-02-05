@@ -10,8 +10,8 @@ import android.widget.ListView;
 
 import com.wonderguerrilla.android.workout.ui.workoutlist.WorkoutHolder;
 import com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.exercises.ExerciseView;
-import com.wonderguerrilla.android.workout.workout.Exercise;
-import com.wonderguerrilla.android.workout.workout.ExerciseWorkout;
+import workout.Exercise;
+import workout.ExerciseWorkout;
 
 import java.util.ArrayList;
 

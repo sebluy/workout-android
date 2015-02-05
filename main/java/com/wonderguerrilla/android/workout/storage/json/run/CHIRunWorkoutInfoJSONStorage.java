@@ -2,10 +2,9 @@ package com.wonderguerrilla.android.workout.storage.json.run;
 
 import com.wonderguerrilla.android.workout.R;
 import com.wonderguerrilla.android.workout.storage.json.JSONSerializer;
-import com.wonderguerrilla.android.workout.workout.run.CHIRunWorkoutInfo;
-import com.wonderguerrilla.android.workout.workout.run.LSDRunWorkoutInfo;
 
 import org.json.JSONObject;
+import workout.run.CHIRunWorkoutInfo;
 
 /**
  * Created by sebluy on 1/18/15.

@@ -10,7 +10,7 @@ import android.view.WindowManager;
 
 import com.wonderguerrilla.android.workout.R;
 import com.wonderguerrilla.android.workout.ui.workoutlist.WorkoutHolder;
-import com.wonderguerrilla.android.workout.workout.ExerciseWorkout;
+import workout.ExerciseWorkout;
 
 /**
  * Created by sebluy on 12/25/14.

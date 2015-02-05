@@ -1,11 +1,10 @@
 package com.wonderguerrilla.android.workout.storage.json.calisthenic;
 
-import com.wonderguerrilla.android.workout.storage.json.JSONSerializer;
 import com.wonderguerrilla.android.workout.R;
-import com.wonderguerrilla.android.workout.workout.calisthenic.CalisthenicExerciseInfo;
-
+import com.wonderguerrilla.android.workout.storage.json.JSONSerializer;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import workout.calisthenic.CalisthenicExerciseInfo;
 
 import java.util.ArrayList;
 import java.util.HashMap;

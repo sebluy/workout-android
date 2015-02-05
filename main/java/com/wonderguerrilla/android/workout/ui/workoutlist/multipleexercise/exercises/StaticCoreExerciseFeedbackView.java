@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.wonderguerrilla.android.workout.R;
-import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreExercise;
-import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreExerciseFeedback;
+import workout.staticcore.StaticCoreExercise;
+import workout.staticcore.StaticCoreExerciseFeedback;
 
 /**
  * Created by sebluy on 1/19/15.

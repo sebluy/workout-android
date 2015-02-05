@@ -9,8 +9,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.wonderguerrilla.android.workout.R;
-import com.wonderguerrilla.android.workout.workout.Workout;
-import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkout;
+
+import workout.Workout;
+import workout.staticcore.StaticCoreWorkout;
 
 /**
  * Created by sebluy on 1/19/15.

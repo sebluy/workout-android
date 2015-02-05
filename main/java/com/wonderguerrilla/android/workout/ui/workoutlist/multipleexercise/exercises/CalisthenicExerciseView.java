@@ -4,8 +4,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.wonderguerrilla.android.workout.R;
-import com.wonderguerrilla.android.workout.workout.Exercise;
-import com.wonderguerrilla.android.workout.workout.calisthenic.CalisthenicExercise;
+import workout.Exercise;
+import workout.calisthenic.CalisthenicExercise;
 
 /**
  * Created by sebluy on 1/19/15.

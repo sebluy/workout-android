@@ -3,9 +3,9 @@ package com.wonderguerrilla.android.workout.storage.json.lifting;
 import com.wonderguerrilla.android.workout.R;
 import com.wonderguerrilla.android.workout.storage.json.JSONReader;
 import com.wonderguerrilla.android.workout.storage.json.JSONSerializer;
-import com.wonderguerrilla.android.workout.workout.lifting.LiftingExerciseInfo;
 
 import org.json.JSONObject;
+import workout.lifting.LiftingExerciseInfo;
 
 import java.util.HashMap;
 import java.util.Iterator;

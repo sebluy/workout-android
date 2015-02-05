@@ -1,7 +1,7 @@
 package com.wonderguerrilla.android.workout.storage.json.lifting;
 
-import com.wonderguerrilla.android.workout.workout.lifting.weight.Weight;
 import org.json.JSONObject;
+import workout.lifting.weight.Weight;
 
 /**
  * Created by sebluy on 1/29/15.

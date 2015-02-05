@@ -4,10 +4,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.wonderguerrilla.android.workout.R;
-import com.wonderguerrilla.android.workout.workout.Exercise;
-import com.wonderguerrilla.android.workout.workout.calisthenic.CalisthenicExercise;
-import com.wonderguerrilla.android.workout.workout.lifting.LiftingExercise;
-import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreExercise;
+import workout.Exercise;
+import workout.calisthenic.CalisthenicExercise;
+import workout.lifting.LiftingExercise;
+import workout.staticcore.StaticCoreExercise;
 
 /**
  * Created by sebluy on 1/19/15.

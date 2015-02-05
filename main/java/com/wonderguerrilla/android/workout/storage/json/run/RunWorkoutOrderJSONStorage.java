@@ -2,7 +2,6 @@ package com.wonderguerrilla.android.workout.storage.json.run;
 
 import com.wonderguerrilla.android.workout.R;
 import com.wonderguerrilla.android.workout.storage.json.JSONSerializer;
-import com.wonderguerrilla.android.workout.workout.run.LSDRunWorkoutInfo;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -13,8 +12,7 @@ import java.util.ArrayList;
  * Created by sebluy on 1/18/15.
  */
 public class RunWorkoutOrderJSONStorage {
-
-    private static final String FILENAME = "run_workout_order.json" ;
+ private static final String FILENAME = "run_workout_order.json" ;
 
     private static final int RAW_ID = R.raw.run_workout_order ;
 

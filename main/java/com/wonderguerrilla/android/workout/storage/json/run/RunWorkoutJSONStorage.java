@@ -1,14 +1,11 @@
 package com.wonderguerrilla.android.workout.storage.json.run;
 
-import com.wonderguerrilla.android.workout.workout.lifting.LiftingExerciseInfo;
-import com.wonderguerrilla.android.workout.workout.lifting.LiftingWorkoutStorage;
-import com.wonderguerrilla.android.workout.workout.run.CHIRunWorkoutInfo;
-import com.wonderguerrilla.android.workout.workout.run.INTRunWorkoutInfo;
-import com.wonderguerrilla.android.workout.workout.run.LSDRunWorkoutInfo;
-import com.wonderguerrilla.android.workout.workout.run.RunWorkoutStorage;
+import workout.run.CHIRunWorkoutInfo;
+import workout.run.INTRunWorkoutInfo;
+import workout.run.LSDRunWorkoutInfo;
+import workout.run.RunWorkoutStorage;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by sebluy on 1/18/15.

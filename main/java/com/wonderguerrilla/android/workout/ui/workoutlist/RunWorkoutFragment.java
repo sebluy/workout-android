@@ -4,12 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.wonderguerrilla.android.workout.R;
-import com.wonderguerrilla.android.workout.workout.BasketballWorkout;
-import com.wonderguerrilla.android.workout.workout.Workout;
-import com.wonderguerrilla.android.workout.workout.run.RunWorkout;
+import workout.run.RunWorkout;
 
 /**
  * Created by sebluy on 1/19/15.

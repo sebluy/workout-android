@@ -9,8 +9,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.wonderguerrilla.android.workout.R;
-import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkout;
-import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkoutFeedback;
+import workout.staticcore.StaticCoreWorkout;
+import workout.staticcore.StaticCoreWorkoutFeedback;
 
 /**
  * Created by sebluy on 12/25/14.

@@ -2,8 +2,10 @@ package com.wonderguerrilla.android.workout.storage.json.staticcore;
 
 import com.wonderguerrilla.android.workout.R;
 import com.wonderguerrilla.android.workout.storage.json.JSONSerializer;
-import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreExerciseInfo;
-import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreWorkoutStorage;
+
+import workout.staticcore.StaticCoreExerciseInfo;
+import workout.staticcore.StaticCoreWorkoutStorage;
+
 import org.json.JSONObject;
 
 import java.util.ArrayList;

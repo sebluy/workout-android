@@ -1,14 +1,11 @@
 package com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.exercises;
 
-import android.content.Context;
-import android.os.CountDownTimer;
-import android.os.Vibrator;
 import android.view.View;
 import android.widget.TextView;
-
 import com.wonderguerrilla.android.workout.R;
-import com.wonderguerrilla.android.workout.workout.Exercise;
-import com.wonderguerrilla.android.workout.workout.staticcore.StaticCoreExercise;
+import workout.Exercise;
+import workout.staticcore.StaticCoreExercise;
+
 
 /**
  * Created by sebluy on 1/19/15.
