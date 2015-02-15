@@ -32,13 +32,11 @@ public class LiftingWorkoutInfoJSONStorage {
     ////////////////////////////////////////////////////////////////////////////////////////////////
 
     private JSONSerializer mSerializer ;
-    private JSONReader mReader ;
 
     private HashMap<String, LiftingExerciseInfo> mExercises ;
 
     public LiftingWorkoutInfoJSONStorage(String filename, int rawId) {
         mSerializer = new JSONSerializer(filename, rawId) ;
-        mReader = new JSONReader(rawId) ;
         mExercises = getExercises() ;
     }
 
@@ -62,9 +60,7 @@ public class LiftingWorkoutInfoJSONStorage {
 
     private HashMap<String, LiftingExerciseInfo> getExercises() {
         HashMap<String, LiftingExerciseInfo> exercises = new HashMap<>() ;
-//        JSONObject object = mSerializer.get() ;
-        JSONObject object = mReader.get() ;
-        mSerializer.put(object) ;
+        JSONObject object = mSerializer.get() ;
         try {
             Iterator<String> nameIterator = object.keys() ;
             while (nameIterator.hasNext()) {
