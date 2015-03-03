@@ -1,5 +1,6 @@
 package com.wonderguerrilla.android.workout.ui.workoutlist;
 
+import com.wonderguerrilla.android.workout.storage.json.calisthenic.CalisthenicWorkoutJSONStorage;
 import com.wonderguerrilla.android.workout.storage.json.lifting.LiftingWorkoutJSONStorage;
 import com.wonderguerrilla.android.workout.storage.json.run.RunWorkoutJSONStorage;
 import com.wonderguerrilla.android.workout.storage.json.staticcore.StaticCoreWorkoutJSONStorage;
@@ -41,7 +42,7 @@ public class WorkoutHolder {
             case LiftingWorkout.UPPER_NAME:
                 return LiftingWorkoutController.newUpper(LiftingWorkoutJSONStorage.newUpper()).generate() ;
             case CalisthenicWorkoutController.NAME:
-                return new CalisthenicWorkoutController().generate() ;
+                return new CalisthenicWorkoutController(new CalisthenicWorkoutJSONStorage()).generate() ;
             case LiftingWorkout.LOWER_NAME:
                 return LiftingWorkoutController.newLower(LiftingWorkoutJSONStorage.newLower()).generate() ;
             case BasketballWorkout.NAME:
