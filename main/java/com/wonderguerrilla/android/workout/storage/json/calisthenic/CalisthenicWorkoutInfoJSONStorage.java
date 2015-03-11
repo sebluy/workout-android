@@ -1,6 +1,7 @@
 package com.wonderguerrilla.android.workout.storage.json.calisthenic;
 
 import com.wonderguerrilla.android.workout.R;
+import com.wonderguerrilla.android.workout.storage.json.JSONReader;
 import com.wonderguerrilla.android.workout.storage.json.JSONSerializer;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -15,7 +16,7 @@ import java.util.Iterator;
  */
 public class CalisthenicWorkoutInfoJSONStorage {
 
-    private static final String FILENAME = "calisthenic_exercises.json" ;
+//    private static final String FILENAME = "calisthenic_exercises.json" ;
 
     private static final int RAW_ID = R.raw.calisthenic_exercises ;
 
@@ -23,7 +24,7 @@ public class CalisthenicWorkoutInfoJSONStorage {
 
     public HashMap<String, CalisthenicExerciseInfo> getExercises() {
         HashMap<String, CalisthenicExerciseInfo> exercises = new HashMap<>() ;
-        JSONObject object = new JSONSerializer(FILENAME, RAW_ID).get() ;
+        JSONObject object = new JSONReader(RAW_ID).get() ;
         try {
             Iterator<String> nameIterator = object.keys() ;
             while (nameIterator.hasNext()) {
