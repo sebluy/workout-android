@@ -22,14 +22,14 @@
 
         <activity
             android:name=".ui.workoutlist.WorkoutActivity"/>
-
         <activity
             android:name=".ui.workoutlist.multipleexercise.ExercisePagerActivity"/>
-
         <activity
             android:name=".ui.workoutlist.CommitWorkoutActivity"/>
         <activity
             android:name=".ui.workoutlist.CommitStaticCoreWorkoutActivity"/>
+        <activity
+            android:name=".ui.workoutlist.StretchActivity"/>
 
     </application>
 

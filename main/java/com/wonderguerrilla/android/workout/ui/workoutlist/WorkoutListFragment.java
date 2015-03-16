@@ -21,6 +21,11 @@ public class WorkoutListFragment extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
+        if (WorkoutHolder.sWorkoutNames[position] == "Stretch") {
+            Intent intent = new Intent(getActivity(), StretchActivity.class) ;
+            startActivity(intent) ;
+            return ;
+        }
         Workout newWorkout = WorkoutHolder.getFromPosition(position) ;
         WorkoutHolder.setCurrent(newWorkout) ;
         Intent intent = new Intent(getActivity(), WorkoutActivity.class) ;

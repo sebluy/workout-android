@@ -19,15 +19,17 @@ public class WorkoutHolder {
 
     private static final String RUN = "Run" ;
     private static final String SWIM = "Swim" ;
+    private static final String STRETCH = "Stretch" ;
 
-    private static final String[] sWorkoutNames = {
+    public static final String[] sWorkoutNames = {
         LiftingWorkout.UPPER_NAME,
         RUN,
         CalisthenicWorkoutController.NAME,
         SWIM,
         LiftingWorkout.LOWER_NAME,
         BasketballWorkout.NAME,
-        StaticCoreWorkoutController.NAME
+        StaticCoreWorkoutController.NAME,
+        STRETCH
     } ;
 
     private static HashMap<String, Workout> sWorkouts = new HashMap<>() ;

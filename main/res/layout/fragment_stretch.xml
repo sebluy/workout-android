@@ -5,15 +5,8 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/name"
-        android:textSize="30dp"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-   <com.wonderguerrilla.android.workout.ui.workoutlist.multipleexercise.exercises.TimerView
-        android:id="@+id/duration"
+   <com.wonderguerrilla.android.workout.ui.workoutlist.StretchView
+        android:id="@+id/time"
         android:textSize="30dp"
         android:gravity="center"
         android:layout_width="wrap_content"

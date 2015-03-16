@@ -2,7 +2,7 @@
     "Front Squat": {
         "Weight": {
             "Name": "Barbell",
-            "Force": 30
+            "Force": 25
         },
         "Repetitions": 10
     },
@@ -10,7 +10,7 @@
     "Deadlift": {
         "Weight": {
             "Name": "Barbell",
-            "Force": 50
+            "Force": 45
         },
         "Repetitions": 10
     },
@@ -18,31 +18,31 @@
     "Leg Extension": {
         "Weight": {
             "Name": "Machine (lbs)",
-            "Force": 80
+            "Force": 70
         },
-        "Repetitions": 10
+        "Repetitions": 12
     },
 
     "Leg Curl": {
         "Weight": {
             "Name": "Machine (lbs)",
-            "Force": 80
+            "Force": 70
         },
-        "Repetitions": 11
+        "Repetitions": 12
     },
 
     "Lunge": {
         "Weight": {
             "Name": "Dumbbell",
-            "Force": 45
+            "Force": 30
         },
-        "Repetitions": 6
+        "Repetitions": 12
     },
 
     "Calf Raise": {
         "Weight": {
             "Name": "Calf Machine",
-            "Force": 120
+            "Force": 100
         },
         "Repetitions": 12
     },
@@ -50,25 +50,25 @@
     "Hip Abduction": {
         "Weight": {
             "Name": "Machine (lbs)",
-            "Force": 180
+            "Force": 160
         },
-        "Repetitions": 10
+        "Repetitions": 12
     },
 
     "Hip Adduction": {
         "Weight": {
             "Name": "Machine (lbs)",
-            "Force": 180
+            "Force": 160
         },
-        "Repetitions": 10
+        "Repetitions": 12
     },
 
     "Terminal Knee Extension": {
         "Weight": {
             "Name": "Plate",
-            "Force": 6.5
+            "Force": 5
         },
-        "Repetitions": 10
+        "Repetitions": 12
     }
 }
 

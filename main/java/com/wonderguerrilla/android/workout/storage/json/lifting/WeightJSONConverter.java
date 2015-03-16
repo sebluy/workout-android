@@ -33,7 +33,7 @@ public class WeightJSONConverter {
     private static Weight pickFromWeights(String name, double force) {
         switch (name) {
             case "Plate": return Weights.newInstance(Weights.PLATE, force) ;
-            case "Machine Lbs": return Weights.newInstance(Weights.MACHINE_LBS, force) ;
+            case "Machine (lbs)": return Weights.newInstance(Weights.MACHINE_LBS, force) ;
             case "Barbell": return Weights.newInstance(Weights.BARBELL, force) ;
             case "Calf Machine": return Weights.newInstance(Weights.CALF_MACHINE, force) ;
             case "Dumbbell": return Weights.newInstance(Weights.DUMBBELL, force) ;
