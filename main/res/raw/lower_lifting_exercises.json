@@ -61,14 +61,7 @@
             "Force": 160
         },
         "Repetitions": 12
-    },
-
-    "Terminal Knee Extension": {
-        "Weight": {
-            "Name": "Plate",
-            "Force": 5
-        },
-        "Repetitions": 12
     }
+
 }
 

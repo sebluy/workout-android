@@ -1,7 +1,7 @@
 {
     "Push-Up": {
 
-        "Repetitions": 5,
+        "Repetitions": 6,
         "Sets": 6,
 
         "Variations": [
@@ -18,12 +18,13 @@
 
     "Pull-Up": {
 
-        "Repetitions": 3,
+        "Repetitions": 4,
         "Sets": 6,
 
         "Variations": [
             "Normal Pull-Up",
             "Narrow Pull-Up",
+            "Parallel Pull-Up",
             "Wide Pull-Up",
             "Normal Chin-Up",
             "Narrow Chin-Up"
@@ -33,7 +34,7 @@
 
     "Dynamic Core": {
 
-        "Repetitions": 10,
+        "Repetitions": 14,
         "Sets": 6,
 
         "Variations": [
@@ -49,7 +50,7 @@
 
     "Squat": {
 
-        "Repetitions": 10,
+        "Repetitions": 12,
         "Sets": 6,
 
         "Variations": [
@@ -63,7 +64,7 @@
 
     "Lunge": {
 
-        "Repetitions": 10,
+        "Repetitions": 14,
         "Sets": 6,
 
         "Variations": [
